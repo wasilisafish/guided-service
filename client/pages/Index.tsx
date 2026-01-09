@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronRight, Home, Archive, User, Car, Shield, Search, DollarSign, ClipboardCheck, Clock, Paperclip, HelpCircle, Grid3X3, Mail, Phone, Upload, Calendar, Copy, RefreshCw, Check } from "lucide-react";
+import { ChevronRight, Home, Archive, User, Car, Shield, Search, DollarSign, ClipboardCheck, Clock, Paperclip, HelpCircle, Grid3X3, Mail, Phone, Upload, Calendar, Copy, RefreshCw } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
