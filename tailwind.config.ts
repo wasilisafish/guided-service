@@ -57,11 +57,34 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        azure: {
+          50: "#156EEA",
+          95: "#E5F1FF",
+        },
+        violet: {
+          DEFAULT: "#5920CE",
+          96: "#F1EBFF",
+        },
+        success: "#2F8802",
+        warning: "#FC951D",
+        "neutral-gray": {
+          5: "#F2F2F2",
+          10: "#E6E6E6",
+          30: "#B3B3B3",
+          60: "#666",
+          80: "#333",
+        },
+        "text-muted": "#454545",
+        "action-primary": "#156EEA",
+        "action-secondary": "#082C5E",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        sans: ["Freight Sans", "Inter", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
