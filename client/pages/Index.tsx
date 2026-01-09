@@ -81,18 +81,6 @@ export default function Index() {
           <span className="text-sm font-semibold">Last time customer spoke to CST Elijah Sweet, 12 minutes ago</span>
         </div>
 
-        {/* Success Alert */}
-        <div className="absolute top-16 left-1/2 -translate-x-1/2 z-50">
-          <div className="bg-white border border-success rounded shadow-[2px_4px_0_0_rgba(0,0,0,0.12)] px-6 py-3 flex items-center gap-2">
-            <Check className="w-5 h-5 text-success" />
-            <span className="font-medium">Document has been uploaded</span>
-            <button className="ml-4">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path fillRule="evenodd" clipRule="evenodd" d="M11.414 10L15.707 5.70701C16.098 5.31601 16.098 4.68401 15.707 4.29301C15.316 3.90201 14.684 3.90201 14.293 4.29301L10 8.58601L5.70701 4.29301C5.31601 3.90201 4.68401 3.90201 4.29301 4.29301C3.90201 4.68401 3.90201 5.31601 4.29301 5.70701L8.58601 10L4.29301 14.293C3.90201 14.684 3.90201 15.316 4.29301 15.707C4.48801 15.902 4.74401 16 5.00001 16C5.25601 16 5.51201 15.902 5.70701 15.707L10 11.414L14.293 15.707C14.488 15.902 14.744 16 15 16C15.256 16 15.512 15.902 15.707 15.707C16.098 15.316 16.098 14.684 15.707 14.293L11.414 10Z" fill="black"/>
-              </svg>
-            </button>
-          </div>
-        </div>
 
         {/* Main Content Grid */}
         <div className="flex-1 flex overflow-hidden">
