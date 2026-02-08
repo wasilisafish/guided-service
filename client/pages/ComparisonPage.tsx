@@ -95,7 +95,7 @@ export default function ComparisonPage() {
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <TopBreadcrumb currentStep="quoting" />
+          <TopBreadcrumb currentStep="establish-rapport" />
         </div>
 
         {/* Main Content Grid */}
