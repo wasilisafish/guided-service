@@ -360,6 +360,8 @@ function QuoteRow({
   hasExternalLink,
   showDash,
   highlightRow,
+  badge,
+  hasDetails,
 }: {
   carrier?: string;
   carrierSubtext?: string;
@@ -377,6 +379,8 @@ function QuoteRow({
   hasExternalLink?: boolean;
   showDash?: boolean;
   highlightRow?: boolean;
+  badge?: string;
+  hasDetails?: boolean;
 }) {
   return (
     <div className={`grid grid-cols-[1fr_1fr_0.8fr_0.5fr_0.8fr_0.7fr_1.2fr_0.8fr] gap-3 px-4 py-3.5 items-center hover:bg-neutral-gray-5 transition-colors ${highlightRow ? 'bg-blue-50/50' : ''}`}>
