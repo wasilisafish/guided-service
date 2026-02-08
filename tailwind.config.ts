@@ -115,8 +115,8 @@ export default {
     function ({ addUtilities }: { addUtilities: Function }) {
       addUtilities({
         ".numeric-consistent": {
-          "font-variant-numeric": "tabular-nums",
-          "font-feature-settings": '"tnum"',
+          "font-variant-numeric": "lining-nums tabular-nums",
+          "font-feature-settings": '"tnum", "lnum"',
         },
       });
     },
