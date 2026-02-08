@@ -19,13 +19,13 @@ interface BottomNavigationProps {
 }
 
 export function BottomNavigation({ buttons, primaryButton, showHelpButton = true }: BottomNavigationProps) {
-  // If only primary button is provided, show full-width layout
+  // If only primary button is provided, show centered layout
   if (primaryButton && (!buttons || buttons.length === 0)) {
     return (
-      <div className="h-auto border-t border-neutral-gray-10 bg-white p-6 sticky bottom-0 space-y-4">
+      <div className="h-auto border-t border-neutral-gray-10 bg-white p-6 sticky bottom-0 flex justify-center">
         <Button
           onClick={primaryButton.onClick}
-          className="w-full bg-action-primary hover:bg-action-primary/90 text-white font-semibold py-3 text-base"
+          className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold py-3 px-8 rounded-lg"
         >
           {primaryButton.label}
         </Button>
