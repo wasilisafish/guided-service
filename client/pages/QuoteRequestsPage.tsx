@@ -25,6 +25,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { BottomNavigation } from "@/components/BottomNavigation";
+import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 
 export default function QuoteRequestsPage() {
   const navigate = useNavigate();
