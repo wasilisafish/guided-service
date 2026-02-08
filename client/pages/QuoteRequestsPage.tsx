@@ -390,6 +390,7 @@ function QuoteRow({
           <>
             <div className="font-bold text-sm">{carrier}</div>
             {carrierSubtext && <div className="text-xs text-text-muted uppercase">{carrierSubtext}</div>}
+            {badge && <div className="text-xs text-text-muted">• {badge}</div>}
           </>
         )}
       </div>
