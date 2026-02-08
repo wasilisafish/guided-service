@@ -128,31 +128,6 @@ export default function VerificationPage() {
 
         {/* Main Content Grid */}
         <div className="flex-1 flex overflow-hidden">
-          {/* Left Sidebar */}
-          <div className="w-64 border-r border-neutral-gray-10 bg-white overflow-y-auto">
-            <div className="p-4">
-              <h2 className="font-bold text-lg mb-4">Verify information</h2>
-              
-              <div className="space-y-2">
-                <SidebarSection 
-                  title="Customer profile"
-                  isExpanded={expandedSections.customerProfile}
-                  onToggle={() => toggleSection('customerProfile')}
-                />
-                <SidebarSection 
-                  title="Homes profiling"
-                  isExpanded={expandedSections.homesProfiling}
-                  onToggle={() => toggleSection('homesProfiling')}
-                />
-                <SidebarSection 
-                  title="Vehicles and drivers"
-                  isExpanded={expandedSections.vehiclesDrivers}
-                  onToggle={() => toggleSection('vehiclesDrivers')}
-                />
-              </div>
-            </div>
-          </div>
-
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto">
             <div className="max-w-6xl mx-auto p-8 space-y-8">
