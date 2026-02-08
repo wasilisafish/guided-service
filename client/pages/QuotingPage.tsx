@@ -211,7 +211,7 @@ export default function QuotingPage() {
                         <span>Match current insurance</span>
                       </div>
 
-                      <div className="flex items-center gap-8">
+                      <div className="flex items-center gap-8 border border-neutral-gray-30 rounded-lg p-4">
                         <div>
                           <div className="text-sm text-text-muted mb-1">Dwelling</div>
                           <div className="font-semibold text-lg">$230,000</div>
