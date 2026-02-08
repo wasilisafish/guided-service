@@ -101,10 +101,14 @@ export function PeopleEditModal({
                       : "hover:bg-neutral-gray-10"
                   }`}
                 >
-                  <div className={`font-semibold text-sm ${selectedPerson.id === person.id ? "text-white" : "text-text-muted"}`}>
+                  <div
+                    className={`font-semibold text-sm ${selectedPerson.id === person.id ? "text-white" : "text-text-muted"}`}
+                  >
                     {person.name}
                   </div>
-                  <div className={`text-xs ${selectedPerson.id === person.id ? "text-white/80" : "text-text-muted"}`}>
+                  <div
+                    className={`text-xs ${selectedPerson.id === person.id ? "text-white/80" : "text-text-muted"}`}
+                  >
                     {person.badge}
                   </div>
                 </button>
@@ -117,7 +121,10 @@ export function PeopleEditModal({
             <div className="grid grid-cols-2 gap-4">
               {/* Name */}
               <div className="col-span-2">
-                <Label htmlFor="name" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="name"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Full Name
                 </Label>
                 <Input
@@ -130,7 +137,10 @@ export function PeopleEditModal({
 
               {/* Badge/Role */}
               <div className="col-span-2">
-                <Label htmlFor="badge" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="badge"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Role
                 </Label>
                 <select
@@ -147,7 +157,10 @@ export function PeopleEditModal({
 
               {/* Gender */}
               <div>
-                <Label htmlFor="gender" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="gender"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Gender
                 </Label>
                 <select
@@ -164,7 +177,10 @@ export function PeopleEditModal({
 
               {/* Date of Birth */}
               <div>
-                <Label htmlFor="dob" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="dob"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Date of Birth
                 </Label>
                 <Input
@@ -178,7 +194,10 @@ export function PeopleEditModal({
 
               {/* Phone */}
               <div>
-                <Label htmlFor="phone" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="phone"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Phone
                 </Label>
                 <Input
@@ -192,7 +211,10 @@ export function PeopleEditModal({
 
               {/* Email */}
               <div>
-                <Label htmlFor="email" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="email"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Email
                 </Label>
                 <Input

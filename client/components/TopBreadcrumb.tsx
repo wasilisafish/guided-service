@@ -3,15 +3,28 @@ import { ChevronRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface TopBreadcrumbProps {
-  currentStep: "establish-rapport" | "data-verification" | "quoting" | "proposal" | "finalize";
+  currentStep:
+    | "establish-rapport"
+    | "data-verification"
+    | "quoting"
+    | "proposal"
+    | "finalize";
 }
 
 export function TopBreadcrumb({ currentStep }: TopBreadcrumbProps) {
   const navigate = useNavigate();
 
   const steps = [
-    { id: "establish-rapport", label: "Establish rapport", path: "/comparison" },
-    { id: "data-verification", label: "Data verification", path: "/verification" },
+    {
+      id: "establish-rapport",
+      label: "Establish rapport",
+      path: "/comparison",
+    },
+    {
+      id: "data-verification",
+      label: "Data verification",
+      path: "/verification",
+    },
     { id: "quoting", label: "Quoting", path: "/quoting" },
     { id: "proposal", label: "Proposal", path: "/proposal" },
     { id: "finalize", label: "Finalize", path: "/finalize" },

@@ -35,14 +35,38 @@ export default function Index() {
   return (
     <div className="flex h-screen bg-white overflow-hidden">
       {/* Left Navigation Sidebar */}
-      <div className={`${sidebarOpen ? 'w-[60px]' : 'hidden'} bg-gradient-to-b from-[#330E80] to-[#156EEA] flex-shrink-0 flex flex-col items-center py-4`}>
+      <div
+        className={`${sidebarOpen ? "w-[60px]" : "hidden"} bg-gradient-to-b from-[#330E80] to-[#156EEA] flex-shrink-0 flex flex-col items-center py-4`}
+      >
         {/* Logo */}
         <div className="mb-8">
-          <svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.1541 4.60894C21.2376 4.54606 21.3328 4.5767 21.4509 4.69556L35.4028 18.738C35.6512 18.988 35.763 19.2809 35.5145 19.531L28.7282 26.3614C28.4798 26.6114 28.077 26.6114 27.8286 26.3614L20.9715 19.4597C20.7595 19.2463 20.7281 18.9152 20.8789 18.6609C23.9571 13.4703 22.5796 7.8946 21.104 4.92219C21.0308 4.77479 21.0704 4.67194 21.1541 4.60894Z" fill="#408DF6"/>
-            <path d="M19.4192 20.827C19.669 20.5525 19.9902 20.6407 20.2573 20.9095L26.7508 27.4452C26.9992 27.6952 27.111 27.9881 26.8626 28.2382L20.3307 34.8125C20.0823 35.0625 19.6795 35.0625 19.4311 34.8125L11.1912 26.5191C10.9948 26.3214 10.9648 26.0494 11.046 25.8229C11.1269 25.5972 11.322 25.4039 11.5906 25.3587C15.0769 24.7723 18.0216 22.3628 19.4192 20.827Z" fill="#66A4F7"/>
-            <path fillRule="evenodd" clipRule="evenodd" d="M10.6954 0.210833C16.6022 0.210833 21.3907 5.03041 21.3907 10.9757C21.3907 16.9209 16.6022 21.7405 10.6954 21.7405C4.78848 21.7405 -2.09311e-07 16.9209 -4.67509e-07 10.9757C-7.25707e-07 5.03041 4.78848 0.210834 10.6954 0.210833Z" fill="#EA4D72"/>
-            <path fillRule="evenodd" clipRule="evenodd" d="M29.305 -5.93705e-06C35.2119 -6.19693e-06 40.0004 4.81957 40.0004 10.7648C40.0004 13.3368 39.1038 15.6988 37.6084 17.5503C37.3239 17.9026 36.81 17.9066 36.5036 17.5982L22.5157 3.5195C22.2093 3.21111 22.2133 2.69383 22.5633 2.40747C24.4029 0.902328 26.7496 -5.82463e-06 29.305 -5.93705e-06Z" fill="#1E74EB"/>
+          <svg
+            width="40"
+            height="35"
+            viewBox="0 0 40 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21.1541 4.60894C21.2376 4.54606 21.3328 4.5767 21.4509 4.69556L35.4028 18.738C35.6512 18.988 35.763 19.2809 35.5145 19.531L28.7282 26.3614C28.4798 26.6114 28.077 26.6114 27.8286 26.3614L20.9715 19.4597C20.7595 19.2463 20.7281 18.9152 20.8789 18.6609C23.9571 13.4703 22.5796 7.8946 21.104 4.92219C21.0308 4.77479 21.0704 4.67194 21.1541 4.60894Z"
+              fill="#408DF6"
+            />
+            <path
+              d="M19.4192 20.827C19.669 20.5525 19.9902 20.6407 20.2573 20.9095L26.7508 27.4452C26.9992 27.6952 27.111 27.9881 26.8626 28.2382L20.3307 34.8125C20.0823 35.0625 19.6795 35.0625 19.4311 34.8125L11.1912 26.5191C10.9948 26.3214 10.9648 26.0494 11.046 25.8229C11.1269 25.5972 11.322 25.4039 11.5906 25.3587C15.0769 24.7723 18.0216 22.3628 19.4192 20.827Z"
+              fill="#66A4F7"
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M10.6954 0.210833C16.6022 0.210833 21.3907 5.03041 21.3907 10.9757C21.3907 16.9209 16.6022 21.7405 10.6954 21.7405C4.78848 21.7405 -2.09311e-07 16.9209 -4.67509e-07 10.9757C-7.25707e-07 5.03041 4.78848 0.210834 10.6954 0.210833Z"
+              fill="#EA4D72"
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M29.305 -5.93705e-06C35.2119 -6.19693e-06 40.0004 4.81957 40.0004 10.7648C40.0004 13.3368 39.1038 15.6988 37.6084 17.5503C37.3239 17.9026 36.81 17.9066 36.5036 17.5982L22.5157 3.5195C22.2093 3.21111 22.2133 2.69383 22.5633 2.40747C24.4029 0.902328 26.7496 -5.82463e-06 29.305 -5.93705e-06Z"
+              fill="#1E74EB"
+            />
           </svg>
         </div>
 
@@ -51,7 +75,10 @@ export default function Index() {
           <NavItem icon={<Search className="w-5 h-5" />} label="Search" />
           <div className="w-[52px] h-px bg-white/20 mx-auto my-2" />
           <NavItem icon={<DollarSign className="w-5 h-5" />} label="Sales" />
-          <NavItem icon={<ClipboardCheck className="w-5 h-5" />} label="Tasks" />
+          <NavItem
+            icon={<ClipboardCheck className="w-5 h-5" />}
+            label="Tasks"
+          />
           <NavItem icon={<Shield className="w-5 h-5" />} label="Policies" />
           <NavItem icon={<User className="w-5 h-5" />} label="People" />
           <NavItem icon={<Clock className="w-5 h-5" />} label="Recent" />
@@ -76,12 +103,23 @@ export default function Index() {
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 2V14M3.33333 2H12.6667C13.403 2 14 2.59695 14 3.33333V12.6667C14 13.403 13.403 14 12.6667 14H3.33333C2.59695 14 2 13.403 2 12.6667V3.33333C2 2.59695 2.59695 2 3.33333 2Z" stroke="#334155" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 2V14M3.33333 2H12.6667C13.403 2 14 2.59695 14 3.33333V12.6667C14 13.403 13.403 14 12.6667 14H3.33333C2.59695 14 2 13.403 2 12.6667V3.33333C2 2.59695 2.59695 2 3.33333 2Z"
+                stroke="#334155"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer"
           >
             Elliot McMahon
@@ -101,12 +139,15 @@ export default function Index() {
           <button className="w-8 h-8 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
             <Phone className="w-4 h-4 text-action-secondary" />
           </button>
-          <Button variant="outline" className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold">
+          <Button
+            variant="outline"
+            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold"
+          >
             Schedule follow-up
             <ChevronRight className="w-4 h-4 ml-1 rotate-90" />
           </Button>
           <Button
-            onClick={() => navigate('/comparison')}
+            onClick={() => navigate("/comparison")}
             className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold"
           >
             Service
@@ -125,22 +166,26 @@ export default function Index() {
 
           {/* Center Content */}
           <div className="flex-1 overflow-y-auto p-6">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <Tabs
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full"
+            >
               <div className="flex items-center justify-between mb-6">
                 <TabsList className="h-auto p-0 bg-transparent border-b border-neutral-gray-30 rounded-none w-full justify-start mr-auto">
-                  <TabsTrigger 
-                    value="policies" 
+                  <TabsTrigger
+                    value="policies"
                     className="data-[state=active]:border-b-2 data-[state=active]:border-action-primary data-[state=active]:text-action-primary rounded-none pb-3 font-semibold"
                   >
                     Policies
                   </TabsTrigger>
-                  <TabsTrigger 
+                  <TabsTrigger
                     value="quotes"
                     className="data-[state=active]:border-b-2 data-[state=active]:border-action-primary data-[state=active]:text-action-primary rounded-none pb-3 font-semibold text-text-muted"
                   >
                     Quotes
                   </TabsTrigger>
-                  <TabsTrigger 
+                  <TabsTrigger
                     value="activities"
                     className="data-[state=active]:border-b-2 data-[state=active]:border-action-primary data-[state=active]:text-action-primary rounded-none pb-3 font-semibold text-text-muted"
                   >
@@ -151,8 +196,17 @@ export default function Index() {
 
               <div className="flex items-center gap-2 mb-6">
                 <h2 className="text-2xl font-bold">Recent policies</h2>
-                <Badge variant="secondary" className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30">4</Badge>
-                <Button variant="outline" size="sm" className="ml-2 border-action-secondary text-action-secondary">
+                <Badge
+                  variant="secondary"
+                  className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30"
+                >
+                  4
+                </Badge>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="ml-2 border-action-secondary text-action-secondary"
+                >
                   All policies
                 </Button>
               </div>
@@ -190,7 +244,9 @@ function ActivitySummarySection() {
         <div className="flex-1">
           <div className="mb-3">
             <span className="font-bold text-base">Last interaction:</span>
-            <span className="text-base ml-2">call 655 d ago, email 14 days ago</span>
+            <span className="text-base ml-2">
+              call 655 d ago, email 14 days ago
+            </span>
           </div>
 
           <div className="mb-3">
@@ -200,7 +256,9 @@ function ActivitySummarySection() {
 
           <div className="mb-4">
             <span className="font-bold text-base">Re-shop opportunity:</span>
-            <span className="text-base ml-2">Very high because of never done</span>
+            <span className="text-base ml-2">
+              Very high because of never done
+            </span>
           </div>
 
           <div className="mb-4">
@@ -212,11 +270,15 @@ function ActivitySummarySection() {
               </div>
               <div className="flex items-start gap-2">
                 <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
-                <span className="text-base">Online quote started, not completed</span>
+                <span className="text-base">
+                  Online quote started, not completed
+                </span>
               </div>
               <div className="flex items-start gap-2">
                 <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
-                <span className="text-base">AI assistant gauged shopping intent and scheduled cb</span>
+                <span className="text-base">
+                  AI assistant gauged shopping intent and scheduled cb
+                </span>
               </div>
             </div>
           </div>
@@ -246,13 +308,15 @@ function CustomerInfoSection() {
           <h3 className="text-lg font-bold -tracking-[0.3px]">People</h3>
           <ChevronRight className="w-5 h-5" />
         </div>
-        
+
         <div className="flex items-start gap-2">
           <User className="w-4 h-4 mt-1 flex-shrink-0" />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 flex-wrap mb-1">
               <span className="font-semibold">Elliot McMahon</span>
-              <Badge className="bg-azure-95 text-azure-50 border-azure-50/30 text-xs">Primary customer</Badge>
+              <Badge className="bg-azure-95 text-azure-50 border-azure-50/30 text-xs">
+                Primary customer
+              </Badge>
             </div>
             <div className="flex items-center gap-2 flex-wrap text-sm">
               <span>05/12/1978</span>
@@ -286,7 +350,9 @@ function CustomerInfoSection() {
           <Archive className="w-4 h-4 mt-1 flex-shrink-0" />
           <div className="flex-1">
             <div className="font-semibold mb-1">Mailing address</div>
-            <div className="text-sm">614 Basswood Dr, Spring, TX, 77386-1264</div>
+            <div className="text-sm">
+              614 Basswood Dr, Spring, TX, 77386-1264
+            </div>
           </div>
         </div>
       </div>
@@ -302,12 +368,14 @@ function AssetsSection() {
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-lg font-bold -tracking-[0.3px]">Assets</h3>
           </div>
-          
+
           <div className="flex items-start gap-2">
             <Home className="w-4 h-4 mt-1 flex-shrink-0" />
             <div className="flex-1">
               <div className="font-semibold mb-1">Primary home</div>
-              <div className="text-sm mb-3">614 Basswood Dr, Spring, TX, 77386-1264</div>
+              <div className="text-sm mb-3">
+                614 Basswood Dr, Spring, TX, 77386-1264
+              </div>
               <div className="flex items-center gap-2 flex-wrap text-sm">
                 <span className="text-text-muted">Built in</span>
                 <span className="font-semibold">2000</span>
@@ -328,9 +396,14 @@ function AssetsSection() {
         <div className="p-4">
           <div className="flex items-center gap-2 mb-3">
             <span className="font-bold">Vehicles</span>
-            <Badge variant="secondary" className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs">3</Badge>
+            <Badge
+              variant="secondary"
+              className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs"
+            >
+              3
+            </Badge>
           </div>
-          
+
           <div className="space-y-3">
             <VehicleItem name="2022 Toyota Tundra" vin="HJ825682568" />
             <VehicleItem name="2024 Mercedes-benz GLE53 amg" vin="9877225633" />
@@ -363,14 +436,23 @@ function LoansSection() {
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
           <h3 className="text-lg font-bold -tracking-[0.3px]">Loans</h3>
-          <Badge variant="secondary" className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs">1</Badge>
+          <Badge
+            variant="secondary"
+            className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs"
+          >
+            1
+          </Badge>
         </div>
-        
+
         <div className="flex items-start gap-2">
           <Shield className="w-4 h-4 mt-1 flex-shrink-0" />
           <div className="flex-1">
-            <div className="font-semibold mb-1">Freedom Mortgage Corporation ISAOA/ATIMA</div>
-            <div className="text-sm mb-2">For 614 Basswood Dr, Spring, TX, 77386-1264</div>
+            <div className="font-semibold mb-1">
+              Freedom Mortgage Corporation ISAOA/ATIMA
+            </div>
+            <div className="text-sm mb-2">
+              For 614 Basswood Dr, Spring, TX, 77386-1264
+            </div>
             <div className="text-sm">
               <span className="text-text-muted">Loan number:</span>{" "}
               <span className="font-semibold">0153712484</span>
@@ -394,10 +476,18 @@ function PolicyCard() {
           <div className="font-semibold text-sm">Primary home</div>
           <div className="text-sm">614 Basswood Dr, Spring, TX, 77386-1264</div>
         </div>
-        <Button variant="ghost" size="sm" className="text-action-secondary font-semibold">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-action-secondary font-semibold"
+        >
           See prior policies
         </Button>
-        <Button variant="outline" size="sm" className="border-action-secondary text-action-secondary font-semibold">
+        <Button
+          variant="outline"
+          size="sm"
+          className="border-action-secondary text-action-secondary font-semibold"
+        >
           Full info
         </Button>
       </div>
@@ -407,8 +497,18 @@ function PolicyCard() {
           <div className="flex-1 flex items-center gap-2">
             <div className="border border-neutral-gray-30 bg-white rounded px-2 py-1">
               <svg width="84" height="21" viewBox="0 0 84 21" fill="none">
-                <path fillRule="evenodd" clipRule="evenodd" d="M64.8117 8.20243C64.8022 8.20967 64.7913 8.21388 64.7795 8.21388C64.7465 8.21388 64.7207 8.18532 64.7207 8.14948C64.7207 8.13907 64.723 8.1302 64.7261 8.12137L64.7289 8.11671C66.3546 4.07928 70.0559 1.26001 74.3605 1.26001C78.6669 1.26001 82.3691 4.08239 83.993 8.12192L83.9949 8.12658C83.998 8.13491 83.9998 8.14323 83.9998 8.15206C83.9998 8.1879 83.9736 8.21646 83.9424 8.21646C83.931 8.21646 83.9215 8.21284 83.9129 8.20918L83.9048 8.20556C83.1589 7.72658 82.1179 7.42945 80.9652 7.42945C79.6337 7.42945 78.451 7.82583 77.7006 8.43986L77.6979 8.44294C77.6875 8.45127 77.6753 8.45593 77.6613 8.45593C77.6477 8.45593 77.6355 8.45127 77.625 8.44294L77.6214 8.44036C76.8701 7.82578 75.6866 7.42945 74.3564 7.42945C73.0258 7.42945 71.8427 7.82578 71.0914 8.44036L71.0887 8.44244C71.0778 8.45127 71.0652 8.45593 71.0516 8.45593C71.0394 8.45593 71.0271 8.45231 71.019 8.44552L71.014 8.4414C70.2627 7.82633 69.0783 7.42945 67.7467 7.42945C66.6003 7.42945 65.5639 7.72345 64.8194 8.19827L64.8117 8.20243ZM74.9036 8.29096V17.6319C74.9036 18.796 74.0337 19.742 72.9661 19.742C72.1102 19.742 71.3815 19.1332 71.1267 18.2921L71.1249 18.2874C71.1127 18.2376 71.1054 18.1861 71.1054 18.1327C71.1054 17.8178 71.3417 17.5622 71.6314 17.5622C71.864 17.5622 72.0595 17.7254 72.1297 17.9529L72.1306 17.9539C72.2532 18.329 72.5813 18.5981 72.9661 18.5981C73.4544 18.5981 73.8522 18.1643 73.8522 17.6319L73.8513 8.27381L73.8522 8.27068C73.8522 8.24267 73.8717 8.21977 73.897 8.21669L73.9002 8.21615C74.0428 8.20008 74.1894 8.19171 74.3388 8.19171C74.5162 8.19171 74.6886 8.2047 74.8556 8.22547L74.8579 8.22601C74.8828 8.22914 74.9027 8.25145 74.9027 8.28005L74.9036 8.29096Z" fill="#E61616"/>
-                <path fillRule="evenodd" clipRule="evenodd" d="M12.0971 14.0581C12.92 14.0581 13.4825 14.0243 13.6332 12.5246C13.7862 11.0133 13.1254 11.0845 12.3579 11.0845H10.776L10.4743 14.0581H12.0971ZM14.6677 19.7028H12.9066L11.7696 15.683H10.3141L9.90691 19.7028H8.16012L9.19326 9.45959H12.6368C14.6796 9.45959 15.656 9.99207 15.3919 12.5968C15.2127 14.3729 14.579 15.0861 13.4525 15.4352L14.6677 19.7028Z" fill="black"/>
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M64.8117 8.20243C64.8022 8.20967 64.7913 8.21388 64.7795 8.21388C64.7465 8.21388 64.7207 8.18532 64.7207 8.14948C64.7207 8.13907 64.723 8.1302 64.7261 8.12137L64.7289 8.11671C66.3546 4.07928 70.0559 1.26001 74.3605 1.26001C78.6669 1.26001 82.3691 4.08239 83.993 8.12192L83.9949 8.12658C83.998 8.13491 83.9998 8.14323 83.9998 8.15206C83.9998 8.1879 83.9736 8.21646 83.9424 8.21646C83.931 8.21646 83.9215 8.21284 83.9129 8.20918L83.9048 8.20556C83.1589 7.72658 82.1179 7.42945 80.9652 7.42945C79.6337 7.42945 78.451 7.82583 77.7006 8.43986L77.6979 8.44294C77.6875 8.45127 77.6753 8.45593 77.6613 8.45593C77.6477 8.45593 77.6355 8.45127 77.625 8.44294L77.6214 8.44036C76.8701 7.82578 75.6866 7.42945 74.3564 7.42945C73.0258 7.42945 71.8427 7.82578 71.0914 8.44036L71.0887 8.44244C71.0778 8.45127 71.0652 8.45593 71.0516 8.45593C71.0394 8.45593 71.0271 8.45231 71.019 8.44552L71.014 8.4414C70.2627 7.82633 69.0783 7.42945 67.7467 7.42945C66.6003 7.42945 65.5639 7.72345 64.8194 8.19827L64.8117 8.20243ZM74.9036 8.29096V17.6319C74.9036 18.796 74.0337 19.742 72.9661 19.742C72.1102 19.742 71.3815 19.1332 71.1267 18.2921L71.1249 18.2874C71.1127 18.2376 71.1054 18.1861 71.1054 18.1327C71.1054 17.8178 71.3417 17.5622 71.6314 17.5622C71.864 17.5622 72.0595 17.7254 72.1297 17.9529L72.1306 17.9539C72.2532 18.329 72.5813 18.5981 72.9661 18.5981C73.4544 18.5981 73.8522 18.1643 73.8522 17.6319L73.8513 8.27381L73.8522 8.27068C73.8522 8.24267 73.8717 8.21977 73.897 8.21669L73.9002 8.21615C74.0428 8.20008 74.1894 8.19171 74.3388 8.19171C74.5162 8.19171 74.6886 8.2047 74.8556 8.22547L74.8579 8.22601C74.8828 8.22914 74.9027 8.25145 74.9027 8.28005L74.9036 8.29096Z"
+                  fill="#E61616"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M12.0971 14.0581C12.92 14.0581 13.4825 14.0243 13.6332 12.5246C13.7862 11.0133 13.1254 11.0845 12.3579 11.0845H10.776L10.4743 14.0581H12.0971ZM14.6677 19.7028H12.9066L11.7696 15.683H10.3141L9.90691 19.7028H8.16012L9.19326 9.45959H12.6368C14.6796 9.45959 15.656 9.99207 15.3919 12.5968C15.2127 14.3729 14.579 15.0861 13.4525 15.4352L14.6677 19.7028Z"
+                  fill="black"
+                />
               </svg>
             </div>
             <button className="flex items-center gap-2 border border-neutral-gray-30 bg-white rounded px-2 py-1 text-sm font-semibold">
@@ -449,14 +549,29 @@ function PolicyCard() {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-sm text-neutral-gray-80">Documents</span>
-            <Badge variant="secondary" className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs">2</Badge>
+            <span className="font-bold text-sm text-neutral-gray-80">
+              Documents
+            </span>
+            <Badge
+              variant="secondary"
+              className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs"
+            >
+              2
+            </Badge>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="text-action-secondary font-semibold h-8">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-action-secondary font-semibold h-8"
+            >
               See all documents
             </Button>
-            <Button variant="outline" size="sm" className="border-action-secondary h-8 w-8 p-0">
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-action-secondary h-8 w-8 p-0"
+            >
               <Upload className="w-4 h-4 text-action-secondary" />
             </Button>
           </div>
@@ -476,18 +591,37 @@ function PolicyCard() {
   );
 }
 
-function DocumentItem({ label, name, status, count, isUpload }: { label: string; name: string; status: string; count: string; isUpload?: boolean }) {
+function DocumentItem({
+  label,
+  name,
+  status,
+  count,
+  isUpload,
+}: {
+  label: string;
+  name: string;
+  status: string;
+  count: string;
+  isUpload?: boolean;
+}) {
   return (
     <div className="border border-neutral-gray-30 rounded-lg p-2 flex items-center gap-3 bg-white">
       <div className="flex-1 flex items-center gap-2">
         {label && (
-          <Badge className="bg-violet-96 text-violet border-violet/30 text-xs">{label}</Badge>
+          <Badge className="bg-violet-96 text-violet border-violet/30 text-xs">
+            {label}
+          </Badge>
         )}
-        <span className={`text-sm ${name ? 'font-semibold' : 'text-neutral-gray-60 italic'}`}>
-          {name || 'Application'}
+        <span
+          className={`text-sm ${name ? "font-semibold" : "text-neutral-gray-60 italic"}`}
+        >
+          {name || "Application"}
         </span>
         {isUpload && (
-          <Button size="sm" className="bg-action-primary hover:bg-action-primary/90 text-white h-7 px-2 text-xs ml-auto">
+          <Button
+            size="sm"
+            className="bg-action-primary hover:bg-action-primary/90 text-white h-7 px-2 text-xs ml-auto"
+          >
             <Upload className="w-3 h-3 mr-1" />
             Upload
           </Button>
@@ -501,10 +635,20 @@ function DocumentItem({ label, name, status, count, isUpload }: { label: string;
           <ChevronRight className="w-5 h-5 rotate-90" />
         </div>
       )}
-      {status === 'pending' && (
+      {status === "pending" && (
         <div className="flex items-center gap-1 text-sm">
-          <svg width="20" height="20" viewBox="0 0 20 20" className="text-warning">
-            <path fillRule="evenodd" clipRule="evenodd" d="M8.94274 0.223066C9.3508 0.427096 9.68167 0.757973 9.8857 1.16603L15.7769 12.9485C16.2977 13.9901 15.8755 15.2566 14.834 15.7774C14.5412 15.9238 14.2183 16 13.891 16H2.10854C0.944025 16 0 15.056 0 13.8915C0 13.5641 0.0762133 13.2413 0.222604 12.9485L6.11384 1.16603C6.63462 0.124461 7.90116 -0.29772 8.94274 0.223066ZM8 12C7.44772 12 7 12.4477 7 13C7 13.5523 7.44772 14 8 14C8.55228 14 9 13.5523 9 13C9 12.4477 8.55228 12 8 12ZM8 4C7.48716 4 7.06449 4.38604 7.00673 4.88338L7 5V9C7 9.55228 7.44772 10 8 10C8.51284 10 8.93551 9.61396 8.99327 9.11662L9 9V5C9 4.44772 8.55228 4 8 4Z" fill="currentColor"/>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            className="text-warning"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M8.94274 0.223066C9.3508 0.427096 9.68167 0.757973 9.8857 1.16603L15.7769 12.9485C16.2977 13.9901 15.8755 15.2566 14.834 15.7774C14.5412 15.9238 14.2183 16 13.891 16H2.10854C0.944025 16 0 15.056 0 13.8915C0 13.5641 0.0762133 13.2413 0.222604 12.9485L6.11384 1.16603C6.63462 0.124461 7.90116 -0.29772 8.94274 0.223066ZM8 12C7.44772 12 7 12.4477 7 13C7 13.5523 7.44772 14 8 14C8.55228 14 9 13.5523 9 13C9 12.4477 8.55228 12 8 12ZM8 4C7.48716 4 7.06449 4.38604 7.00673 4.88338L7 5V9C7 9.55228 7.44772 10 8 10C8.51284 10 8.93551 9.61396 8.99327 9.11662L9 9V5C9 4.44772 8.55228 4 8 4Z"
+              fill="currentColor"
+            />
           </svg>
           <span>Pending</span>
         </div>
@@ -518,7 +662,31 @@ function RightSidebar() {
     <div className="flex flex-col h-full">
       <div className="flex-1 space-y-0">
         <SidebarItem icon={<User />} label="Info" active />
-        <SidebarItem icon={<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 7.5H12.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M7.5 10.5H10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M12.2411 16.875H3.75C3.58424 16.875 3.42527 16.8092 3.30806 16.6919C3.19085 16.5747 3.125 16.4158 3.125 16.25V3.75C3.125 3.58424 3.19085 3.42527 3.30806 3.30806C3.42527 3.19085 3.58424 3.125 3.75 3.125H16.25C16.4158 3.125 16.5747 3.19085 16.6919 3.30806C16.8092 3.42527 16.875 3.58424 16.875 3.75V12.2411C16.875 12.3232 16.8588 12.4045 16.8274 12.4803C16.796 12.5561 16.75 12.625 16.6919 12.6831L12.6831 16.6919C12.625 16.75 12.5561 16.796 12.4803 16.8274C12.4045 16.8588 12.3232 16.875 12.2411 16.875V16.875Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>} label="Notes" />
+        <SidebarItem
+          icon={
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M7.5 7.5H12.5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M7.5 10.5H10"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12.2411 16.875H3.75C3.58424 16.875 3.42527 16.8092 3.30806 16.6919C3.19085 16.5747 3.125 16.4158 3.125 16.25V3.75C3.125 3.58424 3.19085 3.42527 3.30806 3.30806C3.42527 3.19085 3.58424 3.125 3.75 3.125H16.25C16.4158 3.125 16.5747 3.19085 16.6919 3.30806C16.8092 3.42527 16.875 3.58424 16.875 3.75V12.2411C16.875 12.3232 16.8588 12.4045 16.8274 12.4803C16.796 12.5561 16.75 12.625 16.6919 12.6831L12.6831 16.6919C12.625 16.75 12.5561 16.796 12.4803 16.8274C12.4045 16.8588 12.3232 16.875 12.2411 16.875V16.875Z"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          }
+          label="Notes"
+        />
         <SidebarItem icon={<ClipboardCheck />} label="Tasks" />
         <SidebarItem icon={<Shield />} label="Policies" />
         <SidebarItem icon={<Clock />} label="Feed" />
@@ -530,9 +698,19 @@ function RightSidebar() {
   );
 }
 
-function SidebarItem({ icon, label, active }: { icon: React.ReactNode; label: string; active?: boolean }) {
+function SidebarItem({
+  icon,
+  label,
+  active,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  active?: boolean;
+}) {
   return (
-    <button className={`w-full py-2 px-1 flex flex-col items-center gap-1 text-sm hover:bg-neutral-gray-5 transition-colors ${active ? 'bg-white' : ''}`}>
+    <button
+      className={`w-full py-2 px-1 flex flex-col items-center gap-1 text-sm hover:bg-neutral-gray-5 transition-colors ${active ? "bg-white" : ""}`}
+    >
       <div className="w-5 h-5">{icon}</div>
       <span className="text-xs font-medium">{label}</span>
     </button>

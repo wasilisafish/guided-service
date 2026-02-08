@@ -41,7 +41,10 @@ interface HomeProfilingModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalProps) {
+export function HomeProfilingModal({
+  open,
+  onOpenChange,
+}: HomeProfilingModalProps) {
   const [formData, setFormData] = useState<HomeProfilingData>({
     homeType: "Single family detached",
     sqft: "2457",
@@ -84,7 +87,9 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
       <DialogContent className="max-w-3xl p-0 gap-0">
         {/* Header */}
         <DialogHeader className="px-6 py-4 border-b border-neutral-gray-10">
-          <DialogTitle className="text-lg font-bold">Edit Home Profiling</DialogTitle>
+          <DialogTitle className="text-lg font-bold">
+            Edit Home Profiling
+          </DialogTitle>
         </DialogHeader>
 
         {/* Content */}
@@ -94,7 +99,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
             <h3 className="font-bold text-base mb-4">Home Details</h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="homeType" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="homeType"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Home Type
                 </Label>
                 <select
@@ -103,8 +111,12 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   onChange={(e) => handleChange("homeType", e.target.value)}
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
-                  <option value="Single family detached">Single family detached</option>
-                  <option value="Single family attached">Single family attached</option>
+                  <option value="Single family detached">
+                    Single family detached
+                  </option>
+                  <option value="Single family attached">
+                    Single family attached
+                  </option>
                   <option value="Condo">Condo</option>
                   <option value="Townhouse">Townhouse</option>
                   <option value="Apartment">Apartment</option>
@@ -114,7 +126,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div>
-                <Label htmlFor="sqft" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="sqft"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Square Footage
                 </Label>
                 <Input
@@ -126,7 +141,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
-                <Label htmlFor="stories" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="stories"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Stories
                 </Label>
                 <Input
@@ -138,7 +156,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
-                <Label htmlFor="bedrooms" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="bedrooms"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Bedrooms
                 </Label>
                 <Input
@@ -150,7 +171,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
-                <Label htmlFor="bathrooms" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="bathrooms"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Bathrooms
                 </Label>
                 <Input
@@ -163,7 +187,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
-                <Label htmlFor="yearBuilt" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="yearBuilt"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Year Built
                 </Label>
                 <Input
@@ -175,7 +202,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div className="col-span-2">
-                <Label htmlFor="garageType" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="garageType"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Garage Type
                 </Label>
                 <select
@@ -185,18 +215,33 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
                   <option value="No garage">No garage</option>
-                  <option value="Attached 1-car garage">Attached 1-car garage</option>
-                  <option value="Attached 2-cars garage">Attached 2-cars garage</option>
-                  <option value="Attached 3+ car garage">Attached 3+ car garage</option>
-                  <option value="Detached 1-car garage">Detached 1-car garage</option>
-                  <option value="Detached 2-cars garage">Detached 2-cars garage</option>
-                  <option value="Detached 3+ car garage">Detached 3+ car garage</option>
+                  <option value="Attached 1-car garage">
+                    Attached 1-car garage
+                  </option>
+                  <option value="Attached 2-cars garage">
+                    Attached 2-cars garage
+                  </option>
+                  <option value="Attached 3+ car garage">
+                    Attached 3+ car garage
+                  </option>
+                  <option value="Detached 1-car garage">
+                    Detached 1-car garage
+                  </option>
+                  <option value="Detached 2-cars garage">
+                    Detached 2-cars garage
+                  </option>
+                  <option value="Detached 3+ car garage">
+                    Detached 3+ car garage
+                  </option>
                   <option value="Carport">Carport</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
               <div className="col-span-2">
-                <Label htmlFor="construction" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="construction"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Construction Material
                 </Label>
                 <select
@@ -217,7 +262,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div className="col-span-2">
-                <Label htmlFor="basement" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="basement"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Basement
                 </Label>
                 <select
@@ -227,17 +275,30 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
                   <option value="No basement">No basement</option>
-                  <option value="Full unfinished basement">Full unfinished basement</option>
-                  <option value="25% finished basement">25% finished basement</option>
-                  <option value="50% finished basement">50% finished basement</option>
-                  <option value="75% finished basement">75% finished basement</option>
-                  <option value="Fully finished basement">Fully finished basement</option>
+                  <option value="Full unfinished basement">
+                    Full unfinished basement
+                  </option>
+                  <option value="25% finished basement">
+                    25% finished basement
+                  </option>
+                  <option value="50% finished basement">
+                    50% finished basement
+                  </option>
+                  <option value="75% finished basement">
+                    75% finished basement
+                  </option>
+                  <option value="Fully finished basement">
+                    Fully finished basement
+                  </option>
                   <option value="Partial basement">Partial basement</option>
                   <option value="Crawl space">Crawl space</option>
                 </select>
               </div>
               <div className="col-span-2">
-                <Label htmlFor="exterior" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="exterior"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Exterior
                 </Label>
                 <select
@@ -247,7 +308,9 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
                   <option value="Brick">Brick</option>
-                  <option value="Brick Veneer or Brick on Frame">Brick Veneer or Brick on Frame</option>
+                  <option value="Brick Veneer or Brick on Frame">
+                    Brick Veneer or Brick on Frame
+                  </option>
                   <option value="Vinyl siding">Vinyl siding</option>
                   <option value="Aluminum siding">Aluminum siding</option>
                   <option value="Wood siding">Wood siding</option>
@@ -260,16 +323,23 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div className="col-span-2">
-                <Label htmlFor="otherStructures" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="otherStructures"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Other Structures
                 </Label>
                 <select
                   id="otherStructures"
                   value={formData.otherStructures}
-                  onChange={(e) => handleChange("otherStructures", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("otherStructures", e.target.value)
+                  }
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
-                  <option value="No other structures">No other structures</option>
+                  <option value="No other structures">
+                    No other structures
+                  </option>
                   <option value="Detached garage">Detached garage</option>
                   <option value="Storage shed">Storage shed</option>
                   <option value="Pool house">Pool house</option>
@@ -280,7 +350,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div className="col-span-2">
-                <Label htmlFor="peopleOnDeed" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="peopleOnDeed"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   On the Deed
                 </Label>
                 <Input
@@ -297,13 +370,22 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
           <div>
             <h3 className="font-bold text-base mb-4 flex items-center gap-2">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M3 10L10 3L17 10M5 8V16H15V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M3 10L10 3L17 10M5 8V16H15V8"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               Roof
             </h3>
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <Label htmlFor="roofYear" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="roofYear"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Updated Year
                 </Label>
                 <Input
@@ -315,7 +397,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
-                <Label htmlFor="roofMaterial" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="roofMaterial"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Material
                 </Label>
                 <select
@@ -324,7 +409,9 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   onChange={(e) => handleChange("roofMaterial", e.target.value)}
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
-                  <option value="Composition">Composition/Asphalt Shingles</option>
+                  <option value="Composition">
+                    Composition/Asphalt Shingles
+                  </option>
                   <option value="Asphalt">Asphalt</option>
                   <option value="Metal">Metal</option>
                   <option value="Tile">Tile</option>
@@ -337,7 +424,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div>
-                <Label htmlFor="roofShape" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="roofShape"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Shape
                 </Label>
                 <select
@@ -362,13 +452,22 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
           <div>
             <h3 className="font-bold text-base mb-4 flex items-center gap-2">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M14 8V6C14 4.89543 13.1046 4 12 4H8C6.89543 4 6 4.89543 6 6V8M3 8H17V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M14 8V6C14 4.89543 13.1046 4 12 4H8C6.89543 4 6 4.89543 6 6V8M3 8H17V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V8Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               Updates & Renovations
             </h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="heatingYear" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="heatingYear"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Heating & Air Year Update
                 </Label>
                 <Input
@@ -380,7 +479,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
-                <Label htmlFor="heatingType" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="heatingType"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Heating System Type
                 </Label>
                 <select
@@ -401,7 +503,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div>
-                <Label htmlFor="plumbingYear" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="plumbingYear"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Plumbing Year Update
                 </Label>
                 <Input
@@ -413,19 +518,27 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
-                <Label htmlFor="electricityYear" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="electricityYear"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Electricity Year Update
                 </Label>
                 <Input
                   id="electricityYear"
                   type="number"
                   value={formData.electricityYear}
-                  onChange={(e) => handleChange("electricityYear", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("electricityYear", e.target.value)
+                  }
                   className="w-full"
                 />
               </div>
               <div>
-                <Label htmlFor="solarPanels" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="solarPanels"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Solar Panels
                 </Label>
                 <select
@@ -445,20 +558,36 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
           <div>
             <h3 className="font-bold text-base mb-4 flex items-center gap-2">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M10 6V10L13 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <circle
+                  cx="10"
+                  cy="10"
+                  r="7"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M10 6V10L13 13"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
               </svg>
               Discounts
             </h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="securitySystem" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="securitySystem"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Security System
                 </Label>
                 <select
                   id="securitySystem"
                   value={formData.securitySystem}
-                  onChange={(e) => handleChange("securitySystem", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("securitySystem", e.target.value)
+                  }
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
                   <option value="Yes">Yes</option>
@@ -466,7 +595,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div>
-                <Label htmlFor="securityType" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="securityType"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Security System Type
                 </Label>
                 <select
@@ -485,13 +617,18 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div>
-                <Label htmlFor="smokeDetector" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="smokeDetector"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Smoke Detector
                 </Label>
                 <select
                   id="smokeDetector"
                   value={formData.smokeDetector}
-                  onChange={(e) => handleChange("smokeDetector", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("smokeDetector", e.target.value)
+                  }
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
                   <option value="Yes">Yes</option>
@@ -499,20 +636,29 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 </select>
               </div>
               <div>
-                <Label htmlFor="smokeDetectorType" className="text-sm font-semibold mb-2 block">
+                <Label
+                  htmlFor="smokeDetectorType"
+                  className="text-sm font-semibold mb-2 block"
+                >
                   Smoke Detector Type
                 </Label>
                 <select
                   id="smokeDetectorType"
                   value={formData.smokeDetectorType}
-                  onChange={(e) => handleChange("smokeDetectorType", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("smokeDetectorType", e.target.value)
+                  }
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                   disabled={formData.smokeDetector === "No"}
                 >
                   <option value="Smart">Smart/Connected Detector</option>
                   <option value="Battery">Battery-Operated</option>
-                  <option value="Hardwired">Hardwired with Battery Backup</option>
-                  <option value="Interconnected">Interconnected Detectors</option>
+                  <option value="Hardwired">
+                    Hardwired with Battery Backup
+                  </option>
+                  <option value="Interconnected">
+                    Interconnected Detectors
+                  </option>
                   <option value="Photoelectric">Photoelectric</option>
                   <option value="Ionization">Ionization</option>
                   <option value="Dual sensor">Dual Sensor</option>

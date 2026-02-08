@@ -18,7 +18,11 @@ interface BottomNavigationProps {
   showHelpButton?: boolean;
 }
 
-export function BottomNavigation({ buttons, primaryButton, showHelpButton = false }: BottomNavigationProps) {
+export function BottomNavigation({
+  buttons,
+  primaryButton,
+  showHelpButton = false,
+}: BottomNavigationProps) {
   // If only primary button is provided, show centered layout
   if (primaryButton && (!buttons || buttons.length === 0)) {
     return (

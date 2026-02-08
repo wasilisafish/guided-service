@@ -19,10 +19,18 @@ interface EligibilityQuestion {
   answer: boolean | null;
 }
 
-export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose Ave, Columbus, Ohio" }: EligibilityModalProps) {
+export function EligibilityModal({
+  open,
+  onOpenChange,
+  address = "2000 Melrose Ave, Columbus, Ohio",
+}: EligibilityModalProps) {
   const [questions, setQuestions] = useState<EligibilityQuestion[]>([
     { id: "claims", question: "Do you have any open claims?", answer: null },
-    { id: "business", question: "Do you run a business out of your home?", answer: null },
+    {
+      id: "business",
+      question: "Do you run a business out of your home?",
+      answer: null,
+    },
     { id: "pets", question: "Pets", answer: true },
     { id: "petTypes", question: "What type of pets?", answer: true },
     { id: "breeds", question: "Breeds", answer: true },
@@ -33,8 +41,8 @@ export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose A
   const [breeds, setBreeds] = useState("Other");
 
   const handleAnswer = (id: string, answer: boolean) => {
-    setQuestions(prev =>
-      prev.map(q => (q.id === id ? { ...q, answer } : q))
+    setQuestions((prev) =>
+      prev.map((q) => (q.id === id ? { ...q, answer } : q)),
     );
   };
 
@@ -49,7 +57,9 @@ export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose A
       <DialogContent className="max-w-2xl p-0 gap-0">
         {/* Header */}
         <DialogHeader className="px-6 py-4 border-b border-neutral-gray-10">
-          <DialogTitle className="text-lg font-bold">Confirm eligibility</DialogTitle>
+          <DialogTitle className="text-lg font-bold">
+            Confirm eligibility
+          </DialogTitle>
         </DialogHeader>
 
         {/* Content */}
@@ -59,16 +69,67 @@ export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose A
             <div className="flex items-center gap-2 mb-2">
               <h3 className="font-bold text-base">Primary residence</h3>
               <div className="flex items-center gap-1">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-action-primary">
-                  <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-                  <path d="M5 8L7 10L11 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="text-action-primary"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="12"
+                    height="12"
+                    rx="2"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M5 8L7 10L11 6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-action-primary">
-                  <path d="M8 2L2 6V14H6V10H10V14H14V6L8 2Z" fill="currentColor"/>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="text-action-primary"
+                >
+                  <path
+                    d="M8 2L2 6V14H6V10H10V14H14V6L8 2Z"
+                    fill="currentColor"
+                  />
                 </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-red-500">
-                  <rect x="2" y="2" width="12" height="12" rx="2" fill="currentColor"/>
-                  <text x="8" y="11" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle">R</text>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="text-red-500"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="12"
+                    height="12"
+                    rx="2"
+                    fill="currentColor"
+                  />
+                  <text
+                    x="8"
+                    y="11"
+                    fontSize="10"
+                    fontWeight="bold"
+                    fill="white"
+                    textAnchor="middle"
+                  >
+                    R
+                  </text>
                 </svg>
               </div>
             </div>
@@ -95,7 +156,9 @@ export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose A
                         height="16"
                         viewBox="0 0 16 16"
                         fill="none"
-                        className={q.answer === true ? "text-white" : "text-success"}
+                        className={
+                          q.answer === true ? "text-white" : "text-success"
+                        }
                       >
                         <path
                           d="M13.3333 4L6 11.3333L2.66667 8"
@@ -120,7 +183,9 @@ export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose A
                         height="16"
                         viewBox="0 0 16 16"
                         fill="none"
-                        className={q.answer === false ? "text-white" : "text-text-muted"}
+                        className={
+                          q.answer === false ? "text-white" : "text-text-muted"
+                        }
                       >
                         <circle
                           cx="8"
