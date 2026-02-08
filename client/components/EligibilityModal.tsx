@@ -23,11 +23,14 @@ export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose A
   const [questions, setQuestions] = useState<EligibilityQuestion[]>([
     { id: "claims", question: "Do you have any open claims?", answer: null },
     { id: "business", question: "Do you run a business out of your home?", answer: null },
-    { id: "pets", question: "Do you have any pets?", answer: null },
-    { id: "livestock", question: "Do you have any livestock or hooved animals on the property?", answer: null },
-    { id: "pool", question: "Do you have a pool?", answer: null },
-    { id: "trampoline", question: "Do you have a trampoline?", answer: null },
+    { id: "pets", question: "Pets", answer: true },
+    { id: "petTypes", question: "What type of pets?", answer: true },
+    { id: "breeds", question: "Breeds", answer: true },
+    { id: "biteHistory", question: "Bite history", answer: false },
   ]);
+
+  const [petTypes, setPetTypes] = useState("Dog, Cat");
+  const [breeds, setBreeds] = useState("Other");
 
   const handleAnswer = (id: string, answer: boolean) => {
     setQuestions(prev =>
