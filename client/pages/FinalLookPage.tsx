@@ -70,8 +70,15 @@ export default function FinalLookPage() {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header Bar */}
         <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
-          <button className="w-6 h-6 flex items-center justify-center">
-            <div className="w-5 h-5 border-2 border-neutral-gray-30 rounded" />
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
+          >
+            {sidebarOpen ? (
+              <div className="w-5 h-5 border-2 border-neutral-gray-30 rounded" />
+            ) : (
+              <Menu className="w-5 h-5 text-neutral-gray-60" />
+            )}
           </button>
           <h1 className="text-lg font-semibold -tracking-[0.3px]">Elliot McMahon</h1>
           <Badge className="bg-violet text-white border-none rounded px-2.5 py-0.5 text-xs font-semibold">
