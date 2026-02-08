@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ChevronRight,
   Home,
@@ -28,6 +29,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("policies");
+  const navigate = useNavigate();
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
@@ -89,7 +91,10 @@ export default function Index() {
             Schedule follow-up
             <ChevronRight className="w-4 h-4 ml-1 rotate-90" />
           </Button>
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold">
+          <Button
+            onClick={() => navigate('/comparison')}
+            className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold"
+          >
             Service
           </Button>
         </div>
