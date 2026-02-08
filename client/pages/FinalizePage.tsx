@@ -143,7 +143,7 @@ export default function FinalizePage() {
               {/* Primary Home Header */}
               <div>
                 <h2 className="font-bold text-xl mb-1">Primary home</h2>
-                <p className="text-base text-text-muted">2000 Melrose Ave, Columbus, Ohio</p>
+                <p className="text-base text-text-muted">614 Basswood Dr, Spring, TX, 77386-1264</p>
               </div>
 
               {/* Previous Policy Section */}
@@ -163,7 +163,7 @@ export default function FinalizePage() {
                         <h4 className="font-semibold">Primary home</h4>
                       </div>
                       <p className="text-sm text-text-muted mb-4">
-                        2000 Melrose Ave, Columbus, OH 43215
+                        614 Basswood Dr, Spring, TX, 77386-1264
                       </p>
 
                       {/* Travelers Logo and Policy Number */}
