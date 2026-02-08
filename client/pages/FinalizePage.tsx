@@ -24,6 +24,7 @@ import { Label } from "@/components/ui/label";
 
 export default function FinalizePage() {
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedSection, setSelectedSection] = useState("home");
   const [policyChecked, setPolicyChecked] = useState(false);
   const [selectedOutcome, setSelectedOutcome] = useState("");
@@ -31,7 +32,7 @@ export default function FinalizePage() {
   return (
     <div className="flex h-screen bg-white overflow-hidden">
       {/* Left Navigation Sidebar */}
-      <div className="w-[60px] bg-gradient-to-b from-[#330E80] to-[#156EEA] flex-shrink-0 flex flex-col items-center py-4">
+      <div className={`${sidebarOpen ? 'w-[60px]' : 'hidden'} bg-gradient-to-b from-[#330E80] to-[#156EEA] flex-shrink-0 flex flex-col items-center py-4`}>
         {/* Logo */}
         <div className="mb-8">
           <svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
