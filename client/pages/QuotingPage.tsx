@@ -229,18 +229,6 @@ export default function QuotingPage() {
                 )}
               </div>
 
-              {/* Second Home Section */}
-              <div className="border-b border-neutral-gray-10 pb-8">
-                <div className="flex items-center gap-3">
-                  <Checkbox 
-                    checked={secondHomeChecked}
-                    onCheckedChange={(checked) => setSecondHomeChecked(checked as boolean)}
-                    className="w-5 h-5"
-                  />
-                  <h3 className="font-bold text-xl">Second home</h3>
-                </div>
-              </div>
-
               {/* Vehicles Section */}
               <div className="space-y-6">
                 <h3 className="font-bold text-xl">Vehicles</h3>
