@@ -69,7 +69,7 @@ export default function ComparisonPage() {
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Header Bar */}
+        {/* Top Header Bar with User Info and Breadcrumb */}
         <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -94,16 +94,8 @@ export default function ComparisonPage() {
           <Badge className="bg-violet text-white border-none rounded px-2.5 py-0.5 text-xs font-semibold">
             Roundpoint
           </Badge>
-          <div className="flex items-center gap-1 ml-2">
-            <span className="text-sm text-text-muted">Lead: 676233</span>
-            <ChevronDown className="w-4 h-4 text-text-muted" />
-          </div>
-          <div className="flex-1" />
-          <span className="text-sm text-text-muted">Re-shop in progress</span>
-          <Button variant="outline" className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold">
-            Schedule follow-up
-            <ChevronDown className="w-4 h-4 ml-1" />
-          </Button>
+          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
+          <TopBreadcrumb currentStep="quoting" />
         </div>
 
         {/* Main Content Grid */}
