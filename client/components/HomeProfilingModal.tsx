@@ -11,6 +11,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 interface HomeProfilingData {
+  homeType: string;
+  sqft: string;
+  stories: string;
+  bedrooms: string;
+  bathrooms: string;
+  yearBuilt: string;
+  garageType: string;
+  construction: string;
+  basement: string;
+  exterior: string;
+  otherStructures: string;
+  peopleOnDeed: string;
   roofYear: string;
   roofMaterial: string;
   roofShape: string;
