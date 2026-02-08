@@ -172,6 +172,62 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   );
 }
 
+function ActivitySummarySection() {
+  return (
+    <Card className="border-neutral-gray-30 rounded-lg p-6 bg-gradient-to-br from-blue-50 to-blue-100">
+      <div className="flex items-start gap-3 mb-4">
+        <Clock className="w-6 h-6 flex-shrink-0 mt-1" />
+        <div className="flex-1">
+          <div className="mb-3">
+            <span className="font-bold text-lg">Last interaction:</span>
+            <span className="text-lg ml-2">call 655 d ago, email 14 days ago</span>
+          </div>
+
+          <div className="mb-3">
+            <span className="font-bold text-lg">Primary Intent:</span>
+            <span className="text-lg ml-2">Price increase at renewal</span>
+          </div>
+
+          <div className="mb-4">
+            <span className="font-bold text-lg">Re-shop opportunity:</span>
+            <span className="text-lg ml-2">Very high because of never done</span>
+          </div>
+
+          <div className="mb-4">
+            <h4 className="font-bold text-lg mb-3">Main activities:</h4>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2">
+                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
+                <span className="text-base">Renewal notice sent(+38%)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
+                <span className="text-base">Online quote started, not completed</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
+                <span className="text-base">AI assistant gauged shopping intent and scheduled cb</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <Button
+              variant="outline"
+              className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-base"
+            >
+              AI tickets summary
+            </Button>
+            <button className="w-full text-action-secondary hover:underline font-semibold text-base">
+              Open last ticket
+            </button>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
 function CustomerInfoSection() {
   return (
     <Card className="border-neutral-gray-30 rounded-lg overflow-hidden">
