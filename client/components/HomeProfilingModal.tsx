@@ -462,9 +462,12 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                   disabled={formData.securitySystem === "No"}
                 >
-                  <option value="Central">Central</option>
-                  <option value="Local">Local</option>
-                  <option value="Smart">Smart</option>
+                  <option value="Central">Central Station Monitoring</option>
+                  <option value="Local">Local Alarm</option>
+                  <option value="Smart">Smart Home System</option>
+                  <option value="Motion sensor">Motion Sensor</option>
+                  <option value="Door/window sensor">Door/Window Sensor</option>
+                  <option value="CCTV">CCTV/Camera System</option>
                 </select>
               </div>
               <div>
