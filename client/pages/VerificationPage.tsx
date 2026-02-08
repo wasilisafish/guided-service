@@ -371,26 +371,6 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   );
 }
 
-function SidebarSection({ 
-  title, 
-  isExpanded, 
-  onToggle 
-}: { 
-  title: string; 
-  isExpanded: boolean; 
-  onToggle: () => void;
-}) {
-  return (
-    <button
-      onClick={onToggle}
-      className="w-full flex items-center justify-between p-3 hover:bg-neutral-gray-5 rounded transition-colors"
-    >
-      <span className="font-semibold text-sm">{title}</span>
-      <Plus className={`w-5 h-5 transition-transform ${isExpanded ? 'rotate-45' : ''}`} />
-    </button>
-  );
-}
-
 function PersonCard({
   name,
   badge,
