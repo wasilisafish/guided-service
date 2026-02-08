@@ -142,7 +142,7 @@ export default function QuotingPage() {
 
                 {primaryHomeChecked && (
                   <div className="ml-8 space-y-4">
-                    <p className="text-base">2000 Melrose Ave, Columbus, OH</p>
+                    <p className="text-base">614 Basswood Dr, Spring, TX, 77386-1264</p>
                     
                     <div className="flex flex-col gap-3 text-base">
                       <div className="flex items-center gap-3">
