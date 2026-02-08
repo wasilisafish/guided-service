@@ -359,21 +359,16 @@ export default function VerificationPage() {
           </div>
         </div>
 
-        {/* Bottom Action Bar */}
-        <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 gap-3">
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
-            Finalize
-          </Button>
-          <Button
-            onClick={() => navigate('/quoting')}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
-          >
-            Request quotes
-          </Button>
-          <button className="w-10 h-10 rounded-full bg-neutral-gray-10 flex items-center justify-center hover:bg-neutral-gray-30 transition-colors">
-            <HelpCircle className="w-5 h-5 text-text-muted" />
-          </button>
-        </div>
+        {/* Bottom Navigation */}
+        <BottomNavigation
+          buttons={[
+            { label: "Finalize" },
+            {
+              label: "Request quotes",
+              onClick: () => navigate('/quoting')
+            }
+          ]}
+        />
       </div>
     </div>
   );
