@@ -30,21 +30,9 @@ import { HomeProfilingModal } from "@/components/HomeProfilingModal";
 export default function VerificationPage() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [expandedSections, setExpandedSections] = useState({
-    customerProfile: false,
-    homesProfiling: true,
-    vehiclesDrivers: false,
-  });
   const [eligibilityModalOpen, setEligibilityModalOpen] = useState(false);
   const [peopleModalOpen, setPeopleModalOpen] = useState(false);
   const [homeProfilingModalOpen, setHomeProfilingModalOpen] = useState(false);
-
-  const toggleSection = (section: keyof typeof expandedSections) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
