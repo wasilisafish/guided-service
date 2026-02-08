@@ -495,9 +495,13 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                   disabled={formData.smokeDetector === "No"}
                 >
-                  <option value="Smart">Smart</option>
-                  <option value="Battery">Battery</option>
-                  <option value="Hardwired">Hardwired</option>
+                  <option value="Smart">Smart/Connected Detector</option>
+                  <option value="Battery">Battery-Operated</option>
+                  <option value="Hardwired">Hardwired with Battery Backup</option>
+                  <option value="Interconnected">Interconnected Detectors</option>
+                  <option value="Photoelectric">Photoelectric</option>
+                  <option value="Ionization">Ionization</option>
+                  <option value="Dual sensor">Dual Sensor</option>
                 </select>
               </div>
             </div>
