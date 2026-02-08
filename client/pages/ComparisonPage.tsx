@@ -346,9 +346,9 @@ export default function ComparisonPage() {
                 <RiskFactorItem
                   label="Heating Source"
                   value="Furnace"
-                  risk="Low Risk"
+                  risk="Moderate Risk"
                   impact="High Impact"
-                  isLowRisk
+                  isMediumRisk
                 />
               </div>
             </div>
