@@ -179,7 +179,7 @@ export default function ComparisonPage() {
                   </Card>
 
                   {/* Current Policy */}
-                  <Card className="border-neutral-gray-30 rounded-lg p-6">
+                  <Card className="border-neutral-gray-30 rounded-lg p-6" style={{ marginLeft: '1px' }}>
                     <h3 className="font-bold text-lg mb-4">Current policy</h3>
                     
                     <div className="flex items-start gap-3 mb-6">
