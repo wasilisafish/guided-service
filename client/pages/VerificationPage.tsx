@@ -188,15 +188,15 @@ export default function VerificationPage() {
                   </div>
 
                   <p className="text-base">
-                    This home is <span className="font-semibold">single family detached</span> · 2856 sqft · 2 stories · 1.5ba · 2bds · built in 2000 · attached 2-cars garage
+                    This home is <span className="font-semibold">single family detached</span> · 2457 sqft · 1 stories · 2ba · built in 1970 · detached 2-cars garage
                   </p>
 
                   <p className="text-base">
-                    <span className="font-semibold">Home construction is</span> frame · 75% finished basement · Brick Veneer or Brick on Frame · no other structures
+                    <span className="font-semibold">Home construction is</span> masonry · no basement · Brick Veneer or Brick on Frame · no other structures
                   </p>
 
                   <p className="text-base">
-                    <span className="font-semibold">On the deed</span> Elliot McMahon · Jennifer McMahon
+                    <span className="font-semibold">On the deed</span> Wesley Haney
                   </p>
 
                   {/* Eligibility Card */}
