@@ -14,7 +14,6 @@ import {
   Grid3X3,
   Shield,
   Copy,
-  Plus,
   Edit,
   AlertTriangle,
   ExternalLink,
