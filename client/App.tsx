@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import ComparisonPage from "./pages/ComparisonPage";
 import VerificationPage from "./pages/VerificationPage";
 import QuotingPage from "./pages/QuotingPage";
+import QuoteRequestsPage from "./pages/QuoteRequestsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/comparison" element={<ComparisonPage />} />
           <Route path="/verification" element={<VerificationPage />} />
           <Route path="/quoting" element={<QuotingPage />} />
+          <Route path="/quote-requests" element={<QuoteRequestsPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
