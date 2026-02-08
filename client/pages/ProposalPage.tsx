@@ -284,7 +284,10 @@ export default function ProposalPage() {
 
         {/* Bottom Action Bar */}
         <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 gap-3">
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
+          <Button
+            onClick={() => navigate('/finalize')}
+            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
+          >
             Finalize
           </Button>
           <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
