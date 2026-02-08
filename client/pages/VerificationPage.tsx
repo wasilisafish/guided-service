@@ -35,6 +35,9 @@ export default function VerificationPage() {
     homesProfiling: true,
     vehiclesDrivers: false,
   });
+  const [eligibilityModalOpen, setEligibilityModalOpen] = useState(false);
+  const [peopleModalOpen, setPeopleModalOpen] = useState(false);
+  const [homeProfilingModalOpen, setHomeProfilingModalOpen] = useState(false);
 
   const toggleSection = (section: keyof typeof expandedSections) => {
     setExpandedSections(prev => ({
