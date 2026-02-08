@@ -294,8 +294,8 @@ export default function QuoteRequestsPage() {
                   className="w-full flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
                 >
                   {notEligibleExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                  <span className="font-semibold text-base">Not eligible</span>
-                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm">5</Badge>
+                  <span className="font-semibold text-base">Not eligible (?)</span>
+                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm">7</Badge>
                 </button>
 
                 {notEligibleExpanded && (
