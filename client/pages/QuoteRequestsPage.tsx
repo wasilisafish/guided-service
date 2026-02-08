@@ -112,77 +112,69 @@ export default function QuoteRequestsPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="max-w-[1400px] mx-auto p-8 space-y-6">
+        <div className="flex-1 overflow-y-auto bg-white">
+          <div className="max-w-[1600px] mx-auto p-6">
             {/* Header Section */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <h2 className="font-bold text-xl">Quote requests</h2>
-                <span className="text-sm text-text-muted">10/12/2024 | 09:12 am</span>
+            <div className="mb-4">
+              <div className="flex items-center gap-3 mb-3">
+                <Home className="w-5 h-5" />
+                <h3 className="font-bold text-base">Primary home</h3>
+                <Badge variant="outline" className="text-xs rounded-sm border-neutral-gray-30">12</Badge>
+                <span className="text-sm">4-64 Beachcomber Ln, Lanark, IL, 61046-9301</span>
               </div>
-              <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
-                Get quotes
-              </Button>
-            </div>
 
-            {/* Primary Home Section */}
-            <div className="flex items-center gap-3">
-              <Home className="w-5 h-5" />
-              <h3 className="font-bold text-lg">Primary home</h3>
-              <Badge variant="outline" className="text-xs">12</Badge>
-              <span className="text-base">4-64 Beachcomber Ln, Lanark, IL, 61046-9301</span>
-            </div>
-
-            {/* Coverage Level */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <h4 className="font-bold text-base">Coverage level: Match current insurance</h4>
-                <button>
-                  <Info className="w-4 h-4 text-text-muted" />
-                </button>
-              </div>
-              <div className="flex items-center gap-6">
-                <span className="text-sm text-text-muted">Quoting parameters:</span>
-                <div className="flex items-center gap-4">
-                  <span className="text-sm">
-                    <span className="font-semibold">Dwelling</span> $230,000
-                  </span>
-                  <span className="text-sm">
-                    <span className="font-semibold">Deductible</span> $1,000
-                  </span>
+              {/* Coverage Level Header */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <h4 className="font-bold text-base">Coverage level: Match current insurance</h4>
                   <button>
-                    <Edit className="w-4 h-4 text-action-secondary" />
+                    <Info className="w-4 h-4 text-text-muted" />
                   </button>
+                </div>
+                <div className="flex items-center gap-4 text-sm text-text-muted">
+                  <span>Quoting parameters:</span>
+                  <div className="flex items-center gap-4">
+                    <span>
+                      <span className="font-semibold text-text">Dwelling</span> $230,000
+                    </span>
+                    <span>
+                      <span className="font-semibold text-text">Deductible</span> $1,000
+                    </span>
+                    <button>
+                      <Edit className="w-4 h-4 text-action-secondary" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Quotes Table Header */}
+            {/* Quotes Table */}
             <div className="border border-neutral-gray-30 rounded-lg overflow-hidden">
-              <div className="bg-neutral-gray-5 grid grid-cols-[200px_200px_120px_80px_120px_120px_180px_140px] gap-4 px-4 py-3 text-sm font-semibold border-b border-neutral-gray-30">
-                <div>Carrier</div>
-                <div>Carrier response</div>
-                <div>Premium</div>
+              {/* Table Header */}
+              <div className="bg-neutral-gray-5 grid grid-cols-[1fr_1fr_0.8fr_0.5fr_0.8fr_0.7fr_1.2fr_0.8fr] gap-3 px-4 py-3 text-sm border-b border-neutral-gray-30">
+                <div className="font-semibold">Carrier</div>
+                <div className="font-semibold">Carrier response</div>
+                <div className="font-semibold">Premium</div>
                 <div className="flex items-center gap-1">
                   <button 
-                    onClick={() => setShowYearly(!showYearly)}
-                    className={`px-2 py-0.5 rounded ${showYearly ? 'bg-action-primary text-white' : 'text-text-muted'}`}
+                    onClick={() => setShowYearly(true)}
+                    className={`px-2 py-0.5 rounded text-xs font-medium transition-colors ${showYearly ? 'bg-action-primary text-white' : 'text-text-muted hover:bg-neutral-gray-10'}`}
                   >
                     yr
                   </button>
                   <button 
-                    onClick={() => setShowYearly(!showYearly)}
-                    className={`px-2 py-0.5 rounded ${!showYearly ? 'bg-action-primary text-white' : 'text-text-muted'}`}
+                    onClick={() => setShowYearly(false)}
+                    className={`px-2 py-0.5 rounded text-xs font-medium transition-colors ${!showYearly ? 'bg-action-primary text-white' : 'text-text-muted hover:bg-neutral-gray-10'}`}
                   >
                     mo
                   </button>
                 </div>
-                <div>Coverage</div>
-                <div>Deductible</div>
-                <div className="flex items-center gap-2">
-                  <span>Savings</span>
+                <div className="font-semibold">Coverage</div>
+                <div className="font-semibold">Deductible</div>
+                <div className="flex items-center gap-1.5">
+                  <span className="font-normal">Savings</span>
                   <span className="font-bold">Actual</span>
-                  <span>| Predicted</span>
+                  <span className="font-normal">| Predicted</span>
                   <button>
                     <Info className="w-4 h-4 text-text-muted" />
                   </button>
@@ -194,11 +186,11 @@ export default function QuoteRequestsPage() {
               <div>
                 <button
                   onClick={() => setEligibleExpanded(!eligibleExpanded)}
-                  className="w-full flex items-center gap-2 px-4 py-3 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
+                  className="w-full flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
                 >
                   {eligibleExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                  <span className="font-semibold">Eligible and partly eligible</span>
-                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs">5</Badge>
+                  <span className="font-semibold text-base">Eligible and partly eligible</span>
+                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm">5</Badge>
                 </button>
 
                 {eligibleExpanded && (
@@ -214,7 +206,7 @@ export default function QuoteRequestsPage() {
                       hasExternalLink
                     />
                     <QuoteRow
-                      carrier="UPCIC"
+                      carrier="UPC"
                       carrierSubtext="INSURANCE"
                       warning="Manual quote required"
                       premium="$1,600"
@@ -233,6 +225,7 @@ export default function QuoteRequestsPage() {
                       savingsActual="$240"
                       savingsPredicted="$367"
                       actionButton="QuickBind"
+                      highlightRow
                     />
                     <QuoteRow
                       carrier="Safeco Insurance"
@@ -280,11 +273,11 @@ export default function QuoteRequestsPage() {
               <div>
                 <button
                   onClick={() => setNotEligibleExpanded(!notEligibleExpanded)}
-                  className="w-full flex items-center gap-2 px-4 py-3 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
+                  className="w-full flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
                 >
                   {notEligibleExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                  <span className="font-semibold">Not eligible</span>
-                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs">5</Badge>
+                  <span className="font-semibold text-base">Not eligible</span>
+                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm">5</Badge>
                 </button>
 
                 {notEligibleExpanded && (
@@ -348,6 +341,7 @@ function QuoteRow({
   actionButton,
   hasExternalLink,
   showDash,
+  highlightRow,
 }: {
   carrier?: string;
   carrierSubtext?: string;
@@ -364,26 +358,31 @@ function QuoteRow({
   actionButton?: string;
   hasExternalLink?: boolean;
   showDash?: boolean;
+  highlightRow?: boolean;
 }) {
   return (
-    <div className="grid grid-cols-[200px_200px_120px_80px_120px_120px_180px_140px] gap-4 px-4 py-4 items-center hover:bg-neutral-gray-5 transition-colors">
+    <div className={`grid grid-cols-[1fr_1fr_0.8fr_0.5fr_0.8fr_0.7fr_1.2fr_0.8fr] gap-3 px-4 py-3.5 items-center hover:bg-neutral-gray-5 transition-colors ${highlightRow ? 'bg-blue-50/50' : ''}`}>
       {/* Carrier */}
       <div>
-        <div className="font-bold text-sm">{carrier}</div>
-        {carrierSubtext && <div className="text-xs text-text-muted">{carrierSubtext}</div>}
+        {carrier && (
+          <>
+            <div className="font-bold text-sm">{carrier}</div>
+            {carrierSubtext && <div className="text-xs text-text-muted uppercase">{carrierSubtext}</div>}
+          </>
+        )}
       </div>
 
       {/* Carrier Response */}
       <div className="flex items-center gap-2">
         {error && (
           <>
-            <XCircle className="w-4 h-4 text-[#EA4D72]" />
+            <XCircle className="w-4 h-4 text-[#EA4D72] flex-shrink-0" />
             <span className="text-sm text-[#EA4D72]">{error}</span>
           </>
         )}
         {warning && !error && (
           <>
-            <AlertCircle className={`w-4 h-4 ${warningType === 'error' ? 'text-warning' : 'text-blue-600'}`} />
+            <AlertCircle className={`w-4 h-4 flex-shrink-0 ${warningType === 'error' ? 'text-warning' : 'text-blue-600'}`} />
             <span className={`text-sm ${warningType === 'error' ? 'text-warning' : 'text-blue-600'}`}>{warning}</span>
           </>
         )}
@@ -430,12 +429,12 @@ function QuoteRow({
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-end gap-2">
         {actionButton && (
           <Button 
             variant="outline" 
             size="sm"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-xs"
+            className="border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-sm h-8 px-3"
           >
             {actionButton}
           </Button>
