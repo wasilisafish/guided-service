@@ -328,6 +328,15 @@ export default function ComparisonPage() {
             </div>
           </div>
         </div>
+
+        {/* Bottom Navigation */}
+        <BottomNavigation
+          primaryButton={{
+            label: "Verify details",
+            onClick: () => navigate('/verification')
+          }}
+          showHelpButton={false}
+        />
       </div>
     </div>
   );
