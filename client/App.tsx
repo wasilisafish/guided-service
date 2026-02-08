@@ -11,6 +11,7 @@ import ComparisonPage from "./pages/ComparisonPage";
 import VerificationPage from "./pages/VerificationPage";
 import QuotingPage from "./pages/QuotingPage";
 import QuoteRequestsPage from "./pages/QuoteRequestsPage";
+import ProposalPage from "./pages/ProposalPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/verification" element={<VerificationPage />} />
           <Route path="/quoting" element={<QuotingPage />} />
           <Route path="/quote-requests" element={<QuoteRequestsPage />} />
+          <Route path="/proposal" element={<ProposalPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
