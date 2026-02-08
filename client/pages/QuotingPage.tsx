@@ -358,19 +358,24 @@ export default function QuotingPage() {
           </div>
         </div>
 
-        {/* Bottom Action Bar */}
-        <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 gap-3">
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
-            Finalize
-            <ChevronDown className="w-4 h-4 ml-1" />
-          </Button>
-          <Button
-            onClick={() => navigate('/quote-requests')}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
-          >
-            Request quotes
-          </Button>
-        </div>
+        {/* Bottom Navigation */}
+        <BottomNavigation
+          buttons={[
+            {
+              children: (
+                <>
+                  Finalize
+                  <ChevronDown className="w-4 h-4 ml-1" />
+                </>
+              )
+            },
+            {
+              label: "Request quotes",
+              onClick: () => navigate('/quote-requests')
+            }
+          ]}
+          showHelpButton={false}
+        />
       </div>
     </div>
   );
