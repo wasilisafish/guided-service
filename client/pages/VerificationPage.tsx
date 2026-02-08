@@ -168,7 +168,7 @@ export default function VerificationPage() {
                   </button>
                 </div>
 
-                <div className="space-y-4">
+                <div className="grid grid-cols-3 gap-4">
                   <div className="p-4 border border-neutral-gray-30 rounded-lg">
                     <PersonCard
                       name="Elliot McMahon"
