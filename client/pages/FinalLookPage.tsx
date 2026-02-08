@@ -85,7 +85,7 @@ export default function FinalLookPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2 py-0.5 text-xs font-semibold h-6">
+          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
