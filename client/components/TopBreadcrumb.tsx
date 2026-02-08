@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -6,12 +7,14 @@ interface TopBreadcrumbProps {
 }
 
 export function TopBreadcrumb({ currentStep }: TopBreadcrumbProps) {
+  const navigate = useNavigate();
+
   const steps = [
-    { id: "establish-rapport", label: "Establish rapport" },
-    { id: "data-verification", label: "Data verification" },
-    { id: "quoting", label: "Quoting" },
-    { id: "proposal", label: "Proposal" },
-    { id: "finalize", label: "Finalize" },
+    { id: "establish-rapport", label: "Establish rapport", path: "/" },
+    { id: "data-verification", label: "Data verification", path: "/verification" },
+    { id: "quoting", label: "Quoting", path: "/quoting" },
+    { id: "proposal", label: "Proposal", path: "/proposal" },
+    { id: "finalize", label: "Finalize", path: "/finalize" },
   ];
 
   return (
@@ -23,15 +26,16 @@ export function TopBreadcrumb({ currentStep }: TopBreadcrumbProps) {
       {steps.map((step, index) => (
         <div key={step.id} className="flex items-center gap-3">
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <span
-            className={`text-sm ${
+          <button
+            onClick={() => navigate(step.path)}
+            className={`text-sm transition-colors ${
               currentStep === step.id
-                ? "font-semibold"
-                : "text-text-muted"
+                ? "font-semibold text-text"
+                : "text-text-muted hover:text-text"
             }`}
           >
             {step.label}
-          </span>
+          </button>
         </div>
       ))}
       <div className="flex-1" />
