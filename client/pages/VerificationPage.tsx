@@ -352,7 +352,10 @@ export default function VerificationPage() {
           <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
             Finalize
           </Button>
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
+          <Button
+            onClick={() => navigate('/quoting')}
+            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
+          >
             Request quotes
           </Button>
           <button className="w-10 h-10 rounded-full bg-neutral-gray-10 flex items-center justify-center hover:bg-neutral-gray-30 transition-colors">
