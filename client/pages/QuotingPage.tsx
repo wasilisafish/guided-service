@@ -36,7 +36,6 @@ export default function QuotingPage() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [primaryHomeChecked, setPrimaryHomeChecked] = useState(true);
-  const [secondHomeChecked, setSecondHomeChecked] = useState(false);
   const [vehicleChecked, setVehicleChecked] = useState(true);
   const [selectedPeople, setSelectedPeople] = useState("elliot-jessica");
   const [policyType, setPolicyType] = useState("ho6");
