@@ -31,7 +31,7 @@ export default function QuoteRequestsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showYearly, setShowYearly] = useState(true);
   const [eligibleExpanded, setEligibleExpanded] = useState(true);
-  const [notEligibleExpanded, setNotEligibleExpanded] = useState(true);
+  const [notEligibleExpanded, setNotEligibleExpanded] = useState(false);
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
