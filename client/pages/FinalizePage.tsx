@@ -456,15 +456,16 @@ export default function FinalizePage() {
           </div>
         </div>
 
-        {/* Bottom Action Bar */}
-        <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 gap-3">
-          <Button
-            onClick={() => navigate('/final-look')}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
-          >
-            Proceed
-          </Button>
-        </div>
+        {/* Bottom Navigation */}
+        <BottomNavigation
+          buttons={[
+            {
+              label: "Proceed",
+              onClick: () => navigate('/final-look')
+            }
+          ]}
+          showHelpButton={false}
+        />
       </div>
     </div>
   );
