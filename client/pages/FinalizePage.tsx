@@ -22,6 +22,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { BottomNavigation } from "@/components/BottomNavigation";
+import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 
 export default function FinalizePage() {
   const navigate = useNavigate();
