@@ -98,7 +98,12 @@ export default function VerificationPage() {
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
           <span className="text-sm text-text-muted">Establish rapport</span>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <span className="text-sm font-semibold">Data verification</span>
+          <button
+            onClick={() => navigate('/verification')}
+            className="text-sm font-semibold hover:text-action-primary transition-colors cursor-pointer"
+          >
+            Data verification
+          </button>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
           <span className="text-sm text-text-muted">Quoting</span>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
