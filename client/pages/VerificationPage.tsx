@@ -168,34 +168,40 @@ export default function VerificationPage() {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4">
-                  <PersonCard 
-                    name="Elliot McMahon"
-                    badge="Named insured"
-                    badgeColor="bg-azure-95 text-azure-50"
-                    gender="Male"
-                    dob="09/12/1990"
-                    phone="(876) 456-8762"
-                    email="elliot@gmail.com"
-                  />
-                  <PersonCard 
-                    name="Jennifer McMahon"
-                    badge="On the deed"
-                    badgeColor="bg-blue-50 text-blue-600"
-                    gender="Female"
-                    dob="02/02/1990"
-                    phone="(876) 334-8762"
-                    email="jennmac@gmail.com"
-                  />
-                  <PersonCard 
-                    name="Kris McMahon"
-                    badge="On the deed"
-                    badgeColor="bg-blue-50 text-blue-600"
-                    gender="Female"
-                    dob="02/20/1990"
-                    phone="(876) 334-8762"
-                    email="jenmac@g.mail.com"
-                  />
+                <div className="space-y-4">
+                  <div className="p-4 border border-neutral-gray-30 rounded-lg">
+                    <PersonCard
+                      name="Elliot McMahon"
+                      badge="Named insured"
+                      badgeColor="bg-azure-95 text-azure-50"
+                      gender="Male"
+                      dob="09/12/1990"
+                      phone="(876) 456-8762"
+                      email="elliot@gmail.com"
+                    />
+                  </div>
+                  <div className="p-4 border border-neutral-gray-30 rounded-lg">
+                    <PersonCard
+                      name="Jennifer McMahon"
+                      badge="On the deed"
+                      badgeColor="bg-blue-50 text-blue-600"
+                      gender="Female"
+                      dob="02/02/1990"
+                      phone="(876) 334-8762"
+                      email="jennmac@gmail.com"
+                    />
+                  </div>
+                  <div className="p-4 border border-neutral-gray-30 rounded-lg">
+                    <PersonCard
+                      name="Kris McMahon"
+                      badge="On the deed"
+                      badgeColor="bg-blue-50 text-blue-600"
+                      gender="Female"
+                      dob="02/20/1990"
+                      phone="(876) 334-8762"
+                      email="jenmac@g.mail.com"
+                    />
+                  </div>
                 </div>
               </div>
 
