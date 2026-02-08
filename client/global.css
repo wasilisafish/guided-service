@@ -106,15 +106,15 @@
 
   body {
     @apply bg-background text-foreground;
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "tnum", "lnum";
   }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th, div) {
     overflow-wrap: anywhere;
     word-break: break-word;
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "tnum", "lnum";
   }
 
   pre,
@@ -125,7 +125,7 @@
 
   /* Ensure all numeric values maintain consistent sizing */
   :where([class*="text-"]) {
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "tnum", "lnum";
   }
 }
