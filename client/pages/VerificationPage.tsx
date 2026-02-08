@@ -242,7 +242,7 @@ export default function VerificationPage() {
                   <Card className="border-neutral-gray-30 rounded-lg p-4 bg-[#F0F9F4]">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="font-bold text-base">Eligibility</h4>
-                      <button>
+                      <button onClick={() => setEligibilityModalOpen(true)}>
                         <Edit className="w-5 h-5 text-action-secondary" />
                       </button>
                     </div>
