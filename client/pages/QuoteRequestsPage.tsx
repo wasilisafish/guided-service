@@ -190,7 +190,7 @@ export default function QuoteRequestsPage() {
                 >
                   {eligibleExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                   <span className="font-semibold text-base">Eligible and partly eligible</span>
-                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm">5</Badge>
+                  <Badge variant="secondary" className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm">14</Badge>
                 </button>
 
                 {eligibleExpanded && (
