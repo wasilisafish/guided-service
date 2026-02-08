@@ -96,6 +96,151 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
 
         {/* Content */}
         <div className="px-6 py-6 space-y-6 max-h-[600px] overflow-y-auto">
+          {/* Home Details Section */}
+          <div>
+            <h3 className="font-bold text-base mb-4">Home Details</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="homeType" className="text-sm font-semibold mb-2 block">
+                  Home Type
+                </Label>
+                <Input
+                  id="homeType"
+                  value={formData.homeType}
+                  onChange={(e) => handleChange("homeType", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <Label htmlFor="sqft" className="text-sm font-semibold mb-2 block">
+                  Square Footage
+                </Label>
+                <Input
+                  id="sqft"
+                  type="number"
+                  value={formData.sqft}
+                  onChange={(e) => handleChange("sqft", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <Label htmlFor="stories" className="text-sm font-semibold mb-2 block">
+                  Stories
+                </Label>
+                <Input
+                  id="stories"
+                  type="number"
+                  value={formData.stories}
+                  onChange={(e) => handleChange("stories", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <Label htmlFor="bedrooms" className="text-sm font-semibold mb-2 block">
+                  Bedrooms
+                </Label>
+                <Input
+                  id="bedrooms"
+                  type="number"
+                  value={formData.bedrooms}
+                  onChange={(e) => handleChange("bedrooms", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <Label htmlFor="bathrooms" className="text-sm font-semibold mb-2 block">
+                  Bathrooms
+                </Label>
+                <Input
+                  id="bathrooms"
+                  type="number"
+                  step="0.5"
+                  value={formData.bathrooms}
+                  onChange={(e) => handleChange("bathrooms", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <Label htmlFor="yearBuilt" className="text-sm font-semibold mb-2 block">
+                  Year Built
+                </Label>
+                <Input
+                  id="yearBuilt"
+                  type="number"
+                  value={formData.yearBuilt}
+                  onChange={(e) => handleChange("yearBuilt", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div className="col-span-2">
+                <Label htmlFor="garageType" className="text-sm font-semibold mb-2 block">
+                  Garage Type
+                </Label>
+                <Input
+                  id="garageType"
+                  value={formData.garageType}
+                  onChange={(e) => handleChange("garageType", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div className="col-span-2">
+                <Label htmlFor="construction" className="text-sm font-semibold mb-2 block">
+                  Construction Material
+                </Label>
+                <Input
+                  id="construction"
+                  value={formData.construction}
+                  onChange={(e) => handleChange("construction", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div className="col-span-2">
+                <Label htmlFor="basement" className="text-sm font-semibold mb-2 block">
+                  Basement
+                </Label>
+                <Input
+                  id="basement"
+                  value={formData.basement}
+                  onChange={(e) => handleChange("basement", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div className="col-span-2">
+                <Label htmlFor="exterior" className="text-sm font-semibold mb-2 block">
+                  Exterior
+                </Label>
+                <Input
+                  id="exterior"
+                  value={formData.exterior}
+                  onChange={(e) => handleChange("exterior", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div className="col-span-2">
+                <Label htmlFor="otherStructures" className="text-sm font-semibold mb-2 block">
+                  Other Structures
+                </Label>
+                <Input
+                  id="otherStructures"
+                  value={formData.otherStructures}
+                  onChange={(e) => handleChange("otherStructures", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+              <div className="col-span-2">
+                <Label htmlFor="peopleOnDeed" className="text-sm font-semibold mb-2 block">
+                  On the Deed
+                </Label>
+                <Input
+                  id="peopleOnDeed"
+                  value={formData.peopleOnDeed}
+                  onChange={(e) => handleChange("peopleOnDeed", e.target.value)}
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </div>
+
           {/* Roof Section */}
           <div>
             <h3 className="font-bold text-base mb-4 flex items-center gap-2">
