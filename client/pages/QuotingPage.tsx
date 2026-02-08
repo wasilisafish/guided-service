@@ -38,6 +38,8 @@ export default function QuotingPage() {
   const [primaryHomeChecked, setPrimaryHomeChecked] = useState(true);
   const [secondHomeChecked, setSecondHomeChecked] = useState(false);
   const [vehicleChecked, setVehicleChecked] = useState(true);
+  const [selectedPeople, setSelectedPeople] = useState("elliot-jessica");
+  const [policyType, setPolicyType] = useState("ho6");
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
