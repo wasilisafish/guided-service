@@ -382,6 +382,21 @@ export default function VerificationPage() {
           ]}
         />
       </div>
+
+      {/* Modals */}
+      <EligibilityModal
+        open={eligibilityModalOpen}
+        onOpenChange={setEligibilityModalOpen}
+        address="65 1/2 2nd Ave, Gloversville, NY, 12078-2444"
+      />
+      <PeopleEditModal
+        open={peopleModalOpen}
+        onOpenChange={setPeopleModalOpen}
+      />
+      <HomeProfilingModal
+        open={homeProfilingModalOpen}
+        onOpenChange={setHomeProfilingModalOpen}
+      />
     </div>
   );
 }
