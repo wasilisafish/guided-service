@@ -47,15 +47,7 @@ export function EligibilityModal({ open, onOpenChange, address = "2000 Melrose A
       <DialogContent className="max-w-2xl p-0 gap-0">
         {/* Header */}
         <DialogHeader className="px-6 py-4 border-b border-neutral-gray-10">
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-lg font-bold">Confirm eligibility</DialogTitle>
-            <button
-              onClick={() => onOpenChange(false)}
-              className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+          <DialogTitle className="text-lg font-bold">Confirm eligibility</DialogTitle>
         </DialogHeader>
 
         {/* Content */}
