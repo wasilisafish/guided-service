@@ -28,6 +28,7 @@ import { Label } from "@/components/ui/label";
 export default function FinalLookPage() {
   const navigate = useNavigate();
   const [selectedSection, setSelectedSection] = useState("final-look");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
