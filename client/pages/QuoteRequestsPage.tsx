@@ -454,13 +454,19 @@ function QuoteRow({
       {/* Actions */}
       <div className="flex items-center justify-end gap-2">
         {actionButton && (
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="sm"
             className="border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-sm h-8 px-3"
           >
             {actionButton}
           </Button>
+        )}
+        {hasDetails && (
+          <button className="text-action-secondary hover:bg-neutral-gray-10 px-2 py-1 rounded flex items-center gap-1 text-sm font-medium transition-colors">
+            Details
+            <ChevronDown className="w-3 h-3" />
+          </button>
         )}
         {hasExternalLink && (
           <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-10 rounded transition-colors">
