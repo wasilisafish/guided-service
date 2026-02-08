@@ -18,7 +18,7 @@ export function TopBreadcrumb({ currentStep }: TopBreadcrumbProps) {
   ];
 
   return (
-    <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
+    <div className="w-full h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
       <div className="flex items-center gap-1">
         <span className="text-sm">Lead: 676233</span>
         <ChevronDown className="w-4 h-4 text-text-muted" />
