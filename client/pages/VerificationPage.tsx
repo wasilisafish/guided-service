@@ -160,7 +160,10 @@ export default function VerificationPage() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <h2 className="font-bold text-xl">People</h2>
-                  <button className="ml-auto">
+                  <button
+                    onClick={() => setPeopleModalOpen(true)}
+                    className="ml-auto"
+                  >
                     <Edit className="w-5 h-5 text-action-secondary" />
                   </button>
                 </div>
