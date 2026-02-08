@@ -22,6 +22,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { BottomNavigation } from "@/components/BottomNavigation";
 
 export default function VerificationPage() {
   const navigate = useNavigate();
