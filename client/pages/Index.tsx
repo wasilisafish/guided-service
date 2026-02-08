@@ -451,12 +451,6 @@ function PolicyCard() {
             </Button>
           </div>
         </div>
-
-        <div className="space-y-1">
-          <DocumentItem label="DEC" name="Carrier_dec_page_Ellliot.pdf" status="sent" count="2 of 2" />
-          <DocumentItem label="RCE" name="RCE_Ellliot.pdf" status="sent" count="2 of 2" />
-          <DocumentItem label="Application" name="" status="pending" count="" isUpload />
-        </div>
       </div>
 
       <div className="bg-neutral-gray-5 px-2 py-1 flex items-center gap-2 text-sm font-medium rounded">
