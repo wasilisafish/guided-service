@@ -356,6 +356,10 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   <option value="Hip">Hip</option>
                   <option value="Gable">Gable</option>
                   <option value="Flat">Flat</option>
+                  <option value="Mansard">Mansard</option>
+                  <option value="Gambrel">Gambrel</option>
+                  <option value="Pyramid">Pyramid</option>
+                  <option value="Saltbox">Saltbox</option>
                 </select>
               </div>
             </div>
