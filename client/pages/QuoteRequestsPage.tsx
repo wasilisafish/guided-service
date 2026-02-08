@@ -120,7 +120,7 @@ export default function QuoteRequestsPage() {
                 <Home className="w-5 h-5" />
                 <h3 className="font-bold text-base">Primary home</h3>
                 <Badge variant="outline" className="text-xs rounded-sm border-neutral-gray-30">12</Badge>
-                <span className="text-sm">4-64 Beachcomber Ln, Lanark, IL, 61046-9301</span>
+                <span className="text-sm">614 Basswood Dr, Spring, TX, 77386-1264</span>
               </div>
 
               {/* Coverage Level Header */}
