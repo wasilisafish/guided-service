@@ -197,73 +197,91 @@ export default function QuoteRequestsPage() {
                   <div className="divide-y divide-neutral-gray-10">
                     <QuoteRow
                       carrier="FOREMOST"
-                      carrierSubtext="INSURANCE GROUP"
-                      premium="$793"
-                      coverage="$230,000"
+                      premium="$1,669"
+                      bundle="Bundle: $4,830"
+                      coverage="$441,000"
                       deductible="$1,000"
-                      savingsActual="$307"
-                      savingsPredicted="$567"
+                      savingsActual="$41"
+                      savingsPredicted="$726"
                       hasExternalLink
+                      hasDetails
                     />
                     <QuoteRow
                       carrier="UPC"
-                      carrierSubtext="INSURANCE"
-                      warning="Manual quote required"
-                      premium="$1,600"
-                      coverage="$230,000"
-                      deductible="$1,000"
-                      savingsActual="$300"
-                      savingsPredicted="$560"
-                      actionButton="QuickBind"
-                    />
-                    <QuoteRow
-                      carrier="SageSure"
                       hasCheckmark
-                      premium="$860"
-                      coverage="$250,000"
-                      deductible="$2,500"
-                      savingsActual="$240"
-                      savingsPredicted="$367"
-                      actionButton="QuickBind"
-                      highlightRow
-                    />
-                    <QuoteRow
-                      carrier="Safeco Insurance"
-                      carrierSubtext="LIBERTY MUTUAL GROUP"
-                      hasCheckmark
-                      premium="$1,092"
-                      bundle="Bundle: $1,000"
-                      coverage="$250,000"
-                      deductible="$1,000"
-                      savingsActual="$100"
-                      savingsPredicted="$260"
-                      actionButton="QuickBind"
-                    />
-                    <QuoteRow
-                      carrier="STATE AUTO"
-                      carrierSubtext="INSURANCE COMPANIES"
-                      premium="$1,044"
-                      bundle="Bundle: $983"
-                      coverage="$230,000"
-                      deductible="$1,000"
+                      premium="$6,134"
+                      coverage="$468,633"
+                      deductible="$2,000"
                       savingsActual="No"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="Homesite"
-                      warning="Manual quote required"
-                      hasCheckmark
-                      premium="$1,260"
-                      coverage="$230,000"
-                      deductible="$1,000"
-                      savingsActual="No"
-                      hasExternalLink
+                      savingsPredicted="$261"
+                      actionButton="QuickBind"
+                      hasDetails
                     />
                     <QuoteRow
                       carrier="BRANCH"
-                      warningType="error"
-                      warning="Data not valid"
-                      showDash
+                      badge="Partly eligible"
+                      premium="$13,497"
+                      coverage="$250,000"
+                      deductible="No | $0"
+                      hasExternalLink
+                      hasDetails
+                    />
+                    <QuoteRow
+                      carrier="ECLECTIQUE"
+                      warning="Manual quote required"
+                      hasExternalLink
+                      hasDetails
+                    />
+                    <QuoteRow
+                      carrier="MODERN"
+                      warning="Manual quote required"
+                      hasExternalLink
+                      hasDetails
+                    />
+                    <QuoteRow
+                      carrier="AUROS"
+                      warning="Manual quote required"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="MARKEL"
+                      warning="Manual quote required"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="RICCARDO"
+                      warning="Manual quote required"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="[LOGO]"
+                      warning="Manual quote required"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="[LOGO]"
+                      warning="Manual quote required"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="FIVEFIT"
+                      badge="Partly eligible"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="TRIUM"
+                      warning="Manual quote required"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="VMF"
+                      warning="Manual quote required"
+                      hasExternalLink
+                    />
+                    <QuoteRow
+                      carrier="[LOGO]"
+                      warning="Manual quote required"
+                      hasExternalLink
                     />
                   </div>
                 )}
