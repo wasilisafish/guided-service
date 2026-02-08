@@ -107,17 +107,25 @@
   body {
     @apply bg-background text-foreground;
     font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
   }
 
-  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th, div) {
     overflow-wrap: anywhere;
     word-break: break-word;
     font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
   }
 
   pre,
   code {
     overflow-x: auto;
     white-space: pre;
+  }
+
+  /* Ensure all numeric values maintain consistent sizing */
+  :where([class*="text-"]) {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
   }
 }
