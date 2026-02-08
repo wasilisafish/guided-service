@@ -189,22 +189,22 @@ function ActivitySummarySection() {
         <Clock className="w-6 h-6 flex-shrink-0 mt-1" />
         <div className="flex-1">
           <div className="mb-3">
-            <span className="font-bold text-lg">Last interaction:</span>
-            <span className="text-lg ml-2">call 655 d ago, email 14 days ago</span>
+            <span className="font-bold text-base">Last interaction:</span>
+            <span className="text-base ml-2">call 655 d ago, email 14 days ago</span>
           </div>
 
           <div className="mb-3">
-            <span className="font-bold text-lg">Primary Intent:</span>
-            <span className="text-lg ml-2">Price increase at renewal</span>
+            <span className="font-bold text-base">Primary Intent:</span>
+            <span className="text-base ml-2">Price increase at renewal</span>
           </div>
 
           <div className="mb-4">
-            <span className="font-bold text-lg">Re-shop opportunity:</span>
-            <span className="text-lg ml-2">Very high because of never done</span>
+            <span className="font-bold text-base">Re-shop opportunity:</span>
+            <span className="text-base ml-2">Very high because of never done</span>
           </div>
 
           <div className="mb-4">
-            <h4 className="font-bold text-lg mb-3">Main activities:</h4>
+            <h4 className="font-bold text-base mb-3">Main activities:</h4>
             <div className="space-y-2">
               <div className="flex items-start gap-2">
                 <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
