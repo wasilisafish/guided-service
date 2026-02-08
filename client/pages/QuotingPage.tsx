@@ -170,11 +170,11 @@ export default function QuotingPage() {
                   <div className="ml-8 space-y-4">
                     <p className="text-base">2000 Melrose Ave, Columbus, OH</p>
                     
-                    <div className="grid grid-cols-2 gap-x-12 gap-y-3 text-base">
+                    <div className="flex flex-col gap-3 text-base">
                       <div className="flex items-center gap-3">
                         <span className="text-text-muted w-40">Insured people</span>
                         <Select value={selectedPeople} onValueChange={setSelectedPeople}>
-                          <SelectTrigger className="w-48 h-9 border-neutral-gray-10">
+                          <SelectTrigger className="h-9 border-neutral-gray-10" style={{ width: '282px' }}>
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -193,7 +193,7 @@ export default function QuotingPage() {
                       <div className="flex items-center gap-3">
                         <span className="text-text-muted w-40">Policy type</span>
                         <Select value={policyType} onValueChange={setPolicyType}>
-                          <SelectTrigger className="w-48 h-9 border-neutral-gray-10">
+                          <SelectTrigger className="h-9 border-neutral-gray-10" style={{ width: '282px' }}>
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
