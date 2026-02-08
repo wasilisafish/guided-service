@@ -286,7 +286,7 @@ function CustomerInfoSection() {
           <Archive className="w-4 h-4 mt-1 flex-shrink-0" />
           <div className="flex-1">
             <div className="font-semibold mb-1">Mailing address</div>
-            <div className="text-sm">2000 Melrose Ave, Columbus, Ohio, 00000</div>
+            <div className="text-sm">614 Basswood Dr, Spring, TX, 77386-1264</div>
           </div>
         </div>
       </div>
@@ -307,7 +307,7 @@ function AssetsSection() {
             <Home className="w-4 h-4 mt-1 flex-shrink-0" />
             <div className="flex-1">
               <div className="font-semibold mb-1">Primary home</div>
-              <div className="text-sm mb-3">2000 Melrose Ave, Columbus, Ohio</div>
+              <div className="text-sm mb-3">614 Basswood Dr, Spring, TX, 77386-1264</div>
               <div className="flex items-center gap-2 flex-wrap text-sm">
                 <span className="text-text-muted">Built in</span>
                 <span className="font-semibold">2000</span>
@@ -370,7 +370,7 @@ function LoansSection() {
           <Shield className="w-4 h-4 mt-1 flex-shrink-0" />
           <div className="flex-1">
             <div className="font-semibold mb-1">Freedom Mortgage Corporation ISAOA/ATIMA</div>
-            <div className="text-sm mb-2">For 2000 Melrose Ave, Columbus, Ohio</div>
+            <div className="text-sm mb-2">For 614 Basswood Dr, Spring, TX, 77386-1264</div>
             <div className="text-sm">
               <span className="text-text-muted">Loan number:</span>{" "}
               <span className="font-semibold">0153712484</span>
@@ -392,7 +392,7 @@ function PolicyCard() {
         </div>
         <div className="flex-1">
           <div className="font-semibold text-sm">Primary home</div>
-          <div className="text-sm">2000 Melrose Ave, Columbus, OH 43215</div>
+          <div className="text-sm">614 Basswood Dr, Spring, TX, 77386-1264</div>
         </div>
         <Button variant="ghost" size="sm" className="text-action-secondary font-semibold">
           See prior policies
