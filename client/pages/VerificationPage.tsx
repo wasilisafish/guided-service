@@ -182,7 +182,7 @@ export default function VerificationPage() {
                 <div className="space-y-4">
                   {/* Primary Home Header */}
                   <div className="flex items-center gap-3">
-                    <h3 className="font-bold text-lg">Primary home 65 1/2 2nd Ave, Gloversville, NY, 12078-2444</h3>
+                    <h3 className="font-bold text-lg">Primary home 614 Basswood Dr, Spring, TX, 77386-1264</h3>
                     <button className="text-action-secondary" />
                     <button className="text-action-secondary" />
                   </div>
