@@ -74,7 +74,12 @@ export default function QuoteRequestsPage() {
           <button className="w-6 h-6 flex items-center justify-center">
             <div className="w-5 h-5 border-2 border-neutral-gray-30 rounded" />
           </button>
-          <h1 className="text-lg font-semibold -tracking-[0.3px]">Elliot McMahon</h1>
+          <button
+            onClick={() => navigate('/')}
+            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer"
+          >
+            Elliot McMahon
+          </button>
           <Badge className="bg-violet text-white border-none rounded px-2.5 py-0.5 text-xs font-semibold">
             Roundpoint
           </Badge>
