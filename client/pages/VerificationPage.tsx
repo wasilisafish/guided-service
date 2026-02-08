@@ -251,31 +251,19 @@ export default function VerificationPage() {
                       <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Heating & air year updt</span>
-                          <div className="flex items-center gap-1">
-                            <span className="font-semibold">2020</span>
-                            <AlertTriangle className="w-4 h-4 text-warning" />
-                          </div>
+                          <span className="font-semibold">2018</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Plumbing year updt</span>
-                          <div className="flex items-center gap-1">
-                            <span className="font-semibold">2020</span>
-                            <AlertTriangle className="w-4 h-4 text-warning" />
-                          </div>
+                          <span className="font-semibold">1970</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Electricity year updt</span>
-                          <div className="flex items-center gap-1">
-                            <span className="font-semibold">2020</span>
-                            <AlertTriangle className="w-4 h-4 text-warning" />
-                          </div>
+                          <span className="font-semibold">1990</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Solar panels</span>
-                          <div className="flex items-center gap-1">
-                            <span className="font-semibold">No</span>
-                            <AlertTriangle className="w-4 h-4 text-warning" />
-                          </div>
+                          <span className="font-semibold">No</span>
                         </div>
                       </div>
                     </div>
