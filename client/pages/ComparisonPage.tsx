@@ -243,7 +243,7 @@ export default function ComparisonPage() {
                   <div className="space-y-3">
                     <ChangeLogItem
                       label="Premium change"
-                      oldValue="$2,873"
+                      oldValue="$4,848"
                       newValue="$5,848"
                       percentage="+18%"
                       isIncrease
