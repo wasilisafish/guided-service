@@ -352,7 +352,10 @@ export default function QuotingPage() {
             Finalize
             <ChevronDown className="w-4 h-4 ml-1" />
           </Button>
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
+          <Button
+            onClick={() => navigate('/quote-requests')}
+            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
+          >
             Request quotes
           </Button>
         </div>
