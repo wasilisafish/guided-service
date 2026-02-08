@@ -122,7 +122,7 @@ export default function ComparisonPage() {
                 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   {/* Policy Renewal */}
-                  <Card className="border-neutral-gray-30 rounded-lg p-6">
+                  <Card className="border-neutral-gray-30 rounded-lg p-6" style={{ marginLeft: '3px' }}>
                     <h3 className="font-bold text-lg mb-4">Policy renewal</h3>
                     
                     <div className="flex items-start gap-3 mb-6">
