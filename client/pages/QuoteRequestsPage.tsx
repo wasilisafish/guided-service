@@ -302,7 +302,6 @@ export default function QuoteRequestsPage() {
                   <div className="divide-y divide-neutral-gray-10">
                     <QuoteRow
                       carrier="STILLWATER"
-                      carrierSubtext="INSURANCE"
                       error="Declined business"
                       premium="$1,109"
                       bundle="Bundle: $800"
@@ -310,6 +309,7 @@ export default function QuoteRequestsPage() {
                       deductible="$1,000"
                       savingsActual="$20"
                       savingsPredicted="$150"
+                      hasExternalLink
                     />
                   </div>
                 )}
