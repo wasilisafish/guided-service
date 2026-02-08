@@ -116,7 +116,7 @@ export default function Index() {
           <div className="flex-1 overflow-y-auto p-6">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <div className="flex items-center justify-between mb-6">
-                <TabsList className="h-auto p-0 bg-transparent border-b border-neutral-gray-30 rounded-none w-full">
+                <TabsList className="h-auto p-0 bg-transparent border-b border-neutral-gray-30 rounded-none w-full justify-start mr-auto">
                   <TabsTrigger 
                     value="policies" 
                     className="data-[state=active]:border-b-2 data-[state=active]:border-action-primary data-[state=active]:text-action-primary rounded-none pb-3 font-semibold"
