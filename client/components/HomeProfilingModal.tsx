@@ -206,12 +206,22 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 <Label htmlFor="construction" className="text-sm font-semibold mb-2 block">
                   Construction Material
                 </Label>
-                <Input
+                <select
                   id="construction"
                   value={formData.construction}
                   onChange={(e) => handleChange("construction", e.target.value)}
-                  className="w-full"
-                />
+                  className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                >
+                  <option value="Frame">Frame</option>
+                  <option value="Brick">Brick</option>
+                  <option value="Concrete">Concrete</option>
+                  <option value="Stone">Stone</option>
+                  <option value="Steel">Steel</option>
+                  <option value="Masonry">Masonry</option>
+                  <option value="Log">Log</option>
+                  <option value="Metal">Metal</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
               <div className="col-span-2">
                 <Label htmlFor="basement" className="text-sm font-semibold mb-2 block">
