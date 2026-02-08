@@ -110,5 +110,15 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: { addUtilities: Function }) {
+      addUtilities({
+        ".numeric-consistent": {
+          "font-variant-numeric": "tabular-nums",
+          "font-feature-settings": '"tnum"',
+        },
+      });
+    },
+  ],
 } satisfies Config;
