@@ -185,12 +185,22 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 <Label htmlFor="garageType" className="text-sm font-semibold mb-2 block">
                   Garage Type
                 </Label>
-                <Input
+                <select
                   id="garageType"
                   value={formData.garageType}
                   onChange={(e) => handleChange("garageType", e.target.value)}
-                  className="w-full"
-                />
+                  className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                >
+                  <option value="No garage">No garage</option>
+                  <option value="Attached 1-car garage">Attached 1-car garage</option>
+                  <option value="Attached 2-cars garage">Attached 2-cars garage</option>
+                  <option value="Attached 3+ car garage">Attached 3+ car garage</option>
+                  <option value="Detached 1-car garage">Detached 1-car garage</option>
+                  <option value="Detached 2-cars garage">Detached 2-cars garage</option>
+                  <option value="Detached 3+ car garage">Detached 3+ car garage</option>
+                  <option value="Carport">Carport</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
               <div className="col-span-2">
                 <Label htmlFor="construction" className="text-sm font-semibold mb-2 block">
