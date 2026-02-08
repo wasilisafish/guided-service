@@ -107,6 +107,7 @@ export default function Index() {
         <div className="flex-1 flex overflow-hidden">
           {/* Left Info Panel */}
           <div className="w-[440px] flex-shrink-0 overflow-y-auto p-6 space-y-6">
+            <ActivitySummarySection />
             <CustomerInfoSection />
             <AssetsSection />
             <LoansSection />
