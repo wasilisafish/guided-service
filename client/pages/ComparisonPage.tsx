@@ -244,8 +244,8 @@ export default function ComparisonPage() {
                     <ChangeLogItem
                       label="Premium change"
                       oldValue="$4,848"
-                      newValue="$5,848"
-                      percentage="+18%"
+                      newValue="$5,710"
+                      percentage={<span style={{ color: 'rgb(179, 8, 8)' }}>+18%(862)</span>}
                       isIncrease
                     />
                     <ChangeLogItem 
