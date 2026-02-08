@@ -43,6 +43,18 @@ interface HomeProfilingModalProps {
 
 export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalProps) {
   const [formData, setFormData] = useState<HomeProfilingData>({
+    homeType: "Single family detached",
+    sqft: "2856",
+    stories: "2",
+    bedrooms: "2",
+    bathrooms: "1.5",
+    yearBuilt: "2000",
+    garageType: "Attached 2-cars garage",
+    construction: "Frame",
+    basement: "75% finished basement",
+    exterior: "Brick Veneer or Brick on Frame",
+    otherStructures: "No other structures",
+    peopleOnDeed: "Elliot McMahon, Jennifer McMahon",
     roofYear: "2020",
     roofMaterial: "Composition",
     roofShape: "Hip",
