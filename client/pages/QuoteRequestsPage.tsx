@@ -72,8 +72,13 @@ export default function QuoteRequestsPage() {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header Bar */}
         <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
-          <button className="w-6 h-6 flex items-center justify-center">
-            <div className="w-5 h-5 border-2 border-neutral-gray-30 rounded" />
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 2V14M3.33333 2H12.6667C13.403 2 14 2.59695 14 3.33333V12.6667C14 13.403 13.403 14 12.6667 14H3.33333C2.59695 14 2 13.403 2 12.6667V3.33333C2 2.59695 2.59695 2 3.33333 2Z" stroke="#334155" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </button>
           <button
             onClick={() => navigate('/')}
