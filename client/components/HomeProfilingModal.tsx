@@ -60,6 +60,7 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
     roofMaterial: "Composition",
     roofShape: "Hip",
     heatingYear: "2020",
+    heatingType: "Furnace",
     plumbingYear: "2020",
     electricityYear: "2020",
     solarPanels: "No",
