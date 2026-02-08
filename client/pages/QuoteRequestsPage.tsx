@@ -156,13 +156,13 @@ export default function QuoteRequestsPage() {
                 <div className="font-semibold">Carrier response</div>
                 <div className="font-semibold">Premium</div>
                 <div className="flex items-center gap-1">
-                  <button 
+                  <button
                     onClick={() => setShowYearly(true)}
                     className={`px-2 py-0.5 rounded text-xs font-medium transition-colors ${showYearly ? 'bg-action-primary text-white' : 'text-text-muted hover:bg-neutral-gray-10'}`}
                   >
                     yr
                   </button>
-                  <button 
+                  <button
                     onClick={() => setShowYearly(false)}
                     className={`px-2 py-0.5 rounded text-xs font-medium transition-colors ${!showYearly ? 'bg-action-primary text-white' : 'text-text-muted hover:bg-neutral-gray-10'}`}
                   >
@@ -179,7 +179,7 @@ export default function QuoteRequestsPage() {
                     <Info className="w-4 h-4 text-text-muted" />
                   </button>
                 </div>
-                <div></div>
+                <div className="font-semibold">Bridge</div>
               </div>
 
               {/* Eligible and partly eligible section */}
