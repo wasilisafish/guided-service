@@ -446,6 +446,8 @@ function PersonCard({
   phone: string;
   email: string;
 }) {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <div>
       {/* Header */}
@@ -457,17 +459,42 @@ function PersonCard({
         </Badge>
       </div>
 
-      {/* Info Row */}
-      <div className="flex items-center gap-6 mb-3 text-sm">
+      {/* Info Row - Responsive */}
+      <div className="flex flex-wrap items-center gap-6 mb-3 text-sm">
         <span className="font-semibold">{gender}</span>
         <span className="font-semibold">{dob}</span>
         <span className="font-semibold">{phone}</span>
-        <span className="font-semibold truncate">{email}</span>
+        <span className="font-semibold">{email}</span>
       </div>
 
+      {/* Expanded Details */}
+      {expanded && (
+        <div className="mt-4 pt-4 border-t border-neutral-gray-10 space-y-3">
+          <div>
+            <p className="text-xs text-text-muted mb-1">Gender</p>
+            <p className="font-semibold text-sm">{gender}</p>
+          </div>
+          <div>
+            <p className="text-xs text-text-muted mb-1">Date of Birth</p>
+            <p className="font-semibold text-sm">{dob}</p>
+          </div>
+          <div>
+            <p className="text-xs text-text-muted mb-1">Phone</p>
+            <p className="font-semibold text-sm">{phone}</p>
+          </div>
+          <div>
+            <p className="text-xs text-text-muted mb-1">Email</p>
+            <p className="font-semibold text-sm break-all">{email}</p>
+          </div>
+        </div>
+      )}
+
       {/* Full Profile Button */}
-      <button className="text-action-secondary text-sm flex items-center gap-1">
-        <ChevronDown className="w-4 h-4" />
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="text-action-secondary text-sm flex items-center gap-1 mt-3"
+      >
+        <ChevronDown className={`w-4 h-4 transition-transform ${expanded ? 'rotate-180' : ''}`} />
         Full profile
       </button>
     </div>
