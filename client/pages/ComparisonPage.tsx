@@ -268,56 +268,56 @@ export default function ComparisonPage() {
               </div>
 
               <div className="space-y-4">
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Location"
                   value="43220"
                   risk="Low Risk"
                   impact="High Impact"
                   isLowRisk
                 />
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Claims History"
                   value="No Claims"
                   risk="Low Risk"
                   impact="High Impact"
                   isLowRisk
                 />
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Credit History"
                   value="Excellent"
                   risk="Low Risk"
                   impact="High Impact"
                   isLowRisk
                 />
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Roof Condition"
                   value="16 years"
                   risk="High Risk"
                   impact="High Impact"
                   isHighRisk
                 />
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Home Age"
                   value="45 years"
                   risk="Medium Risk"
                   impact="High Impact"
                   isMediumRisk
                 />
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Pets"
                   value="None"
                   risk="Low Risk"
                   impact="High Impact"
                   isLowRisk
                 />
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Safety Hazards"
                   value="None"
                   risk="Low Risk"
                   impact="High Impact"
                   isLowRisk
                 />
-                <RiskFactorItem 
+                <RiskFactorItem
                   label="Heating Source"
                   value="Furnace"
                   risk="Low Risk"
@@ -325,13 +325,6 @@ export default function ComparisonPage() {
                   isLowRisk
                 />
               </div>
-
-              <Button
-                onClick={() => navigate('/verification')}
-                className="w-full bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
-              >
-                Verify details
-              </Button>
             </div>
           </div>
         </div>
