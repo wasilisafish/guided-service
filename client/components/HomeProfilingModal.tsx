@@ -331,10 +331,16 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                   onChange={(e) => handleChange("roofMaterial", e.target.value)}
                   className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
                 >
-                  <option value="Composition">Composition</option>
+                  <option value="Composition">Composition/Asphalt Shingles</option>
                   <option value="Asphalt">Asphalt</option>
                   <option value="Metal">Metal</option>
                   <option value="Tile">Tile</option>
+                  <option value="Slate">Slate</option>
+                  <option value="Wood shakes">Wood shakes</option>
+                  <option value="Stone">Stone</option>
+                  <option value="Concrete">Concrete</option>
+                  <option value="Tar and gravel">Tar and gravel</option>
+                  <option value="Built-up roof">Built-up roof</option>
                 </select>
               </div>
               <div>
