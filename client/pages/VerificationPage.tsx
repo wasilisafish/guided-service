@@ -441,32 +441,30 @@ function PersonCard({
   email: string;
 }) {
   return (
-    <Card className="border-neutral-gray-30 rounded-lg p-4">
-      <div className="flex items-start gap-2 mb-3">
-        <User className="w-5 h-5 flex-shrink-0 mt-0.5" />
-        <div className="flex-1 min-w-0">
-          <h3 className="font-semibold mb-1">{name}</h3>
-          <Badge className={`${badgeColor} border-none text-xs mb-3`}>
-            {badge}
-          </Badge>
-          <button className="text-action-secondary text-sm flex items-center gap-1">
-            <ChevronDown className="w-4 h-4" />
-            Full profile
-          </button>
-        </div>
+    <div>
+      {/* Header */}
+      <div className="flex items-center gap-2 mb-3">
+        <User className="w-5 h-5 flex-shrink-0" />
+        <h3 className="font-bold text-base">{name}</h3>
+        <Badge className={`${badgeColor} border-none text-xs ml-auto`}>
+          {badge}
+        </Badge>
       </div>
-      <div className="space-y-2 text-sm">
-        <div className="flex items-center justify-between">
-          <span className="text-text-muted">Male</span>
-          <span className="font-semibold">{gender}</span>
-        </div>
-        <div className="flex items-center justify-between">
-          <span className="text-text-muted">{dob}</span>
-          <span className="font-semibold">{phone}</span>
-        </div>
-        <div className="text-text-muted truncate">{email}</div>
+
+      {/* Info Row */}
+      <div className="flex items-center gap-6 mb-3 text-sm">
+        <span className="font-semibold">{gender}</span>
+        <span className="font-semibold">{dob}</span>
+        <span className="font-semibold">{phone}</span>
+        <span className="font-semibold truncate">{email}</span>
       </div>
-    </Card>
+
+      {/* Full Profile Button */}
+      <button className="text-action-secondary text-sm flex items-center gap-1">
+        <ChevronDown className="w-4 h-4" />
+        Full profile
+      </button>
+    </div>
   );
 }
 
