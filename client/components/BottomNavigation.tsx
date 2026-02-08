@@ -1,8 +1,10 @@
 import { HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import React from "react";
 
 interface BottomNavButton {
-  label: string;
+  label?: string;
+  children?: React.ReactNode;
   onClick?: () => void;
   variant?: "primary" | "outline";
 }
@@ -25,7 +27,7 @@ export function BottomNavigation({ buttons, showHelpButton = true }: BottomNavig
               : "bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
           }
         >
-          {button.label}
+          {button.children || button.label}
         </Button>
       ))}
       {showHelpButton && (
