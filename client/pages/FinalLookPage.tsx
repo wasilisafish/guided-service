@@ -153,8 +153,8 @@ export default function FinalLookPage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold mb-1">Home policy</h4>
-                      <p className="text-sm text-text-muted mb-3">2000 Melrose Ave, Columbus, Ohio</p>
-                      
+                      <p className="text-sm text-text-muted mb-3">614 Basswood Dr, Spring, TX, 77386-1264</p>
+
                       <div className="grid grid-cols-4 gap-4 text-sm">
                         <div>
                           <div className="text-text-muted mb-1">Carrier</div>
@@ -195,8 +195,8 @@ export default function FinalLookPage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold mb-1">Home policy</h4>
-                      <p className="text-sm text-text-muted mb-3">2000 Melrose Ave, Columbus, Ohio</p>
-                      
+                      <p className="text-sm text-text-muted mb-3">614 Basswood Dr, Spring, TX, 77386-1264</p>
+
                       <div className="grid grid-cols-4 gap-4 text-sm">
                         <div>
                           <div className="text-text-muted mb-1">Carrier</div>
