@@ -241,10 +241,10 @@ export default function ComparisonPage() {
                   <h3 className="font-bold text-2xl mb-4">Log of changes</h3>
                   
                   <div className="space-y-3">
-                    <ChangeLogItem 
+                    <ChangeLogItem
                       label="Premium change"
                       oldValue="$2,873"
-                      newValue="$3,092"
+                      newValue="$5,848"
                       percentage="+18%"
                       isIncrease
                     />
