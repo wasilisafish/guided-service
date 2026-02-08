@@ -227,10 +227,7 @@ export default function VerificationPage() {
                       <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Updated year</span>
-                          <div className="flex items-center gap-1">
-                            <span className="font-semibold">2020</span>
-                            <AlertTriangle className="w-4 h-4 text-warning" />
-                          </div>
+                          <span className="font-semibold">2021</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Material</span>
@@ -238,7 +235,7 @@ export default function VerificationPage() {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Shape</span>
-                          <span className="font-semibold">Hip</span>
+                          <span className="font-semibold">Gable</span>
                         </div>
                       </div>
                     </div>
