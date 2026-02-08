@@ -38,15 +38,16 @@ export function TopBreadcrumb({ currentStep }: TopBreadcrumbProps) {
           </button>
         </div>
       ))}
-      <div className="flex-1" />
-      <span className="text-sm text-text-muted">Re-shop in progress</span>
-      <Button
-        variant="outline"
-        className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold"
-      >
-        Schedule follow-up
-        <ChevronDown className="w-4 h-4 ml-1" />
-      </Button>
+      <div className="ml-auto flex items-center gap-4">
+        <span className="text-sm text-text-muted">Re-shop in progress</span>
+        <Button
+          variant="outline"
+          className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold"
+        >
+          Schedule follow-up
+          <ChevronDown className="w-4 h-4 ml-1" />
+        </Button>
+      </div>
     </div>
   );
 }
