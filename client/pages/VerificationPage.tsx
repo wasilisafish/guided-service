@@ -215,15 +215,8 @@ export default function VerificationPage() {
                   {/* Primary Home Header */}
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold text-lg">Primary home 65 1/2 2nd Ave, Gloversville, NY, 12078-2444</h3>
-                    <button className="text-action-secondary">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-azure-50">
-                        <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-                        <path d="M7 10L9 12L13 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </button>
-                    <button className="text-action-secondary">
-                      <ExternalLink className="w-5 h-5" />
-                    </button>
+                    <button className="text-action-secondary" />
+                    <button className="text-action-secondary" />
                   </div>
 
                   <p className="text-base">
