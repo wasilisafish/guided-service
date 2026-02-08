@@ -81,11 +81,11 @@ export default function FinalLookPage() {
           </button>
           <button
             onClick={() => navigate('/')}
-            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer"
+            className="text-sm font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap"
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2.5 py-0.5 text-xs font-semibold">
+          <Badge className="bg-violet text-white border-none rounded px-2 py-0.5 text-xs font-semibold h-6">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
