@@ -171,13 +171,36 @@ export default function QuotingPage() {
                     <p className="text-base">2000 Melrose Ave, Columbus, OH</p>
                     
                     <div className="grid grid-cols-2 gap-x-12 gap-y-3 text-base">
-                      <div className="flex items-center">
+                      <div className="flex items-center gap-3">
                         <span className="text-text-muted w-40">Insured people</span>
-                        <span>Elliot McMahon, Jessica McMahon</span>
+                        <Select value={selectedPeople} onValueChange={setSelectedPeople}>
+                          <SelectTrigger className="w-48 h-9 border-neutral-gray-10">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="elliot-jessica">
+                              Elliot McMahon, Jessica McMahon
+                            </SelectItem>
+                            <SelectItem value="elliot">
+                              Elliot McMahon
+                            </SelectItem>
+                            <SelectItem value="jessica">
+                              Jessica McMahon
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
-                      <div className="flex items-center">
+                      <div className="flex items-center gap-3">
                         <span className="text-text-muted w-40">Policy type</span>
-                        <span>Renters (HO6)</span>
+                        <Select value={policyType} onValueChange={setPolicyType}>
+                          <SelectTrigger className="w-48 h-9 border-neutral-gray-10">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="ho6">Renters (HO6)</SelectItem>
+                            <SelectItem value="ho3">Renters (HO3)</SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
                     </div>
 
