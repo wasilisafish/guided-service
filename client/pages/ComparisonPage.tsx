@@ -311,7 +311,10 @@ export default function ComparisonPage() {
                 />
               </div>
 
-              <Button className="w-full bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
+              <Button
+                onClick={() => navigate('/verification')}
+                className="w-full bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
+              >
                 Verify details
               </Button>
             </div>
