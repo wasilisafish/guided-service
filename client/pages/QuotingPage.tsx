@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { BottomNavigation } from "@/components/BottomNavigation";
 
 export default function QuotingPage() {
   const navigate = useNavigate();
