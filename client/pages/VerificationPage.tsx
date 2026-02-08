@@ -23,6 +23,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { BottomNavigation } from "@/components/BottomNavigation";
+import { EligibilityModal } from "@/components/EligibilityModal";
+import { PeopleEditModal } from "@/components/PeopleEditModal";
+import { HomeProfilingModal } from "@/components/HomeProfilingModal";
 
 export default function VerificationPage() {
   const navigate = useNavigate();
