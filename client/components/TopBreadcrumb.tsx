@@ -10,7 +10,7 @@ export function TopBreadcrumb({ currentStep }: TopBreadcrumbProps) {
   const navigate = useNavigate();
 
   const steps = [
-    { id: "establish-rapport", label: "Establish rapport", path: "/" },
+    { id: "establish-rapport", label: "Establish rapport", path: "/comparison" },
     { id: "data-verification", label: "Data verification", path: "/verification" },
     { id: "quoting", label: "Quoting", path: "/quoting" },
     { id: "proposal", label: "Proposal", path: "/proposal" },
