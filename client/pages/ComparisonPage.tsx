@@ -192,19 +192,19 @@ export default function ComparisonPage() {
                     <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
                       <div>
                         <div className="text-text-muted mb-1">Carrier</div>
-                        <div className="font-semibold">Foremost</div>
+                        <div className="font-semibold">SURE</div>
                       </div>
                       <div>
                         <div className="text-text-muted mb-1">Effective date</div>
-                        <div className="font-semibold">09/13/2024</div>
+                        <div className="font-semibold">03/23/2025</div>
                       </div>
                       <div>
                         <div className="text-text-muted mb-1">Term</div>
-                        <div className="font-semibold">1 year</div>
+                        <div className="font-semibold">03/23/2026</div>
                       </div>
                       <div>
                         <div className="text-text-muted mb-1">Premium</div>
-                        <div className="font-semibold">$3,092/yr</div>
+                        <div className="font-semibold">$5,092/yr</div>
                       </div>
                     </div>
                   </Card>
