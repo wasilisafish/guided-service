@@ -132,16 +132,29 @@ export default function ComparisonPage() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-semibold">Home</span>
-                          <span className="text-sm">VAHP0000031410</span>
-                          <button className="ml-auto">
-                            <Copy className="w-4 h-4 text-text-muted" />
-                          </button>
+                          <span className="text-sm">TCDX77887833</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-4 h-4 text-text-muted"
+                          >
+                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                          </svg>
+                          <div className="flex items-center gap-2 ml-auto">
+                            <div className="w-2 h-2 rounded-full bg-action-primary" />
+                            <span className="text-sm font-semibold">Bound</span>
+                          </div>
+                          <button className="ml-auto" />
                         </div>
                         <p className="text-sm text-text-muted mb-2">Primary home: 2000 Melrose Ave, Columbus, Ohio</p>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 rounded-full bg-action-primary" />
-                          <span className="text-sm font-semibold">Bound</span>
-                        </div>
                       </div>
                     </div>
 
