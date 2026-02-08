@@ -213,7 +213,7 @@ export default function FinalizePage() {
                 <h3 className="font-bold text-lg mb-4">
                   Select outcome of the re-shop<span className="text-[#EA4D72]">*</span>
                 </h3>
-                
+
                 <RadioGroup value={selectedOutcome} onValueChange={setSelectedOutcome}>
                   <div className="flex items-center space-x-6">
                     <div className="flex items-center space-x-2">
@@ -234,6 +234,206 @@ export default function FinalizePage() {
                     </div>
                   </div>
                 </RadioGroup>
+
+                {/* Progressive Disclosure - Rewrite Details */}
+                {selectedOutcome === "rewrite" && (
+                  <Card className="border-neutral-gray-30 rounded-lg p-6 mt-6 bg-blue-50/30">
+                    <h4 className="font-bold text-base mb-4">New Policy Details</h4>
+
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="text-sm font-semibold mb-2 block">New Carrier</label>
+                          <div className="border border-neutral-gray-30 bg-white rounded px-3 py-2">
+                            <div className="font-bold text-sm">FOREMOST</div>
+                            <div className="text-xs text-text-muted">INSURANCE GROUP</div>
+                          </div>
+                        </div>
+                        <div>
+                          <label className="text-sm font-semibold mb-2 block">Policy Number</label>
+                          <input
+                            type="text"
+                            placeholder="Will be assigned"
+                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                            disabled
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4">
+                        <div>
+                          <label className="text-sm font-semibold mb-2 block">Effective Date</label>
+                          <input
+                            type="date"
+                            defaultValue="2026-01-01"
+                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-sm font-semibold mb-2 block">Premium</label>
+                          <input
+                            type="text"
+                            defaultValue="$2,083"
+                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm font-semibold"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-sm font-semibold mb-2 block">Deductible</label>
+                          <input
+                            type="text"
+                            defaultValue="$1,000"
+                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-sm font-semibold mb-2 block">Reason for Rewrite</label>
+                        <textarea
+                          placeholder="Enter reason..."
+                          rows={3}
+                          className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm resize-none"
+                        />
+                      </div>
+
+                      <div className="flex items-center space-x-2 pt-2">
+                        <Checkbox id="cancel-previous" />
+                        <Label htmlFor="cancel-previous" className="font-normal text-sm cursor-pointer">
+                          Cancel previous policy (TRAVELERS VAHP0000031410)
+                        </Label>
+                      </div>
+                    </div>
+                  </Card>
+                )}
+
+                {/* Progressive Disclosure - Change Policy Details */}
+                {selectedOutcome === "change-policy" && (
+                  <Card className="border-neutral-gray-30 rounded-lg p-6 mt-6 bg-purple-50/30">
+                    <h4 className="font-bold text-base mb-4">Policy Change Details</h4>
+
+                    <div className="space-y-4">
+                      <div>
+                        <label className="text-sm font-semibold mb-2 block">Change Type</label>
+                        <select className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm">
+                          <option>Coverage increase</option>
+                          <option>Coverage decrease</option>
+                          <option>Add coverage</option>
+                          <option>Remove coverage</option>
+                          <option>Update information</option>
+                        </select>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="text-sm font-semibold mb-2 block">Effective Date</label>
+                          <input
+                            type="date"
+                            defaultValue="2026-01-01"
+                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-sm font-semibold mb-2 block">New Premium (if applicable)</label>
+                          <input
+                            type="text"
+                            placeholder="$0.00"
+                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-sm font-semibold mb-2 block">Description of Changes</label>
+                        <textarea
+                          placeholder="Describe the policy changes..."
+                          rows={4}
+                          className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm resize-none"
+                        />
+                      </div>
+                    </div>
+                  </Card>
+                )}
+
+                {/* Progressive Disclosure - No Action Details */}
+                {selectedOutcome === "no-action" && (
+                  <Card className="border-neutral-gray-30 rounded-lg p-6 mt-6 bg-green-50/30">
+                    <h4 className="font-bold text-base mb-4">Confirmation</h4>
+
+                    <div className="space-y-4">
+                      <p className="text-sm">
+                        The customer has decided to keep their current policy with TRAVELERS without any changes.
+                      </p>
+
+                      <div>
+                        <label className="text-sm font-semibold mb-2 block">Notes (Optional)</label>
+                        <textarea
+                          placeholder="Add any notes about the customer's decision..."
+                          rows={3}
+                          className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm resize-none"
+                        />
+                      </div>
+
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p className="text-sm font-semibold mb-1">Next Renewal Date</p>
+                        <p className="text-sm text-text-muted">09/13/2026</p>
+                      </div>
+                    </div>
+                  </Card>
+                )}
+
+                {/* Progressive Disclosure - Cancel Details */}
+                {selectedOutcome === "cancel" && (
+                  <Card className="border-neutral-gray-30 rounded-lg p-6 mt-6 bg-red-50/30">
+                    <h4 className="font-bold text-base mb-4">Cancellation Details</h4>
+
+                    <div className="space-y-4">
+                      <div className="bg-red-100 border border-red-300 rounded-lg p-4">
+                        <p className="text-sm font-semibold text-red-800">
+                          ⚠️ This will cancel the customer's policy
+                        </p>
+                      </div>
+
+                      <div>
+                        <label className="text-sm font-semibold mb-2 block">Cancellation Date<span className="text-[#EA4D72]">*</span></label>
+                        <input
+                          type="date"
+                          defaultValue="2026-01-01"
+                          className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="text-sm font-semibold mb-2 block">Reason for Cancellation<span className="text-[#EA4D72]">*</span></label>
+                        <select className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm">
+                          <option value="">Select reason...</option>
+                          <option>Customer request</option>
+                          <option>Found better rate</option>
+                          <option>Sold property</option>
+                          <option>Moving</option>
+                          <option>Financial reasons</option>
+                          <option>Service issues</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="text-sm font-semibold mb-2 block">Additional Notes</label>
+                        <textarea
+                          placeholder="Enter cancellation details..."
+                          rows={3}
+                          className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm resize-none"
+                        />
+                      </div>
+
+                      <div className="flex items-center space-x-2 pt-2">
+                        <Checkbox id="refund-calculation" />
+                        <Label htmlFor="refund-calculation" className="font-normal text-sm cursor-pointer">
+                          Calculate pro-rated refund
+                        </Label>
+                      </div>
+                    </div>
+                  </Card>
+                )}
               </div>
             </div>
           </div>
