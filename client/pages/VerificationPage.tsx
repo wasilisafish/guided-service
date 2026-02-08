@@ -72,7 +72,7 @@ export default function VerificationPage() {
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Header Bar */}
+        {/* Top Header Bar with User Info and Breadcrumb */}
         <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -92,31 +92,7 @@ export default function VerificationPage() {
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <div className="flex items-center gap-1">
-            <span className="text-sm">Lead: 676233</span>
-            <ChevronDown className="w-4 h-4 text-text-muted" />
-          </div>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <span className="text-sm text-text-muted">Establish rapport</span>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <button
-            onClick={() => navigate('/verification')}
-            className="text-sm font-semibold hover:text-action-primary transition-colors cursor-pointer"
-          >
-            Data verification
-          </button>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <span className="text-sm text-text-muted">Quoting</span>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <span className="text-sm text-text-muted">Proposal</span>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <span className="text-sm text-text-muted">Finalize</span>
-          <div className="flex-1" />
-          <span className="text-sm text-text-muted">Re-shop in progress</span>
-          <Button variant="outline" className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold">
-            Schedule follow-up
-            <ChevronDown className="w-4 h-4 ml-1" />
-          </Button>
+          <TopBreadcrumb currentStep="data-verification" />
         </div>
 
         {/* Main Content Grid */}
