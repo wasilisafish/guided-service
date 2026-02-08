@@ -33,7 +33,7 @@ export default function FinalLookPage() {
   return (
     <div className="flex h-screen bg-white overflow-hidden">
       {/* Left Navigation Sidebar */}
-      <div className="w-[60px] bg-gradient-to-b from-[#330E80] to-[#156EEA] flex-shrink-0 flex flex-col items-center py-4">
+      <div className={`${sidebarOpen ? 'w-[60px]' : 'hidden'} bg-gradient-to-b from-[#330E80] to-[#156EEA] flex-shrink-0 flex flex-col items-center py-4`}>
         {/* Logo */}
         <div className="mb-8">
           <svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
