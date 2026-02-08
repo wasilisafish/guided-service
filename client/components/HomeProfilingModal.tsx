@@ -227,12 +227,21 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 <Label htmlFor="basement" className="text-sm font-semibold mb-2 block">
                   Basement
                 </Label>
-                <Input
+                <select
                   id="basement"
                   value={formData.basement}
                   onChange={(e) => handleChange("basement", e.target.value)}
-                  className="w-full"
-                />
+                  className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                >
+                  <option value="No basement">No basement</option>
+                  <option value="Full unfinished basement">Full unfinished basement</option>
+                  <option value="25% finished basement">25% finished basement</option>
+                  <option value="50% finished basement">50% finished basement</option>
+                  <option value="75% finished basement">75% finished basement</option>
+                  <option value="Fully finished basement">Fully finished basement</option>
+                  <option value="Partial basement">Partial basement</option>
+                  <option value="Crawl space">Crawl space</option>
+                </select>
               </div>
               <div className="col-span-2">
                 <Label htmlFor="exterior" className="text-sm font-semibold mb-2 block">
