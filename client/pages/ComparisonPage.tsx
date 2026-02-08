@@ -331,10 +331,12 @@ export default function ComparisonPage() {
 
         {/* Bottom Navigation */}
         <BottomNavigation
-          primaryButton={{
-            label: "Verify details",
-            onClick: () => navigate('/verification')
-          }}
+          buttons={[
+            {
+              label: "Verify details",
+              onClick: () => navigate('/verification')
+            }
+          ]}
           showHelpButton={false}
         />
       </div>
