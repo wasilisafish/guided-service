@@ -307,18 +307,17 @@ export default function QuoteRequestsPage() {
           </div>
         </div>
 
-        {/* Bottom Action Bar */}
-        <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 gap-3">
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
-            Finalize
-          </Button>
-          <Button
-            onClick={() => navigate('/proposal')}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
-          >
-            Build proposal
-          </Button>
-        </div>
+        {/* Bottom Navigation */}
+        <BottomNavigation
+          buttons={[
+            { label: "Finalize" },
+            {
+              label: "Build proposal",
+              onClick: () => navigate('/proposal')
+            }
+          ]}
+          showHelpButton={false}
+        />
       </div>
     </div>
   );
