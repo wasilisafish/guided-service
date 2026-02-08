@@ -348,7 +348,7 @@ export default function VerificationPage() {
       <EligibilityModal
         open={eligibilityModalOpen}
         onOpenChange={setEligibilityModalOpen}
-        address="65 1/2 2nd Ave, Gloversville, NY, 12078-2444"
+        address="614 Basswood Dr, Spring, TX, 77386-1264"
       />
       <PeopleEditModal
         open={peopleModalOpen}
