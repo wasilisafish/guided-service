@@ -389,6 +389,27 @@ export function HomeProfilingModal({ open, onOpenChange }: HomeProfilingModalPro
                 />
               </div>
               <div>
+                <Label htmlFor="heatingType" className="text-sm font-semibold mb-2 block">
+                  Heating System Type
+                </Label>
+                <select
+                  id="heatingType"
+                  value={formData.heatingType}
+                  onChange={(e) => handleChange("heatingType", e.target.value)}
+                  className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                >
+                  <option value="Furnace">Furnace (Forced Air)</option>
+                  <option value="Boiler">Boiler (Radiators/Baseboard)</option>
+                  <option value="Heat pump">Heat Pump</option>
+                  <option value="Space heater">Space Heater</option>
+                  <option value="Wood stove">Wood Stove</option>
+                  <option value="Electric">Electric</option>
+                  <option value="Gas">Natural Gas</option>
+                  <option value="Oil">Oil</option>
+                  <option value="Propane">Propane</option>
+                </select>
+              </div>
+              <div>
                 <Label htmlFor="plumbingYear" className="text-sm font-semibold mb-2 block">
                   Plumbing Year Update
                 </Label>
