@@ -300,7 +300,10 @@ export default function QuoteRequestsPage() {
           <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
             Finalize
           </Button>
-          <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold">
+          <Button
+            onClick={() => navigate('/proposal')}
+            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
+          >
             Build proposal
           </Button>
         </div>
