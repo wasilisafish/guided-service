@@ -120,31 +120,6 @@ export default function QuotingPage() {
 
         {/* Main Content Grid */}
         <div className="flex-1 flex overflow-hidden">
-          {/* Left Sidebar */}
-          <div className="w-12 border-r border-neutral-gray-10 bg-white flex flex-col items-center py-4 gap-4">
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors">
-              <ChevronRight className="w-5 h-5" />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors">
-              <User className="w-5 h-5 text-action-secondary" />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors">
-              <Home className="w-5 h-5" />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors">
-              <Shield className="w-5 h-5" />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors">
-              <Scale className="w-5 h-5" />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors">
-              <FileText className="w-5 h-5" />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors">
-              <RotateCcw className="w-5 h-5" />
-            </button>
-          </div>
-
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto">
             <div className="max-w-6xl mx-auto p-8 space-y-8">
