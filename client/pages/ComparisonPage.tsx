@@ -230,7 +230,7 @@ export default function ComparisonPage() {
                       </div>
                       <div>
                         <div className="text-text-muted mb-1">Premium</div>
-                        <div className="font-semibold">$5,848/yr</div>
+                        <div className="font-semibold">$4,848/yr</div>
                       </div>
                     </div>
                   </Card>
