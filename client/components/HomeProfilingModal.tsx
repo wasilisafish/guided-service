@@ -27,6 +27,7 @@ interface HomeProfilingData {
   roofMaterial: string;
   roofShape: string;
   heatingYear: string;
+  heatingType: string;
   plumbingYear: string;
   electricityYear: string;
   solarPanels: string;
