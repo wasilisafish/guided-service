@@ -121,7 +121,7 @@ export default function ProposalPage() {
                     <div className="flex-1">
                       <div className="font-semibold mb-1">Primary home</div>
                       <p className="text-sm text-text-muted mb-3">
-                        12522 W Sunnyside Dr, El Mirage, AZ, 85335-6314
+                        614 Basswood Dr, Spring, TX, 77386-1264
                       </p>
                       
                       <div className="flex items-center justify-between">
@@ -205,7 +205,7 @@ export default function ProposalPage() {
                 <div className="bg-white p-6">
                   <h2 className="font-bold text-2xl mb-2">Home insurance details</h2>
                   <p className="text-base text-text-muted mb-6">
-                    12522 W Sunnyside Dr, El Mirage, AZ, 85335-6314
+                    614 Basswood Dr, Spring, TX, 77386-1264
                   </p>
 
                   {/* Comparison Table */}
