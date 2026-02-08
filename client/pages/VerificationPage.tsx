@@ -280,11 +280,7 @@ export default function VerificationPage() {
                       <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Security system?</span>
-                          <span className="font-semibold">Yes</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">Security system type</span>
-                          <span className="font-semibold">Central</span>
+                          <span className="font-semibold">No</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Smoke detector?</span>
@@ -292,7 +288,7 @@ export default function VerificationPage() {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Smoke detector type</span>
-                          <span className="font-semibold">Smart</span>
+                          <span className="font-semibold">Regular</span>
                         </div>
                       </div>
                     </div>
