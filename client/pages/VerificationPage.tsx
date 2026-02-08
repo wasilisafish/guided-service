@@ -201,16 +201,53 @@ export default function VerificationPage() {
 
                   {/* Eligibility Card */}
                   <Card className="border-neutral-gray-30 rounded-lg p-4 bg-[#F0F9F4]">
-                    <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-start justify-between mb-4">
                       <h4 className="font-bold text-base">Eligibility</h4>
                       <button onClick={() => setEligibilityModalOpen(true)}>
                         <Edit className="w-5 h-5 text-action-secondary" />
                       </button>
                     </div>
-                    <div className="text-base mb-2">Nothing to worry about</div>
+                    <div className="space-y-2 text-sm mb-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-text-muted">Pets</span>
+                        <div className="flex items-center gap-2">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-success">
+                            <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          <span className="font-semibold">Yes</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-text-muted">What type of pets?</span>
+                        <div className="flex items-center gap-2">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-success">
+                            <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          <span className="font-semibold">Dog, Cat</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-text-muted">Breeds</span>
+                        <div className="flex items-center gap-2">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-success">
+                            <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          <span className="font-semibold">Other</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-text-muted">Bite history</span>
+                        <div className="flex items-center gap-2">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-success">
+                            <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          <span className="font-semibold">No</span>
+                        </div>
+                      </div>
+                    </div>
                     <button className="flex items-center gap-1 text-sm">
                       <ChevronDown className="w-4 h-4" />
-                      <span className="font-semibold">Everything is no</span>
+                      <span className="font-semibold">No concerns about everything else</span>
                     </button>
                   </Card>
 
