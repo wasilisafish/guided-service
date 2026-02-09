@@ -27,6 +27,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
+import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
 export default function QuoteRequestsPage() {
   const navigate = useNavigate();
@@ -412,41 +413,8 @@ export default function QuoteRequestsPage() {
             </div>
           </div>
 
-          {/* Right Sidebar - Vertical Icon Bar */}
-          <div className="w-12 border-l border-neutral-gray-10 bg-white flex flex-col items-center py-3 gap-1 flex-shrink-0">
-            <RightSidebarIcon
-              icon={<User className="w-4 h-4" />}
-              label="Info"
-            />
-            <RightSidebarIcon
-              icon={<StickyNote className="w-4 h-4" />}
-              label="Notes"
-            />
-            <RightSidebarIcon
-              icon={<ListChecks className="w-4 h-4" />}
-              label="Tasks"
-            />
-            <RightSidebarIcon
-              icon={<Shield className="w-4 h-4" />}
-              label="Policies"
-            />
-            <RightSidebarIcon
-              icon={<Rss className="w-4 h-4" />}
-              label="Feed"
-            />
-            <RightSidebarIcon
-              icon={<Landmark className="w-4 h-4" />}
-              label="Loans"
-            />
-            <RightSidebarIcon
-              icon={<Paperclip className="w-4 h-4" />}
-              label="Files"
-            />
-            <RightSidebarIcon
-              icon={<HelpCircle className="w-4 h-4" />}
-              label="Help"
-            />
-          </div>
+          {/* Right sidebar - same on every page */}
+          <RightSidebarPanel />
         </div>
 
         {/* Bottom Navigation */}
@@ -470,21 +438,6 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
     <button className="w-full py-2.5 px-1 flex flex-col items-center gap-1 text-white hover:bg-white/10 transition-colors text-sm">
       {icon}
       <span className="text-xs font-medium">{label}</span>
-    </button>
-  );
-}
-
-function RightSidebarIcon({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
-  return (
-    <button className="w-full py-2 flex flex-col items-center gap-0.5 text-neutral-gray-60 hover:text-text hover:bg-neutral-gray-5 transition-colors">
-      {icon}
-      <span className="text-[10px]">{label}</span>
     </button>
   );
 }

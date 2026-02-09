@@ -26,6 +26,7 @@ import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { EligibilityModal } from "@/components/EligibilityModal";
 import { PeopleEditModal } from "@/components/PeopleEditModal";
 import { HomeProfilingModal } from "@/components/HomeProfilingModal";
+import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
 export default function VerificationPage() {
   const navigate = useNavigate();
@@ -479,10 +480,8 @@ export default function VerificationPage() {
             </div>
           </div>
 
-          {/* Right Sidebar */}
-          <div className="w-[60px] border-l border-neutral-gray-10 flex-shrink-0">
-            <RightSidebar />
-          </div>
+          {/* Right sidebar - same on every page */}
+          <RightSidebarPanel activeItem="info" />
         </div>
 
         {/* Bottom Navigation */}
@@ -598,62 +597,3 @@ function PersonCard({
   );
 }
 
-function RightSidebar() {
-  return (
-    <div className="flex flex-col h-full">
-      <div className="flex-1 space-y-0">
-        <SidebarItem icon={<User />} label="Info" active />
-        <SidebarItem
-          icon={
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path
-                d="M7.5 7.5H12.5"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M7.5 10.5H10"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M12.2411 16.875H3.75C3.58424 16.875 3.42527 16.8092 3.30806 16.6919C3.19085 16.5747 3.125 16.4158 3.125 16.25V3.75C3.125 3.58424 3.19085 3.42527 3.30806 3.30806C3.42527 3.19085 3.58424 3.125 3.75 3.125H16.25C16.4158 3.125 16.5747 3.19085 16.6919 3.30806C16.8092 3.42527 16.875 3.58424 16.875 3.75V12.2411C16.875 12.3232 16.8588 12.4045 16.8274 12.4803C16.796 12.5561 16.75 12.625 16.6919 12.6831L12.6831 16.6919C12.625 16.75 12.5561 16.796 12.4803 16.8274C12.4045 16.8588 12.3232 16.875 12.2411 16.875V16.875Z"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          }
-          label="Notes"
-        />
-        <SidebarItem icon={<ClipboardCheck />} label="Tasks" />
-        <SidebarItem icon={<Shield />} label="Policies" />
-        <SidebarItem icon={<Clock />} label="Feed" />
-        <SidebarItem icon={<DollarSign />} label="Loans" />
-        <SidebarItem icon={<Paperclip />} label="Files" />
-        <SidebarItem icon={<HelpCircle />} label="Help" />
-      </div>
-    </div>
-  );
-}
-
-function SidebarItem({
-  icon,
-  label,
-  active,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  active?: boolean;
-}) {
-  return (
-    <button
-      className={`w-full py-2 px-1 flex flex-col items-center gap-1 text-sm hover:bg-neutral-gray-5 transition-colors ${active ? "bg-white" : ""}`}
-    >
-      <div className="w-5 h-5">{icon}</div>
-      <span className="text-xs font-medium">{label}</span>
-    </button>
-  );
-}

@@ -31,6 +31,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { SageSureLogo } from "@/components/SageSureLogo";
+import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
 export default function ComparisonPage() {
   const navigate = useNavigate();
@@ -405,17 +406,8 @@ export default function ComparisonPage() {
             </div>
           </div>
 
-          {/* Right Vertical Sidebar - Icons with labels (Figma) */}
-          <div className="w-[72px] border-l border-neutral-gray-10 flex-shrink-0 flex flex-col items-center py-4 bg-white">
-            <ComparisonSidebarItem icon={<User className="w-5 h-5" />} label="Info" />
-            <ComparisonSidebarItem icon={<StickyNote className="w-5 h-5" />} label="Notes" />
-            <ComparisonSidebarItem icon={<ListChecks className="w-5 h-5" />} label="Tasks" />
-            <ComparisonSidebarItem icon={<Shield className="w-5 h-5" />} label="Policies" />
-            <ComparisonSidebarItem icon={<Rss className="w-5 h-5" />} label="Feed" />
-            <ComparisonSidebarItem icon={<Landmark className="w-5 h-5" />} label="Loans" />
-            <ComparisonSidebarItem icon={<Paperclip className="w-5 h-5" />} label="Files" />
-            <ComparisonSidebarItem icon={<HelpCircle className="w-5 h-5" />} label="Help" />
-          </div>
+          {/* Right sidebar - same on every page */}
+          <RightSidebarPanel />
         </div>
       </div>
     </div>
@@ -426,21 +418,6 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <button className="w-full py-2.5 px-1 flex flex-col items-center gap-1 text-white hover:bg-white/10 transition-colors text-sm">
       {icon}
-      <span className="text-xs font-medium">{label}</span>
-    </button>
-  );
-}
-
-function ComparisonSidebarItem({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
-  return (
-    <button className="w-full py-2 px-1 flex flex-col items-center gap-1.5 text-neutral-gray-60 hover:text-action-primary hover:bg-neutral-gray-5 transition-colors">
-      <div className="w-5 h-5 flex items-center justify-center">{icon}</div>
       <span className="text-xs font-medium">{label}</span>
     </button>
   );
