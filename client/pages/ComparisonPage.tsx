@@ -30,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
+import { SageSureLogo } from "@/components/SageSureLogo";
 
 export default function ComparisonPage() {
   const navigate = useNavigate();
@@ -101,7 +102,7 @@ export default function ComparisonPage() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header Bar with User Info and Breadcrumb */}
-        <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
+        <div className="min-h-16 border-b border-neutral-gray-10 bg-white flex flex-wrap items-center px-6 gap-3 py-3">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
@@ -129,21 +130,22 @@ export default function ComparisonPage() {
           </button>
           <button
             onClick={() => navigate("/")}
-            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap"
+            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap shrink-0"
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold w-auto flex-grow-0">
+          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <TopBreadcrumb currentStep="establish-rapport" />
-          <div className="flex-1" />
-          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold">
+          <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
+          <div className="min-w-0 flex-1">
+            <TopBreadcrumb currentStep="establish-rapport" />
+          </div>
+          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
             Re-shop in progress
           </Badge>
           <Button
-            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9"
+            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
@@ -195,9 +197,11 @@ export default function ComparisonPage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                      <div>
+                        <div>
                         <div className="text-text-muted mb-1">Carrier</div>
-                        <div className="font-semibold">SURE</div>
+                        <div className="flex items-center">
+                          <SageSureLogo width={84} height={21} />
+                        </div>
                       </div>
                       <div>
                         <div className="text-text-muted mb-1">
@@ -246,9 +250,11 @@ export default function ComparisonPage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                      <div>
+                        <div>
                         <div className="text-text-muted mb-1">Carrier</div>
-                        <div className="font-semibold">SURE</div>
+                        <div className="flex items-center">
+                          <SageSureLogo width={84} height={21} />
+                        </div>
                       </div>
                       <div>
                         <div className="text-text-muted mb-1">

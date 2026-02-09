@@ -107,10 +107,10 @@ export default function QuotingPage() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header Bar with User Info and Breadcrumb */}
-        <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
+        <div className="min-h-16 border-b border-neutral-gray-10 bg-white flex flex-wrap items-center px-6 gap-3 py-3">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
+            className="w-6 h-6 flex-shrink-0 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
           >
             <svg
               width="16"
@@ -129,15 +129,17 @@ export default function QuotingPage() {
           </button>
           <button
             onClick={() => navigate("/")}
-            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap"
+            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap shrink-0"
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold w-auto flex-grow-0">
+          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <TopBreadcrumb currentStep="quoting" />
+          <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
+          <div className="min-w-0 flex-1">
+            <TopBreadcrumb currentStep="quoting" />
+          </div>
         </div>
 
         {/* Main Content Grid */}

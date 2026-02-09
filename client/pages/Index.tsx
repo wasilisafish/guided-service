@@ -26,6 +26,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { SageSureLogo } from "@/components/SageSureLogo";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("policies");
@@ -98,10 +99,10 @@ export default function Index() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header Bar */}
-        <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
+        <div className="min-h-16 border-b border-neutral-gray-10 bg-white flex flex-wrap items-center px-6 gap-3 py-3">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
+            className="w-6 h-6 flex-shrink-0 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
           >
             <svg
               width="16"
@@ -120,35 +121,35 @@ export default function Index() {
           </button>
           <button
             onClick={() => navigate("/")}
-            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer"
+            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap shrink-0"
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2.5 py-0.5 text-xs font-semibold">
+          <Badge className="bg-violet text-white border-none rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
-          <div className="w-px h-8 bg-neutral-gray-10" />
-          <button className="flex items-center gap-1 text-action-secondary font-semibold text-sm px-3 py-2 hover:bg-neutral-gray-5 rounded transition-colors">
+          <div className="w-px h-8 bg-neutral-gray-10 shrink-0" />
+          <button className="flex items-center gap-1 text-action-secondary font-semibold text-sm px-3 py-2 hover:bg-neutral-gray-5 rounded transition-colors whitespace-nowrap shrink-0">
             See all leads
-            <ChevronRight className="w-4 h-4 rotate-90" />
+            <ChevronRight className="w-4 h-4 rotate-90 shrink-0" />
           </button>
-          <div className="flex-1" />
-          <button className="w-8 h-8 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
+          <div className="flex-1 min-w-0" />
+          <button className="w-8 h-8 flex-shrink-0 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
             <Mail className="w-4 h-4 text-action-secondary" />
           </button>
-          <button className="w-8 h-8 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
+          <button className="w-8 h-8 flex-shrink-0 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
             <Phone className="w-4 h-4 text-action-secondary" />
           </button>
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold"
+            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold whitespace-nowrap shrink-0"
           >
             Schedule follow-up
-            <ChevronRight className="w-4 h-4 ml-1 rotate-90" />
+            <ChevronRight className="w-4 h-4 ml-1 rotate-90 shrink-0" />
           </Button>
           <Button
             onClick={() => navigate("/comparison")}
-            className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold"
+            className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold whitespace-nowrap shrink-0"
           >
             Service
           </Button>
@@ -499,20 +500,7 @@ function PolicyCard() {
         <div className="flex items-center gap-2">
           <div className="flex-1 flex items-center gap-2">
             <div className="border border-neutral-gray-30 bg-white rounded px-2 py-1">
-              <svg width="84" height="21" viewBox="0 0 84 21" fill="none">
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M64.8117 8.20243C64.8022 8.20967 64.7913 8.21388 64.7795 8.21388C64.7465 8.21388 64.7207 8.18532 64.7207 8.14948C64.7207 8.13907 64.723 8.1302 64.7261 8.12137L64.7289 8.11671C66.3546 4.07928 70.0559 1.26001 74.3605 1.26001C78.6669 1.26001 82.3691 4.08239 83.993 8.12192L83.9949 8.12658C83.998 8.13491 83.9998 8.14323 83.9998 8.15206C83.9998 8.1879 83.9736 8.21646 83.9424 8.21646C83.931 8.21646 83.9215 8.21284 83.9129 8.20918L83.9048 8.20556C83.1589 7.72658 82.1179 7.42945 80.9652 7.42945C79.6337 7.42945 78.451 7.82583 77.7006 8.43986L77.6979 8.44294C77.6875 8.45127 77.6753 8.45593 77.6613 8.45593C77.6477 8.45593 77.6355 8.45127 77.625 8.44294L77.6214 8.44036C76.8701 7.82578 75.6866 7.42945 74.3564 7.42945C73.0258 7.42945 71.8427 7.82578 71.0914 8.44036L71.0887 8.44244C71.0778 8.45127 71.0652 8.45593 71.0516 8.45593C71.0394 8.45593 71.0271 8.45231 71.019 8.44552L71.014 8.4414C70.2627 7.82633 69.0783 7.42945 67.7467 7.42945C66.6003 7.42945 65.5639 7.72345 64.8194 8.19827L64.8117 8.20243ZM74.9036 8.29096V17.6319C74.9036 18.796 74.0337 19.742 72.9661 19.742C72.1102 19.742 71.3815 19.1332 71.1267 18.2921L71.1249 18.2874C71.1127 18.2376 71.1054 18.1861 71.1054 18.1327C71.1054 17.8178 71.3417 17.5622 71.6314 17.5622C71.864 17.5622 72.0595 17.7254 72.1297 17.9529L72.1306 17.9539C72.2532 18.329 72.5813 18.5981 72.9661 18.5981C73.4544 18.5981 73.8522 18.1643 73.8522 17.6319L73.8513 8.27381L73.8522 8.27068C73.8522 8.24267 73.8717 8.21977 73.897 8.21669L73.9002 8.21615C74.0428 8.20008 74.1894 8.19171 74.3388 8.19171C74.5162 8.19171 74.6886 8.2047 74.8556 8.22547L74.8579 8.22601C74.8828 8.22914 74.9027 8.25145 74.9027 8.28005L74.9036 8.29096Z"
-                  fill="#E61616"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M12.0971 14.0581C12.92 14.0581 13.4825 14.0243 13.6332 12.5246C13.7862 11.0133 13.1254 11.0845 12.3579 11.0845H10.776L10.4743 14.0581H12.0971ZM14.6677 19.7028H12.9066L11.7696 15.683H10.3141L9.90691 19.7028H8.16012L9.19326 9.45959H12.6368C14.6796 9.45959 15.656 9.99207 15.3919 12.5968C15.2127 14.3729 14.579 15.0861 13.4525 15.4352L14.6677 19.7028Z"
-                  fill="black"
-                />
-              </svg>
+              <SageSureLogo width={84} height={21} />
             </div>
             <button className="flex items-center gap-2 border border-neutral-gray-30 bg-white rounded px-2 py-1 text-sm font-semibold">
               BSNH3-2024-209765-01

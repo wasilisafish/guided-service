@@ -23,6 +23,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
+import { SageSureLogo } from "@/components/SageSureLogo";
 
 export default function FinalizePage() {
   const navigate = useNavigate();
@@ -97,10 +98,10 @@ export default function FinalizePage() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header Bar with User Info and Breadcrumb */}
-        <div className="h-16 border-b border-neutral-gray-10 bg-white flex items-center px-6 gap-3">
+        <div className="min-h-16 border-b border-neutral-gray-10 bg-white flex flex-wrap items-center px-6 gap-3 py-3">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="w-6 h-6 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
+            className="w-6 h-6 flex-shrink-0 flex items-center justify-center hover:bg-neutral-gray-5 rounded transition-colors"
           >
             <svg
               width="16"
@@ -119,16 +120,18 @@ export default function FinalizePage() {
           </button>
           <button
             onClick={() => navigate("/")}
-            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap"
+            className="text-lg font-semibold -tracking-[0.3px] hover:text-action-primary transition-colors cursor-pointer whitespace-nowrap shrink-0"
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold w-auto flex-grow-0">
+          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
-          <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
-          <TopBreadcrumb currentStep="finalize" />
-          <Badge className="bg-orange-100 text-orange-700 border-none rounded px-3 py-1 text-sm font-semibold">
+          <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
+          <div className="min-w-0 flex-1">
+            <TopBreadcrumb currentStep="finalize" />
+          </div>
+          <Badge className="bg-orange-100 text-orange-700 border-none rounded px-3 py-1 text-sm font-semibold whitespace-nowrap shrink-0">
             Dispositions for service
           </Badge>
         </div>
@@ -203,26 +206,11 @@ export default function FinalizePage() {
                         4545 Marlborough Dr, San Diego, CA, 92116-4737
                       </p>
 
-                      {/* Travelers Logo and Policy Number */}
+                      {/* SageSure Logo and Policy Number (current carrier) */}
                       <div className="flex items-center gap-3 mb-4 pb-4 border-b border-neutral-gray-10">
                         <div className="flex items-center gap-2">
                           <div className="border border-neutral-gray-30 bg-white rounded px-3 py-1.5">
-                            <svg
-                              width="100"
-                              height="24"
-                              viewBox="0 0 100 24"
-                              fill="none"
-                            >
-                              <text
-                                x="0"
-                                y="18"
-                                fontSize="16"
-                                fontWeight="bold"
-                                fill="#E31837"
-                              >
-                                TRAVELERS
-                              </text>
-                            </svg>
+                            <SageSureLogo width={100} height={25} />
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="font-semibold text-sm">
@@ -426,7 +414,7 @@ export default function FinalizePage() {
                           htmlFor="cancel-previous"
                           className="font-normal text-sm cursor-pointer"
                         >
-                          Cancel previous policy (TRAVELERS VAHP0000031410)
+                          Cancel previous policy (SageSure VAHP0000031410)
                         </Label>
                       </div>
                     </div>
@@ -499,7 +487,7 @@ export default function FinalizePage() {
                     <div className="space-y-4">
                       <p className="text-sm">
                         The customer has decided to keep their current policy
-                        with TRAVELERS without any changes.
+                        with SageSure without any changes.
                       </p>
 
                       <div>
