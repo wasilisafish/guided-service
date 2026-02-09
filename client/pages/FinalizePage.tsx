@@ -31,6 +31,7 @@ export default function FinalizePage() {
   const [selectedSection, setSelectedSection] = useState("home");
   const [policyChecked, setPolicyChecked] = useState(false);
   const [selectedOutcome, setSelectedOutcome] = useState("");
+  const [verbalConsent, setVerbalConsent] = useState("");
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
@@ -307,7 +308,7 @@ export default function FinalizePage() {
                         htmlFor="change-policy"
                         className="font-normal cursor-pointer"
                       >
-                        Change policy
+                        Change current policy
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -331,94 +332,172 @@ export default function FinalizePage() {
                   </div>
                 </RadioGroup>
 
-                {/* Progressive Disclosure - Rewrite Details */}
+                {/* Progressive Disclosure - Rewrite (Figma 348-14423) */}
                 {selectedOutcome === "rewrite" && (
-                  <Card className="border-neutral-gray-30 rounded-lg p-6 mt-6 bg-blue-50/30">
-                    <h4 className="font-bold text-base mb-4">
-                      New Policy Details
-                    </h4>
-
-                    <div className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
+                  <div className="mt-6 space-y-6">
+                    {/* Reason to rewrite, Cancellation date, Cancellation reason */}
+                    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
+                      <div className="space-y-4">
                         <div>
-                          <label className="text-sm font-semibold mb-2 block">
-                            New Carrier
-                          </label>
-                          <div className="border border-neutral-gray-30 bg-white rounded px-3 py-2">
-                            <div className="font-bold text-sm">FOREMOST</div>
-                            <div className="text-xs text-text-muted">
-                              INSURANCE GROUP
-                            </div>
+                          <Label className="text-sm font-semibold">
+                            Reason to rewrite<span className="text-red-500">*</span>
+                          </Label>
+                          <input
+                            type="text"
+                            placeholder="Placeholder"
+                            className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">
+                            Cancellation date<span className="text-red-500">*</span>
+                          </Label>
+                          <input
+                            type="text"
+                            placeholder="MM/DD/YYYY"
+                            className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">
+                            Cancellation reason<span className="text-red-500">*</span>
+                          </Label>
+                          <select className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm bg-white">
+                            <option>Price increase</option>
+                            <option>Customer request</option>
+                            <option>Found better rate</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                      </div>
+                    </Card>
+
+                    {/* New policy details: Policy type, Carrier, Verbatim, Consent */}
+                    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
+                      <h4 className="font-bold text-base mb-4">New policy details</h4>
+                      <div className="space-y-4">
+                        <div>
+                          <Label className="text-sm font-semibold">Policy type<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 text-sm font-medium">Home</div>
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Carrier<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 border border-neutral-gray-10 rounded px-3 py-2 inline-block">
+                            <span className="font-bold text-sm">Foremost</span>
                           </div>
                         </div>
                         <div>
-                          <label className="text-sm font-semibold mb-2 block">
-                            Policy Number
-                          </label>
-                          <input
-                            type="text"
-                            placeholder="Will be assigned"
-                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
-                            disabled
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-3 gap-4">
-                        <div>
-                          <label className="text-sm font-semibold mb-2 block">
-                            Effective Date
-                          </label>
-                          <input
-                            type="date"
-                            defaultValue="2026-01-01"
-                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
-                          />
+                          <Label className="text-sm font-semibold block mb-2">Verbatim</Label>
+                          <p className="text-sm text-text-muted leading-relaxed border border-neutral-gray-10 rounded-lg p-4 bg-neutral-gray-5">
+                            Okay, Sherre, now I need you to provide your verbal &quot;yes&quot; which gives your consent to issue this policy and we will proceed with payment. Do I have your consent to bind this insurance policy? [Wait for yes] Thank you for your verbal consent to bind the policies. Although the policy is now issued, to avoid potential disruptions in your coverage please e-sign your insurance application within 7 days. I said the following verbatim statement to issue these insurance policies.
+                          </p>
                         </div>
                         <div>
-                          <label className="text-sm font-semibold mb-2 block">
-                            Premium
-                          </label>
-                          <input
-                            type="text"
-                            defaultValue="$2,083"
-                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm font-semibold"
-                          />
+                          <Label className="text-sm font-semibold block mb-2">Verbal consent</Label>
+                          <RadioGroup value={verbalConsent} onValueChange={setVerbalConsent} className="flex gap-4">
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="no" id="consent-no" />
+                              <Label htmlFor="consent-no" className="font-normal cursor-pointer">No</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="yes" id="consent-yes" />
+                              <Label htmlFor="consent-yes" className="font-normal cursor-pointer">Yes</Label>
+                            </div>
+                          </RadioGroup>
+                        </div>
+                      </div>
+                    </Card>
+
+                    {/* Upload documents */}
+                    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
+                      <h4 className="font-bold text-base mb-2">Upload documents</h4>
+                      <p className="text-sm text-text-muted mb-4">You have to collect all the documents below:</p>
+                      <div className="border-2 border-dashed border-neutral-gray-30 rounded-lg p-8 text-center text-sm text-text-muted mb-4">
+                        Drag and drop files here or click here
+                        <p className="mt-1 text-xs">PDF, DOCX, up to 30MB</p>
+                      </div>
+                      <ul className="space-y-2 text-sm">
+                        <li className="flex items-center gap-2">
+                          <span className="text-action-primary">→</span>
+                          Dec page
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="text-action-primary">→</span>
+                          Replacement cost
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="text-action-primary">→</span>
+                          Application
+                        </li>
+                      </ul>
+                    </Card>
+
+                    {/* Policy details (new policy) */}
+                    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
+                      <h4 className="font-bold text-base mb-4">Policy details</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <Label className="text-sm font-semibold">Agent of record<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 text-sm">Bertram Kust</div>
                         </div>
                         <div>
-                          <label className="text-sm font-semibold mb-2 block">
-                            Deductible
-                          </label>
-                          <input
-                            type="text"
-                            defaultValue="$1,000"
-                            className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm"
-                          />
+                          <Label className="text-sm font-semibold">Insured people<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 text-sm">Elliot McMahon, Jennifer McMahon</div>
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Details</Label>
+                          <input type="text" className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="" />
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Policy number<span className="text-red-500">*</span></Label>
+                          <input type="text" className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="" />
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Effective date<span className="text-red-500">*</span></Label>
+                          <input type="text" className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="MM/DD/YYYY" />
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Policy period<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 text-sm">1 year</div>
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Billing type<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 text-sm">Escrow</div>
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Coverages</Label>
+                          <input type="text" className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="" />
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Primary coverage<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 flex gap-2">
+                            <input type="text" className="flex-1 border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="in $" />
+                            <input type="text" className="flex-1 border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="in %" />
+                          </div>
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Deductible<span className="text-red-500">*</span></Label>
+                          <div className="mt-2 flex gap-2">
+                            <input type="text" className="flex-1 border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="in $" />
+                            <input type="text" className="flex-1 border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="in %" />
+                          </div>
+                        </div>
+                        <div>
+                          <Label className="text-sm font-semibold">Premium<span className="text-red-500">*</span></Label>
+                          <input type="text" className="mt-2 w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm" placeholder="" />
                         </div>
                       </div>
+                    </Card>
 
-                      <div>
-                        <label className="text-sm font-semibold mb-2 block">
-                          Reason for Rewrite
-                        </label>
-                        <textarea
-                          placeholder="Enter reason..."
-                          rows={3}
-                          className="w-full border border-neutral-gray-30 rounded px-3 py-2 text-sm resize-none"
-                        />
-                      </div>
-
-                      <div className="flex items-center space-x-2 pt-2">
-                        <Checkbox id="cancel-previous" />
-                        <Label
-                          htmlFor="cancel-previous"
-                          className="font-normal text-sm cursor-pointer"
-                        >
-                          Cancel previous policy (SageSure VAHP0000031410)
-                        </Label>
-                      </div>
+                    <div className="flex justify-end">
+                      <Button
+                        onClick={() => navigate("/final-look")}
+                        className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold px-6"
+                      >
+                        Create policy and proceed
+                      </Button>
                     </div>
-                  </Card>
+                  </div>
                 )}
 
                 {/* Progressive Disclosure - Change Policy Details */}

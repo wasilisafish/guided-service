@@ -15,11 +15,11 @@ import {
   Shield,
   Phone,
   Mail,
+  FileText,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { SageSureLogo } from "@/components/SageSureLogo";
 
@@ -143,42 +143,22 @@ export default function ProposalPage() {
                   Your proposal summary
                 </h3>
 
-                <Card className="border-neutral-gray-30 rounded-lg p-4">
+                <Card className="border border-neutral-gray-10 rounded-lg p-4 bg-white shadow-sm">
                   <div className="flex items-start gap-2 mb-3">
-                    <Home className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                    <div className="flex-1">
+                    <Home className="w-5 h-5 flex-shrink-0 mt-0.5 text-action-primary" />
+                    <div className="flex-1 min-w-0">
                       <div className="font-semibold mb-1">Primary home</div>
                       <p className="text-sm text-text-muted mb-3">
                         4545 Marlborough Dr, San Diego, CA, 92116-4737
                       </p>
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <div className="border border-neutral-gray-30 bg-white rounded px-2 py-1">
-                            <svg
-                              width="84"
-                              height="21"
-                              viewBox="0 0 84 21"
-                              fill="none"
-                            >
-                              <text
-                                x="2"
-                                y="15"
-                                fontSize="14"
-                                fontWeight="bold"
-                                fill="black"
-                              >
-                                FOREMOST
-                              </text>
-                            </svg>
-                          </div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <div className="border border-neutral-gray-10 bg-white rounded px-2 py-1.5">
+                          <div className="font-bold text-sm">FOREMOST</div>
+                          <div className="text-xs text-text-muted">INSURANCE GROUP</div>
                         </div>
-                      </div>
-
-                      <div className="flex items-center justify-between mt-3">
                         <span className="font-bold text-lg">$2,083/yr</span>
-                        <button>
-                          <ChevronDown className="w-5 h-5" />
+                        <button className="p-1 rounded hover:bg-neutral-gray-5" aria-label="Options">
+                          <ChevronDown className="w-5 h-5 text-text-muted" />
                         </button>
                       </div>
                     </div>
@@ -191,45 +171,37 @@ export default function ProposalPage() {
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto bg-gradient-to-br from-blue-50 to-blue-100">
             <div className="max-w-5xl mx-auto p-8 space-y-8">
-              {/* Review Header */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h1 className="text-4xl font-bold mb-6">
-                      Review your insurance offer
-                    </h1>
-
-                    <div className="flex items-start gap-6">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
-                        <User className="w-10 h-10 text-white" />
-                      </div>
-
-                      <div className="flex-1">
-                        <p className="text-lg mb-4">
-                          I'm Maria, your{" "}
-                          <span className="font-semibold">[state]</span>{" "}
-                          licensed insurance advisor. I've helped{" "}
-                          <span className="font-semibold">[#]</span> customers
-                          protect their most important belongings.
-                        </p>
-
-                        <div className="flex items-center gap-6">
-                          <div className="flex items-center gap-2">
-                            <Phone className="w-5 h-5" />
-                            <span className="font-semibold">653-7652-873</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Mail className="w-5 h-5" />
-                            <span className="font-semibold">
-                              maria.su@matic.com
-                            </span>
-                          </div>
+              {/* Review your insurance offer - Figma */}
+              <div className="bg-white rounded-2xl p-8 shadow-md border border-neutral-gray-10">
+                <h1 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-gray-80">
+                  Review your insurance offer
+                </h1>
+                <div className="flex flex-col md:flex-row md:items-start gap-6">
+                  <div className="flex items-start gap-6 flex-1">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
+                      <User className="w-10 h-10 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-base md:text-lg mb-4 text-neutral-gray-80">
+                        I'm Maria, your{" "}
+                        <span className="font-semibold">California</span>{" "}
+                        licensed insurance advisor. I've helped{" "}
+                        <span className="font-semibold">127</span> customers
+                        protect their most important belongings.
+                      </p>
+                      <div className="flex flex-wrap items-center gap-4 md:gap-6">
+                        <div className="flex items-center gap-2">
+                          <Phone className="w-5 h-5 text-action-primary shrink-0" />
+                          <span className="font-semibold">653-7652-873</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Mail className="w-5 h-5 text-action-primary shrink-0" />
+                          <span className="font-semibold">maria.su@matic.com</span>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <div className="ml-8">
+                  <div className="flex-shrink-0 md:ml-4">
                     <svg
                       width="240"
                       height="160"
@@ -291,122 +263,93 @@ export default function ProposalPage() {
                 </div>
               </div>
 
-              {/* Home Insurance Details */}
-              <Card className="border-neutral-gray-30 rounded-lg overflow-hidden">
-                <div className="bg-white p-6">
-                  <h2 className="font-bold text-2xl mb-2">
-                    Home insurance details
-                  </h2>
+              {/* Home insurance details - Figma with highlighted differences */}
+              <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-md">
+                <div className="p-6">
+                  <h2 className="font-bold text-2xl mb-2">Home insurance details</h2>
                   <p className="text-base text-text-muted mb-6">
                     4545 Marlborough Dr, San Diego, CA, 92116-4737
                   </p>
 
-                  {/* Comparison Table */}
-                  <div className="space-y-1">
-                    {/* Header Row */}
-                    <div className="grid grid-cols-3 gap-4 pb-3 border-b border-neutral-gray-30">
-                      <div></div>
-                      <div className="text-center font-bold text-lg">
-                        Proposed
-                      </div>
-                      <div className="text-center font-bold text-lg">
-                        Current
-                      </div>
+                  <div className="space-y-0">
+                    {/* Header */}
+                    <div className="grid grid-cols-3 gap-4 pb-3 border-b-2 border-neutral-gray-30">
+                      <div />
+                      <div className="text-center font-bold text-lg">Proposed</div>
+                      <div className="text-center font-bold text-lg">Current</div>
                     </div>
 
-                    {/* Carrier Row */}
-                    <div className="grid grid-cols-3 gap-4 py-4 items-center bg-neutral-gray-5">
-                      <div className="font-semibold">Carrier</div>
-                      <div className="flex justify-center">
-                        <div className="border border-neutral-gray-30 bg-white rounded px-3 py-2">
+                    {/* Carrier */}
+                    <ProposalRow
+                      label="Carrier"
+                      proposed={
+                        <div className="border border-neutral-gray-10 bg-white rounded px-3 py-2 inline-block">
                           <div className="font-bold text-sm">FOREMOST</div>
-                          <div className="text-xs text-text-muted">
-                            INSURANCE GROUP
-                          </div>
+                          <div className="text-xs text-text-muted">INSURANCE GROUP</div>
                         </div>
-                      </div>
-                      <div className="flex justify-center">
-                        <div className="border border-neutral-gray-30 bg-white rounded px-3 py-2 flex items-center justify-center">
-                          <SageSureLogo width={100} height={25} />
+                      }
+                      current={
+                        <div className="border border-neutral-gray-10 bg-white rounded px-2 py-1.5 inline-flex">
+                          <SageSureLogo width={90} height={22} />
                         </div>
-                      </div>
+                      }
+                      highlight
+                    />
+
+                    <div className="pt-4 pb-2">
+                      <h3 className="font-bold text-lg">Policy Basics</h3>
                     </div>
 
-                    {/* Policy Basics Section */}
-                    <div className="pt-4">
-                      <h3 className="font-bold text-lg mb-3">Policy Basics</h3>
+                    <ProposalRow label="Policy Start Date" proposed="1/1/2026" current="1/1/2026" />
+                    <ProposalRow label="Deductible" proposed="$1,000" current="$2,500" highlight />
+
+                    <div className="pt-4 grid grid-cols-3 gap-4 pb-2">
+                      <div className="font-bold text-lg">Standard coverages</div>
+                      <div />
+                      <div className="text-right font-bold text-lg">Coverage Limit</div>
                     </div>
 
-                    {/* Policy Start Date */}
-                    <div className="grid grid-cols-3 gap-4 py-3 items-center border-b border-neutral-gray-10">
-                      <div className="text-sm">Policy Start Date</div>
-                      <div className="text-center">1/1/2026</div>
-                      <div className="text-center">1/1/2026</div>
-                    </div>
-
-                    {/* Deductible */}
-                    <div className="grid grid-cols-3 gap-4 py-3 items-center border-b border-neutral-gray-10">
-                      <div className="text-sm">Deductible</div>
-                      <div className="text-center">$1,000</div>
-                      <div className="text-center">$1,000</div>
-                    </div>
-
-                    {/* Standard Coverages Section */}
-                    <div className="pt-4 grid grid-cols-3 gap-4">
-                      <div className="font-bold text-lg">
-                        Standard coverages
-                      </div>
-                      <div></div>
-                      <div className="text-right font-bold text-lg">
-                        Coverage Limit
-                      </div>
-                    </div>
-
-                    {/* Dwelling */}
-                    <div className="grid grid-cols-3 gap-4 py-3 items-center bg-neutral-gray-5">
-                      <div className="text-sm">Dwelling</div>
-                      <div className="text-center">$378,380</div>
-                      <div className="text-center">$378,380</div>
-                    </div>
-
-                    {/* Other structures */}
-                    <div className="grid grid-cols-3 gap-4 py-3 items-center border-b border-neutral-gray-10">
-                      <div className="text-sm">Other structures</div>
-                      <div className="text-center">$72,000</div>
-                      <div className="text-center">$72,000</div>
-                    </div>
-
-                    {/* Personal property */}
-                    <div className="grid grid-cols-3 gap-4 py-3 items-center bg-neutral-gray-5">
-                      <div className="text-sm">Personal property</div>
-                      <div className="text-center">$138,000</div>
-                      <div className="text-center">$138,000</div>
-                    </div>
-
-                    {/* Loss of use */}
-                    <div className="grid grid-cols-3 gap-4 py-3 items-center border-b border-neutral-gray-10">
-                      <div className="text-sm">Loss of use</div>
-                      <div className="text-center">$50,000</div>
-                      <div className="text-center">$50,000</div>
-                    </div>
+                    <ProposalRow label="Dwelling" proposed="$378,380" current="$350,000" highlight />
+                    <ProposalRow label="Other structures" proposed="$72,000" current="$72,000" />
+                    <ProposalRow label="Personal property" proposed="$138,000" current="$138,000" />
+                    <ProposalRow label="Loss of use" proposed="$50,000" current="$50,000" />
+                    <ProposalRow label="Personal liability" proposed="$10,000" current="$10,000" />
+                    <ProposalRow label="Medical payment (to others)" proposed="$5,000" current="$5,000" />
                   </div>
                 </div>
               </Card>
             </div>
           </div>
+
+          {/* Right sidebar - Figma */}
+          <div className="w-[72px] border-l border-neutral-gray-10 flex-shrink-0 flex flex-col items-center py-4 bg-white">
+            <ProposalSidebarItem icon={<User className="w-5 h-5" />} label="Info" />
+            <ProposalSidebarItem icon={<Paperclip className="w-5 h-5" />} label="Notes" />
+            <ProposalSidebarItem icon={<ClipboardCheck className="w-5 h-5" />} label="Tasks" />
+            <ProposalSidebarItem icon={<Shield className="w-5 h-5" />} label="Policies" />
+            <ProposalSidebarItem icon={<Clock className="w-5 h-5" />} label="Feed" />
+            <ProposalSidebarItem icon={<DollarSign className="w-5 h-5" />} label="Loans" />
+            <ProposalSidebarItem icon={<FileText className="w-5 h-5" />} label="Files" />
+            <ProposalSidebarItem icon={<HelpCircle className="w-5 h-5" />} label="Help" />
+          </div>
         </div>
 
-        {/* Bottom Navigation */}
-        <BottomNavigation
-          buttons={[
-            {
-              label: "Finalize",
-              onClick: () => navigate("/finalize"),
-            },
-            { label: "Send proposal" },
-          ]}
-          showHelpButton={false}
-        />
+        {/* Bottom Navigation - Figma: Finalize outline, Send proposal solid */}
+        <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end gap-3 px-6 shrink-0">
+          <Button
+            variant="outline"
+            onClick={() => navigate("/finalize")}
+            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 font-semibold px-6"
+          >
+            Finalize
+          </Button>
+          <Button
+            onClick={() => {}}
+            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold px-6"
+          >
+            Send proposal
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -416,6 +359,49 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <button className="w-full py-2.5 px-1 flex flex-col items-center gap-1 text-white hover:bg-white/10 transition-colors text-sm">
       {icon}
+      <span className="text-xs font-medium">{label}</span>
+    </button>
+  );
+}
+
+function ProposalRow({
+  label,
+  proposed,
+  current,
+  highlight,
+}: {
+  label: string;
+  proposed: React.ReactNode;
+  current: React.ReactNode;
+  highlight?: boolean;
+}) {
+  return (
+    <div
+      className={`grid grid-cols-3 gap-4 py-3 items-center border-b border-neutral-gray-10 ${
+        highlight ? "bg-blue-50/70" : ""
+      }`}
+    >
+      <div className="text-sm font-medium">{label}</div>
+      <div className="text-center text-sm flex items-center justify-center min-h-[2rem]">
+        {proposed}
+      </div>
+      <div className="text-center text-sm flex items-center justify-center min-h-[2rem]">
+        {current}
+      </div>
+    </div>
+  );
+}
+
+function ProposalSidebarItem({
+  icon,
+  label,
+}: {
+  icon: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <button className="w-full py-2 px-1 flex flex-col items-center gap-1.5 text-neutral-gray-60 hover:text-action-primary hover:bg-neutral-gray-5 transition-colors">
+      <div className="w-5 h-5 flex items-center justify-center">{icon}</div>
       <span className="text-xs font-medium">{label}</span>
     </button>
   );
