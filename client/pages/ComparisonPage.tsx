@@ -20,11 +20,15 @@ import {
   Copy,
   ChevronDown,
   Info,
+  Plus,
+  StickyNote,
+  ListChecks,
+  Rss,
+  Landmark,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 
 export default function ComparisonPage() {
@@ -134,6 +138,17 @@ export default function ComparisonPage() {
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30" />
           <TopBreadcrumb currentStep="establish-rapport" />
+          <div className="flex-1" />
+          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold">
+            Re-shop in progress
+          </Badge>
+          <Button
+            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9"
+            onClick={() => {}}
+          >
+            Schedule follow-up
+            <Plus className="w-4 h-4 ml-1.5" />
+          </Button>
         </div>
 
         {/* Main Content Grid */}
@@ -143,8 +158,8 @@ export default function ComparisonPage() {
             <div className="max-w-5xl mx-auto p-8 space-y-6">
               {/* This Case Section */}
               <div>
-                <h2 className="font-bold text-base mb-1">This case:</h2>
-                <p className="text-base">
+                <h2 className="font-bold text-xl mb-1">This case:</h2>
+                <p className="text-base text-neutral-gray-80">
                   Initiated renewal consultation for the customer
                 </p>
               </div>
@@ -155,49 +170,25 @@ export default function ComparisonPage() {
 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   {/* Policy Renewal */}
-                  <Card
-                    className="border-neutral-gray-30 rounded-lg p-6"
-                    style={{ marginLeft: "3px" }}
-                  >
+                  <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-md">
                     <h3 className="font-bold text-lg mb-4">Policy renewal</h3>
 
                     <div className="flex items-start gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-full bg-azure-95 flex items-center justify-center flex-shrink-0">
-                        <Home className="w-5 h-5 text-azure-50" />
+                      <div className="flex-shrink-0">
+                        <Home className="w-6 h-6 text-action-primary" />
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="font-semibold">Home</span>
-                          <span className="text-sm">TCDX77887833</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="w-4 h-4 text-text-muted"
-                          >
-                            <rect
-                              width="14"
-                              height="14"
-                              x="8"
-                              y="8"
-                              rx="2"
-                              ry="2"
-                            />
-                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                          </svg>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <button className="text-sm font-semibold text-action-primary underline hover:no-underline flex items-center gap-1.5">
+                            TCDX77887833
+                            <Copy className="w-4 h-4" />
+                          </button>
                           <div className="flex items-center gap-2 ml-auto">
                             <div className="w-2 h-2 rounded-full bg-action-primary" />
                             <span className="text-sm font-semibold">Bound</span>
                           </div>
-                          <button className="ml-auto" />
                         </div>
-                        <p className="text-sm text-text-muted mb-2">
+                        <p className="text-sm text-text-muted mt-1 mb-2">
                           Primary home: 4545 Marlborough Dr, San Diego, CA, 92116-4737
                         </p>
                       </div>
@@ -228,54 +219,27 @@ export default function ComparisonPage() {
                   </Card>
 
                   {/* Current Policy */}
-                  <Card
-                    className="border-neutral-gray-30 rounded-lg p-6"
-                    style={{ marginLeft: "1px" }}
-                  >
+                  <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-md">
                     <h3 className="font-bold text-lg mb-4">Current policy</h3>
 
                     <div className="flex items-start gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-full bg-neutral-gray-10 flex items-center justify-center flex-shrink-0">
-                        <Shield className="w-5 h-5 text-neutral-gray-60" />
+                      <div className="flex-shrink-0">
+                        <Home className="w-6 h-6 text-action-primary" />
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="font-semibold">Home</span>
-                          <span className="text-sm">TCDX77887832</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="w-4 h-4 text-text-muted"
-                          >
-                            <rect
-                              width="14"
-                              height="14"
-                              x="8"
-                              y="8"
-                              rx="2"
-                              ry="2"
-                            />
-                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                          </svg>
-                          <div
-                            className="flex items-center gap-2"
-                            style={{ marginLeft: "114px" }}
-                          >
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <button className="text-sm font-semibold text-action-primary underline hover:no-underline flex items-center gap-1.5">
+                            TCDX77887832
+                            <Copy className="w-4 h-4" />
+                          </button>
+                          <div className="flex items-center gap-2 ml-auto">
                             <div className="w-2 h-2 rounded-full bg-success" />
                             <span className="text-sm font-semibold">
                               Renewed
                             </span>
                           </div>
-                          <button className="ml-auto" />
                         </div>
-                        <p className="text-sm text-text-muted mb-2">
+                        <p className="text-sm text-text-muted mt-1 mb-2">
                           Primary home: 4545 Marlborough Dr, San Diego, CA, 92116-4737
                         </p>
                       </div>
@@ -313,11 +277,7 @@ export default function ComparisonPage() {
                       label="Premium change"
                       oldValue="$4,848"
                       newValue="$5,710"
-                      percentage={
-                        <span style={{ color: "rgb(179, 8, 8)" }}>
-                          +18%(862)
-                        </span>
-                      }
+                      percentage="+18%(862)"
                       isIncrease
                     />
                     <ChangeLogItem label="Co-insured Kris McMahon added" />
@@ -353,10 +313,20 @@ export default function ComparisonPage() {
                 </div>
               </div>
             </div>
+
+            {/* Verify details - bottom right (Figma) */}
+            <div className="flex justify-end pt-6 pb-2">
+              <Button
+                onClick={() => navigate("/verification")}
+                className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold py-3 px-6 rounded-lg"
+              >
+                Verify details
+              </Button>
+            </div>
           </div>
 
           {/* Right Risk Factors Sidebar */}
-          <div className="w-[440px] border-l border-neutral-gray-10 flex-shrink-0 overflow-y-auto bg-neutral-gray-5 p-6">
+          <div className="w-[440px] border-l border-neutral-gray-10 flex-shrink-0 overflow-y-auto bg-white p-6">
             <div className="space-y-6">
               <div>
                 <h2 className="font-bold text-xl mb-2">
@@ -428,18 +398,19 @@ export default function ComparisonPage() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom Navigation */}
-        <BottomNavigation
-          buttons={[
-            {
-              label: "Verify details",
-              onClick: () => navigate("/verification"),
-            },
-          ]}
-          showHelpButton={false}
-        />
+          {/* Right Vertical Sidebar - Icons with labels (Figma) */}
+          <div className="w-[72px] border-l border-neutral-gray-10 flex-shrink-0 flex flex-col items-center py-4 bg-white">
+            <ComparisonSidebarItem icon={<User className="w-5 h-5" />} label="Info" />
+            <ComparisonSidebarItem icon={<StickyNote className="w-5 h-5" />} label="Notes" />
+            <ComparisonSidebarItem icon={<ListChecks className="w-5 h-5" />} label="Tasks" />
+            <ComparisonSidebarItem icon={<Shield className="w-5 h-5" />} label="Policies" />
+            <ComparisonSidebarItem icon={<Rss className="w-5 h-5" />} label="Feed" />
+            <ComparisonSidebarItem icon={<Landmark className="w-5 h-5" />} label="Loans" />
+            <ComparisonSidebarItem icon={<Paperclip className="w-5 h-5" />} label="Files" />
+            <ComparisonSidebarItem icon={<HelpCircle className="w-5 h-5" />} label="Help" />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -449,6 +420,21 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <button className="w-full py-2.5 px-1 flex flex-col items-center gap-1 text-white hover:bg-white/10 transition-colors text-sm">
       {icon}
+      <span className="text-xs font-medium">{label}</span>
+    </button>
+  );
+}
+
+function ComparisonSidebarItem({
+  icon,
+  label,
+}: {
+  icon: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <button className="w-full py-2 px-1 flex flex-col items-center gap-1.5 text-neutral-gray-60 hover:text-action-primary hover:bg-neutral-gray-5 transition-colors">
+      <div className="w-5 h-5 flex items-center justify-center">{icon}</div>
       <span className="text-xs font-medium">{label}</span>
     </button>
   );
@@ -504,7 +490,7 @@ function RiskFactorItem({
   isHighRisk?: boolean;
 }) {
   return (
-    <div className="bg-white border border-neutral-gray-30 rounded-lg p-4">
+    <div className="bg-white border border-neutral-gray-10 rounded-lg p-4 shadow-sm">
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2">
           <h4 className="font-semibold">{label}</h4>
