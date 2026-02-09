@@ -354,7 +354,7 @@ export default function ComparisonPage() {
                 />
                 <RiskFactorItem
                   label="Claims History"
-                  value="No Claims"
+                  value="1 claim ($0)"
                   risk="Low Risk"
                   impact="High Impact"
                   isLowRisk
