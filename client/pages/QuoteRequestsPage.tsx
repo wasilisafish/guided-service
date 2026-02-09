@@ -22,12 +22,18 @@ import {
   Landmark,
   Paperclip,
   HelpCircle,
+  Plus,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { RightSidebarPanel } from "@/components/RightSidebarPanel";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function QuoteRequestsPage() {
   const navigate = useNavigate();
@@ -135,6 +141,16 @@ export default function QuoteRequestsPage() {
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="quoting" />
           </div>
+          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+            Re-shop in progress
+          </Badge>
+          <Button
+            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            onClick={() => {}}
+          >
+            Schedule follow-up
+            <Plus className="w-4 h-4 ml-1.5" />
+          </Button>
         </div>
 
         {/* Main Content with Right Sidebar */}
@@ -204,17 +220,28 @@ export default function QuoteRequestsPage() {
 
               {/* Quotes Table */}
               <div>
-                {/* Table Header */}
+                {/* Table Header - truncate with tooltip when text doesn't fit */}
                 <div className="grid grid-cols-[1.2fr_1.5fr_1fr_0.8fr_0.8fr_1fr_0.6fr] gap-3 px-4 py-3 text-sm border-b border-neutral-gray-30">
-                  <div className="text-text-muted font-normal">Carrier</div>
-                  <div className="text-text-muted font-normal">
-                    Carrier response
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-text-muted font-normal">
-                      Premium
-                    </span>
-                    <div className="flex items-center gap-0.5">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="text-text-muted font-normal min-w-0 truncate">Carrier</div>
+                    </TooltipTrigger>
+                    <TooltipContent>Carrier</TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="text-text-muted font-normal min-w-0 truncate">Carrier response</div>
+                    </TooltipTrigger>
+                    <TooltipContent>Carrier response</TooltipContent>
+                  </Tooltip>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="text-text-muted font-normal truncate">Premium</span>
+                      </TooltipTrigger>
+                      <TooltipContent>Premium</TooltipContent>
+                    </Tooltip>
+                    <div className="flex items-center gap-0.5 shrink-0">
                       <button
                         onClick={() => setShowYearly(true)}
                         className={`px-1.5 py-0.5 text-xs font-medium transition-colors ${showYearly ? "text-action-primary underline" : "text-text-muted hover:text-text"}`}
@@ -229,17 +256,38 @@ export default function QuoteRequestsPage() {
                       </button>
                     </div>
                   </div>
-                  <div className="text-text-muted font-normal">Coverage</div>
-                  <div className="text-text-muted font-normal">Deductible</div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-text-muted font-normal">
-                      Savings
-                    </span>
-                    <span className="font-semibold text-text">Actual</span>
-                    <span className="text-text-muted font-normal">
-                      | Predicted
-                    </span>
-                    <button>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="text-text-muted font-normal min-w-0 truncate">Coverage</div>
+                    </TooltipTrigger>
+                    <TooltipContent>Coverage</TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="text-text-muted font-normal min-w-0 truncate">Deductible</div>
+                    </TooltipTrigger>
+                    <TooltipContent>Deductible</TooltipContent>
+                  </Tooltip>
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="min-w-0 truncate text-text-muted font-normal">Savings</span>
+                      </TooltipTrigger>
+                      <TooltipContent>Savings</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="font-semibold text-text truncate shrink-0">Actual</span>
+                      </TooltipTrigger>
+                      <TooltipContent>Actual</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="text-text-muted font-normal truncate">| Predicted</span>
+                      </TooltipTrigger>
+                      <TooltipContent>Predicted</TooltipContent>
+                    </Tooltip>
+                    <button className="shrink-0" aria-label="Info">
                       <Info className="w-4 h-4 text-action-primary" />
                     </button>
                   </div>

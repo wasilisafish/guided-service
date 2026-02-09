@@ -14,6 +14,7 @@ import {
   Grid3X3,
   Shield,
   Copy,
+  Plus,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -133,9 +134,16 @@ export default function FinalizePage() {
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="finalize" />
           </div>
-          <Badge className="bg-orange-100 text-orange-700 border-none rounded px-3 py-1 text-sm font-semibold whitespace-nowrap shrink-0">
-            Dispositions for service
+          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+            Re-shop in progress
           </Badge>
+          <Button
+            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            onClick={() => {}}
+          >
+            Schedule follow-up
+            <Plus className="w-4 h-4 ml-1.5" />
+          </Button>
         </div>
 
         {/* Main Content Grid */}

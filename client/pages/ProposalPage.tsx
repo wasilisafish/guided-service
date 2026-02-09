@@ -16,6 +16,7 @@ import {
   Phone,
   Mail,
   FileText,
+  Plus,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -127,9 +128,16 @@ export default function ProposalPage() {
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="proposal" />
           </div>
-          <Badge className="bg-orange-100 text-orange-700 border-none rounded px-3 py-1 text-sm font-semibold whitespace-nowrap shrink-0">
-            Dispositions for service
+          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+            Re-shop in progress
           </Badge>
+          <Button
+            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            onClick={() => {}}
+          >
+            Schedule follow-up
+            <Plus className="w-4 h-4 ml-1.5" />
+          </Button>
         </div>
 
         {/* Main Content Grid */}
@@ -150,14 +158,14 @@ export default function ProposalPage() {
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold mb-1">Primary home</div>
                       <p className="text-sm text-text-muted mb-3">
-                        12522 W Sunnyside Dr, El Mirage, AZ, 85335-6314
+                        4545 Marlborough Dr, San Diego, CA, 92116-4737
                       </p>
                       <div className="flex items-center gap-2 flex-wrap">
                         <div className="border border-neutral-gray-10 bg-white rounded px-2 py-1.5">
                           <div className="font-bold text-sm">FOREMOST</div>
                           <div className="text-xs text-text-muted">INSURANCE GROUP</div>
                         </div>
-                        <span className="font-bold text-lg">$2,083/yr</span>
+                        <span className="font-bold text-lg">$1,669/yr</span>
                         <button className="p-1 rounded hover:bg-neutral-gray-5" aria-label="Options">
                           <ChevronDown className="w-5 h-5 text-text-muted" />
                         </button>
@@ -269,7 +277,7 @@ export default function ProposalPage() {
                 <div className="p-6">
                   <h2 className="font-bold text-2xl mb-2">Home insurance details</h2>
                   <p className="text-base text-text-muted mb-6">
-                    12522 W Sunnyside Dr, El Mirage, AZ, 85335-6314
+                    4545 Marlborough Dr, San Diego, CA, 92116-4737
                   </p>
 
                   <div className="space-y-0">
@@ -309,9 +317,9 @@ export default function ProposalPage() {
                       <div className="text-right font-bold text-lg">Coverage Limit</div>
                     </div>
 
-                    <ProposalRow label="Dwelling" proposed="$378,380" current="$378,380" />
-                    <ProposalRow label="Other structures" proposed="$72,000" current="$72,000" />
-                    <ProposalRow label="Personal property" proposed="$138,000" current="$138,000" />
+                    <ProposalRow label="Dwelling" proposed="$433,380" current="$350,000" highlight />
+                    <ProposalRow label="Other structures" proposed="$43,380" current="$35,000" highlight />
+                    <ProposalRow label="Personal property" proposed="$86,380" current="$70,000" highlight />
                     <ProposalRow label="Loss of use" proposed="$50,000" current="$50,000" />
                     <ProposalRow label="Personal liability" proposed="$10,000" current="$10,000" />
                     <ProposalRow label="Medical payment (to others)" proposed="$5,000" current="$5,000" />
@@ -319,12 +327,12 @@ export default function ProposalPage() {
                     <div className="pt-4 pb-2">
                       <h3 className="font-bold text-lg">Additional coverages</h3>
                     </div>
-                    <ProposalRow label="Water back-up" proposed="$10,000" current="$10,000" />
+                    <ProposalRow label="Water back-up" proposed="$10,000" current="$5,000" highlight />
                     <ProposalRow label="Earthquake" proposed="Not Included" current="Not Included" />
                     <ProposalRow label="Mold property damage" proposed="Not Included" current="Not Included" />
                     <ProposalRow label="Mold liability" proposed="Not Included" current="Not Included" />
 
-                    <ProposalRow label="Yearly Premium" proposed="$2,083.00" current="$5,070.00" highlight />
+                    <ProposalRow label="Yearly Premium" proposed="$1,669.00" current="$5,710.00" highlight />
                   </div>
                 </div>
               </Card>
@@ -365,20 +373,20 @@ export default function ProposalPage() {
           <RightSidebarPanel />
         </div>
 
-        {/* Bottom Navigation - Figma: Finalize outline, Send proposal solid */}
+        {/* Bottom Navigation: Finalize = main CTA, Send proposal = secondary */}
         <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end gap-3 px-6 shrink-0">
           <Button
             variant="outline"
-            onClick={() => navigate("/finalize")}
-            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 font-semibold px-6"
-          >
-            Finalize
-          </Button>
-          <Button
             onClick={() => {}}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold px-6"
+            className="border-neutral-gray-30 text-neutral-gray-80 hover:bg-neutral-gray-5 font-semibold px-6"
           >
             Send proposal
+          </Button>
+          <Button
+            onClick={() => navigate("/finalize")}
+            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold px-6"
+          >
+            Finalize
           </Button>
         </div>
       </div>

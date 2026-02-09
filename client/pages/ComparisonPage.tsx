@@ -320,16 +320,6 @@ export default function ComparisonPage() {
                 </div>
               </div>
             </div>
-
-            {/* Verify details - bottom right (Figma) */}
-            <div className="flex justify-end pt-6 pb-2">
-              <Button
-                onClick={() => navigate("/verification")}
-                className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold py-3 px-6 rounded-lg"
-              >
-                Verify details
-              </Button>
-            </div>
           </div>
 
           {/* Right Risk Factors Sidebar */}
@@ -408,6 +398,16 @@ export default function ComparisonPage() {
 
           {/* Right sidebar - same on every page */}
           <RightSidebarPanel />
+        </div>
+
+        {/* Sticky bottom bar with bottom line - Verify details */}
+        <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 shrink-0">
+          <Button
+            onClick={() => navigate("/verification")}
+            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold py-3 px-6 rounded-lg"
+          >
+            Verify details
+          </Button>
         </div>
       </div>
     </div>

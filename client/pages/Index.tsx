@@ -21,11 +21,18 @@ import {
   Copy,
   RefreshCw,
   CheckCircle,
+  Plus,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { SageSureLogo } from "@/components/SageSureLogo";
 import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
@@ -135,19 +142,22 @@ export default function Index() {
             <ChevronRight className="w-4 h-4 rotate-90 shrink-0" />
           </button>
           <div className="flex-1 min-w-0" />
+          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+            Re-shop in progress
+          </Badge>
+          <Button
+            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            onClick={() => {}}
+          >
+            Schedule follow-up
+            <Plus className="w-4 h-4 ml-1.5" />
+          </Button>
           <button className="w-8 h-8 flex-shrink-0 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
             <Mail className="w-4 h-4 text-action-secondary" />
           </button>
           <button className="w-8 h-8 flex-shrink-0 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
             <Phone className="w-4 h-4 text-action-secondary" />
           </button>
-          <Button
-            variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 text-sm font-semibold whitespace-nowrap shrink-0"
-          >
-            Schedule follow-up
-            <ChevronRight className="w-4 h-4 ml-1 rotate-90 shrink-0" />
-          </Button>
           <Button
             onClick={() => navigate("/comparison")}
             className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold whitespace-nowrap shrink-0"
@@ -236,60 +246,67 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   );
 }
 
+const AI_TICKETS_SUMMARY_COPY =
+  "We sent a reminder that the SL-2 form (needed for this renewal) was overdue and could lead to nonrenewal. We sent the form for signature and closed the ticket for a bit due to high volume, but kept tracking it. Once the signed form was uploaded, we sent it to underwriting. They approved it, we issued a reinstatement letter and attached it to the policy. The renewal documentation is now fully resolved.";
+
 function ActivitySummarySection() {
+  const [aiSummaryModalOpen, setAiSummaryModalOpen] = useState(false);
+
   return (
-    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-md">
-      <div className="flex items-start gap-3 mb-4">
-        <Clock className="w-6 h-6 flex-shrink-0 mt-1 text-neutral-gray-60" />
-        <div className="flex-1">
-          <div className="mb-3">
-            <span className="font-bold text-base">Last interaction:</span>
-            <span className="text-base ml-2">call 2 days ago</span>
-          </div>
+    <>
+      <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-md">
+        <div className="flex items-start gap-3 mb-4">
+          <Clock className="w-6 h-6 flex-shrink-0 mt-1 text-neutral-gray-60" />
+          <div className="flex-1">
+            <div className="mb-3">
+              <span className="font-bold text-base">Last interaction:</span>
+              <span className="text-base ml-2">call 2 days ago</span>
+            </div>
 
-          <div className="mb-3">
-            <span className="font-bold text-base">Primary Intent:</span>
-            <span className="text-base ml-2">Price increase at renewal</span>
-          </div>
+            <div className="mb-3">
+              <span className="font-bold text-base">Primary Intent:</span>
+              <span className="text-base ml-2">Price increase at renewal</span>
+            </div>
 
-          <div className="mb-4">
-            <span className="font-bold text-base">Re-shop opportunity:</span>
-            <span className="text-base ml-2">
-              Very high | Last re-shop in 2023
-            </span>
-          </div>
+            <div className="mb-4">
+              <span className="font-bold text-base">Re-shop opportunity:</span>
+              <span className="text-base ml-2">
+                Very high | Last re-shop in 2023
+              </span>
+            </div>
 
-          <div className="mb-4">
-            <h4 className="font-bold text-base mb-3">Main activities:</h4>
-            <div className="space-y-2">
-              <div className="flex items-start gap-2">
-                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
-                <span className="text-base">
-                  Claim consultation (8/28/2025)
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
-                <span className="text-base">
-                  Renewal notice sent | +38% ( 1/21/2026)
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
-                <span className="text-base">
-                  Cancellation request received online
-                </span>
+            <div className="mb-4">
+              <h4 className="font-bold text-base mb-3">Main activities:</h4>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
+                  <span className="text-base">
+                    Claim consultation (8/28/2025)
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
+                  <span className="text-base">
+                    Renewal notice sent | +38% ( 1/21/2026)
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
+                  <span className="text-base">
+                    Cancellation request received online
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="space-y-2">
-            <Button
-              variant="outline"
-              className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-base bg-white"
-            >
-              AI tickets summary
-            </Button>
+            <div className="space-y-2">
+              <Button
+                variant="outline"
+                className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-base bg-white"
+                onClick={() => setAiSummaryModalOpen(true)}
+              >
+                AI tickets summary
+              </Button>
             <Button
               variant="outline"
               className="w-full border-action-secondary bg-white text-neutral-gray-60 hover:bg-neutral-gray-5 hover:text-neutral-gray-80 font-semibold text-base"
@@ -300,6 +317,21 @@ function ActivitySummarySection() {
         </div>
       </div>
     </Card>
+
+      <Dialog open={aiSummaryModalOpen} onOpenChange={setAiSummaryModalOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-lg font-bold">AI tickets summary</DialogTitle>
+          </DialogHeader>
+          <p className="text-sm text-text-muted mb-4">
+            Summary of the last tickets within 2 months.
+          </p>
+          <p className="text-sm text-neutral-gray-80 leading-relaxed whitespace-pre-wrap">
+            {AI_TICKETS_SUMMARY_COPY}
+          </p>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

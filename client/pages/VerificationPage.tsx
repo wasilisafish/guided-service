@@ -17,6 +17,7 @@ import {
   Edit,
   AlertTriangle,
   ExternalLink,
+  Plus,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -134,6 +135,16 @@ export default function VerificationPage() {
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="data-verification" />
           </div>
+          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+            Re-shop in progress
+          </Badge>
+          <Button
+            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            onClick={() => {}}
+          >
+            Schedule follow-up
+            <Plus className="w-4 h-4 ml-1.5" />
+          </Button>
         </div>
 
         {/* Main Content Grid */}
@@ -212,26 +223,7 @@ export default function VerificationPage() {
                     <button className="text-action-secondary" />
                   </div>
 
-                  <p className="text-base">
-                    This home is{" "}
-                    <span className="font-semibold">Own</span> ·{" "}
-                    <span className="font-semibold">Duplex</span> · 3200 sqft ·
-                    2 stories · 4 full ba, 0 half ba · built in 1931 · purchase
-                    date 12/01/1986 · Carport 1 car
-                  </p>
-
-                  <p className="text-base">
-                    <span className="font-semibold">Home construction is</span>{" "}
-                    Frame · Foundation Slab · Exterior siding Stucco · Other
-                    structures None
-                  </p>
-
-                  <p className="text-base">
-                    <span className="font-semibold">On the deed</span> Lisa J
-                    Babcock, Nicolo Munna
-                  </p>
-
-                  {/* Eligibility Card */}
+                  {/* Eligibility Card - just below Primary home */}
                   <Card className="border-neutral-gray-30 rounded-lg p-4 bg-[#F0F9F4]">
                     <div className="flex items-start justify-between mb-4">
                       <h4 className="font-bold text-base">Eligibility</h4>
@@ -334,6 +326,25 @@ export default function VerificationPage() {
                       </span>
                     </button>
                   </Card>
+
+                  <p className="text-base">
+                    This home is{" "}
+                    <span className="font-semibold">Own</span> ·{" "}
+                    <span className="font-semibold">Duplex</span> · 3200 sqft ·
+                    2 stories · 4 full ba, 0 half ba · built in 1931 · purchase
+                    date 12/01/1986 · Carport 1 car
+                  </p>
+
+                  <p className="text-base">
+                    <span className="font-semibold">Home construction is</span>{" "}
+                    Frame · Foundation Slab · Exterior siding Stucco · Other
+                    structures None
+                  </p>
+
+                  <p className="text-base">
+                    <span className="font-semibold">On the deed</span> Lisa J
+                    Babcock, Nicolo Munna
+                  </p>
 
                   {/* Three Column Grid */}
                   <div className="grid grid-cols-3 gap-6">
