@@ -10,20 +10,21 @@ import {
   DollarSign,
   ClipboardCheck,
   Clock,
-  Paperclip,
-  HelpCircle,
   Grid3X3,
   Shield,
   Edit,
-  CheckCircle,
-  AlertCircle,
-  XCircle,
   ExternalLink,
   Info,
+  FileText,
+  StickyNote,
+  ListChecks,
+  Rss,
+  Landmark,
+  Paperclip,
+  HelpCircle,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 
@@ -32,7 +33,7 @@ export default function QuoteRequestsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showYearly, setShowYearly] = useState(true);
   const [eligibleExpanded, setEligibleExpanded] = useState(true);
-  const [notEligibleExpanded, setNotEligibleExpanded] = useState(false);
+  const [notEligibleExpanded, setNotEligibleExpanded] = useState(true);
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
@@ -133,245 +134,316 @@ export default function QuoteRequestsPage() {
           <TopBreadcrumb currentStep="quoting" />
         </div>
 
-        {/* Main Content */}
-        <div className="flex-1 overflow-y-auto bg-white">
-          <div className="max-w-[1600px] mx-auto p-6">
-            {/* Header Section */}
-            <div className="mb-4">
-              <div className="flex items-center gap-3 mb-3">
-                <Home className="w-5 h-5" />
-                <h3 className="font-bold text-base">Primary home</h3>
-                <Badge
-                  variant="outline"
-                  className="text-xs rounded-sm border-neutral-gray-30"
-                >
-                  12
-                </Badge>
-                <span className="text-sm">
-                  614 Basswood Dr, Spring, TX, 77386-1264
-                </span>
+        {/* Main Content with Right Sidebar */}
+        <div className="flex-1 flex overflow-hidden">
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto bg-white">
+            {/* Quote Requests Sub-header */}
+            <div className="flex items-center gap-4 px-6 py-3 border-b border-neutral-gray-10">
+              <span className="font-bold text-base">Quote requests</span>
+              <div className="border border-neutral-gray-30 rounded px-3 py-1.5 text-sm text-text-muted">
+                10/12/2024 | 09:12 am
               </div>
+              <button className="text-sm text-action-primary font-medium hover:underline">
+                Get quotes
+              </button>
+            </div>
 
-              {/* Coverage Level Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  <h4 className="font-bold text-base">
-                    Coverage level: Match current insurance
-                  </h4>
-                  <button>
-                    <Info className="w-4 h-4 text-text-muted" />
-                  </button>
+            <div className="max-w-[1600px] mx-auto p-6">
+              {/* Primary Home Header */}
+              <div className="mb-2">
+                <div className="flex items-center gap-3 mb-3">
+                  <Home className="w-5 h-5" />
+                  <h3 className="font-bold text-base">Primary home</h3>
+                  <Badge
+                    variant="outline"
+                    className="text-xs rounded-sm border-neutral-gray-30"
+                  >
+                    12
+                  </Badge>
+                  <span className="text-sm">
+                    614 Basswood Dr, Spring, TX, 77386-1264
+                  </span>
                 </div>
-                <div className="flex items-center gap-4 text-sm text-text-muted">
-                  <span>Quoting parameters:</span>
-                  <div className="flex items-center gap-4">
-                    <span>
-                      <span className="font-semibold text-text">Dwelling</span>{" "}
-                      $230,000
-                    </span>
-                    <span>
-                      <span className="font-semibold text-text">
-                        Deductible
-                      </span>{" "}
-                      $1,000
-                    </span>
+
+                {/* Coverage Level Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-medium text-sm">
+                      Coverage level: Match current insurance
+                    </h4>
                     <button>
-                      <Edit className="w-4 h-4 text-action-secondary" />
+                      <Info className="w-4 h-4 text-text-muted" />
                     </button>
                   </div>
+                  <div className="flex items-center gap-4 text-sm text-text-muted">
+                    <span>Quoting parameters</span>
+                    <div className="flex items-center gap-4">
+                      <span>
+                        <span className="font-semibold text-text">
+                          Dwelling
+                        </span>{" "}
+                        $230,000
+                      </span>
+                      <span>
+                        <span className="font-semibold text-text">
+                          Deductible
+                        </span>{" "}
+                        $1,000
+                      </span>
+                      <button>
+                        <Edit className="w-4 h-4 text-action-primary" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quotes Table */}
+              <div>
+                {/* Table Header */}
+                <div className="grid grid-cols-[1.2fr_1.5fr_1fr_0.8fr_0.8fr_1fr_0.6fr] gap-3 px-4 py-3 text-sm border-b border-neutral-gray-30">
+                  <div className="text-text-muted font-normal">Carrier</div>
+                  <div className="text-text-muted font-normal">
+                    Carrier response
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-text-muted font-normal">
+                      Premium
+                    </span>
+                    <div className="flex items-center gap-0.5">
+                      <button
+                        onClick={() => setShowYearly(true)}
+                        className={`px-1.5 py-0.5 text-xs font-medium transition-colors ${showYearly ? "text-action-primary underline" : "text-text-muted hover:text-text"}`}
+                      >
+                        yr
+                      </button>
+                      <button
+                        onClick={() => setShowYearly(false)}
+                        className={`px-1.5 py-0.5 text-xs font-medium transition-colors ${!showYearly ? "text-action-primary underline" : "text-text-muted hover:text-text"}`}
+                      >
+                        mo
+                      </button>
+                    </div>
+                  </div>
+                  <div className="text-text-muted font-normal">Coverage</div>
+                  <div className="text-text-muted font-normal">Deductible</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-text-muted font-normal">
+                      Savings
+                    </span>
+                    <span className="font-semibold text-text">Actual</span>
+                    <span className="text-text-muted font-normal">
+                      | Predicted
+                    </span>
+                    <button>
+                      <Info className="w-4 h-4 text-action-primary" />
+                    </button>
+                  </div>
+                  <div></div>
+                </div>
+
+                {/* Eligible and partly eligible section */}
+                <div>
+                  <button
+                    onClick={() => setEligibleExpanded(!eligibleExpanded)}
+                    className="w-full flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
+                  >
+                    {eligibleExpanded ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                    <span className="font-semibold text-sm">
+                      Eligible and partly eligible
+                    </span>
+                    <Badge
+                      variant="secondary"
+                      className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm px-1.5 py-0"
+                    >
+                      14
+                    </Badge>
+                  </button>
+
+                  {eligibleExpanded && (
+                    <div className="divide-y divide-neutral-gray-10">
+                      <QuoteRow
+                        carrier="FOREMOST"
+                        premium="$1,669"
+                        bundle="Bundle: $4,830"
+                        coverage="$441,000"
+                        deductible="$1,000"
+                        savingsActual="$41"
+                        savingsPredicted="$726"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="UPC"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasCheckmark
+                        premium="$6,134"
+                        coverage="$468,633"
+                        deductible="$2,000"
+                        savingsActual="$300"
+                        savingsPredicted="$560"
+                        actionButton="QuickBind"
+                      />
+                      <QuoteRow
+                        carrier="BRANCH"
+                        dotColor="orange"
+                        statusText="Data not valid"
+                        badge="Partly eligible"
+                        premium="$13,497"
+                        coverage="$250,000"
+                        coverageHighlight
+                        deductible="$0"
+                        deductibleHighlight
+                      />
+                      <QuoteRow
+                        carrier="ECLECTIQUE"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="MODERN"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="AUROS"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="MARKEL"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="RICCARDO"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="[LOGO]"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="[LOGO]"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="FIVEFIT"
+                        badge="Partly eligible"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="TRIUM"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="VMF"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                      <QuoteRow
+                        carrier="[LOGO]"
+                        dotColor="blue"
+                        statusText="Manual quote required"
+                        hasExternalLink
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Not eligible section */}
+                <div>
+                  <button
+                    onClick={() => setNotEligibleExpanded(!notEligibleExpanded)}
+                    className="w-full flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
+                  >
+                    {notEligibleExpanded ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                    <span className="font-semibold text-sm">Not eligible</span>
+                    <Badge
+                      variant="secondary"
+                      className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm px-1.5 py-0"
+                    >
+                      7
+                    </Badge>
+                  </button>
+
+                  {notEligibleExpanded && (
+                    <div className="divide-y divide-neutral-gray-10">
+                      <QuoteRow
+                        carrier="STILLWATER"
+                        dotColor="red"
+                        statusText="Declined business"
+                        premium="$1,109"
+                        bundle="Bundle: $800"
+                        coverage="$250,000"
+                        deductible="$1,000"
+                        savingsActual="$20"
+                        savingsPredicted="$150"
+                        hasExternalLink
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Quotes Table */}
-            <div className="border border-neutral-gray-30 rounded-lg overflow-hidden">
-              {/* Table Header */}
-              <div className="bg-neutral-gray-5 grid grid-cols-[1fr_1fr_0.8fr_0.5fr_0.8fr_0.7fr_1.2fr_0.8fr] gap-3 px-4 py-3 text-sm border-b border-neutral-gray-30">
-                <div className="font-semibold">Carrier</div>
-                <div className="font-semibold">Carrier response</div>
-                <div className="font-semibold">Premium</div>
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={() => setShowYearly(true)}
-                    className={`px-2 py-0.5 rounded text-xs font-medium transition-colors ${showYearly ? "bg-action-primary text-white" : "text-text-muted hover:bg-neutral-gray-10"}`}
-                  >
-                    yr
-                  </button>
-                  <button
-                    onClick={() => setShowYearly(false)}
-                    className={`px-2 py-0.5 rounded text-xs font-medium transition-colors ${!showYearly ? "bg-action-primary text-white" : "text-text-muted hover:bg-neutral-gray-10"}`}
-                  >
-                    mo
-                  </button>
-                </div>
-                <div className="font-semibold">Coverage</div>
-                <div className="font-semibold">Deductible</div>
-                <div className="flex items-center gap-1.5">
-                  <span className="font-normal">Savings</span>
-                  <span className="font-bold">Actual</span>
-                  <span className="font-normal">| Predicted</span>
-                  <button>
-                    <Info className="w-4 h-4 text-text-muted" />
-                  </button>
-                </div>
-                <div className="font-semibold">Bridge</div>
-              </div>
-
-              {/* Eligible and partly eligible section */}
-              <div>
-                <button
-                  onClick={() => setEligibleExpanded(!eligibleExpanded)}
-                  className="w-full flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
-                >
-                  {eligibleExpanded ? (
-                    <ChevronUp className="w-5 h-5" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5" />
-                  )}
-                  <span className="font-semibold text-base">
-                    Eligible and partly eligible
-                  </span>
-                  <Badge
-                    variant="secondary"
-                    className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm"
-                  >
-                    14
-                  </Badge>
-                </button>
-
-                {eligibleExpanded && (
-                  <div className="divide-y divide-neutral-gray-10">
-                    <QuoteRow
-                      carrier="FOREMOST"
-                      premium="$1,669"
-                      bundle="Bundle: $4,830"
-                      coverage="$441,000"
-                      deductible="$1,000"
-                      savingsActual="$41"
-                      savingsPredicted="$726"
-                      hasExternalLink
-                      hasDetails
-                    />
-                    <QuoteRow
-                      carrier="UPC"
-                      hasCheckmark
-                      premium="$6,134"
-                      coverage="$468,633"
-                      deductible="$2,000"
-                      savingsActual="No"
-                      savingsPredicted="$261"
-                      actionButton="QuickBind"
-                      hasDetails
-                    />
-                    <QuoteRow
-                      carrier="BRANCH"
-                      badge="Partly eligible"
-                      premium="$13,497"
-                      coverage="$250,000"
-                      deductible="No | $0"
-                      hasExternalLink
-                      hasDetails
-                    />
-                    <QuoteRow
-                      carrier="ECLECTIQUE"
-                      warning="Manual quote required"
-                      hasExternalLink
-                      hasDetails
-                    />
-                    <QuoteRow
-                      carrier="MODERN"
-                      warning="Manual quote required"
-                      hasExternalLink
-                      hasDetails
-                    />
-                    <QuoteRow
-                      carrier="AUROS"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="MARKEL"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="RICCARDO"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="[LOGO]"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="[LOGO]"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="FIVEFIT"
-                      badge="Partly eligible"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="TRIUM"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="VMF"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                    <QuoteRow
-                      carrier="[LOGO]"
-                      warning="Manual quote required"
-                      hasExternalLink
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* Not eligible section */}
-              <div>
-                <button
-                  onClick={() => setNotEligibleExpanded(!notEligibleExpanded)}
-                  className="w-full flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-neutral-gray-5 transition-colors border-b border-neutral-gray-10"
-                >
-                  {notEligibleExpanded ? (
-                    <ChevronUp className="w-5 h-5" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5" />
-                  )}
-                  <span className="font-semibold text-base">
-                    Not eligible (?)
-                  </span>
-                  <Badge
-                    variant="secondary"
-                    className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm"
-                  >
-                    7
-                  </Badge>
-                </button>
-
-                {notEligibleExpanded && (
-                  <div className="divide-y divide-neutral-gray-10">
-                    <QuoteRow
-                      carrier="STILLWATER"
-                      error="Declined business"
-                      premium="$1,109"
-                      bundle="Bundle: $800"
-                      coverage="$250,000"
-                      deductible="$1,000"
-                      savingsActual="$20"
-                      savingsPredicted="$150"
-                      hasExternalLink
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
+          {/* Right Sidebar - Vertical Icon Bar */}
+          <div className="w-12 border-l border-neutral-gray-10 bg-white flex flex-col items-center py-3 gap-1 flex-shrink-0">
+            <RightSidebarIcon
+              icon={<User className="w-4 h-4" />}
+              label="Info"
+            />
+            <RightSidebarIcon
+              icon={<StickyNote className="w-4 h-4" />}
+              label="Notes"
+            />
+            <RightSidebarIcon
+              icon={<ListChecks className="w-4 h-4" />}
+              label="Tasks"
+            />
+            <RightSidebarIcon
+              icon={<Shield className="w-4 h-4" />}
+              label="Policies"
+            />
+            <RightSidebarIcon
+              icon={<Rss className="w-4 h-4" />}
+              label="Feed"
+            />
+            <RightSidebarIcon
+              icon={<Landmark className="w-4 h-4" />}
+              label="Loans"
+            />
+            <RightSidebarIcon
+              icon={<Paperclip className="w-4 h-4" />}
+              label="Files"
+            />
+            <RightSidebarIcon
+              icon={<HelpCircle className="w-4 h-4" />}
+              label="Help"
+            />
           </div>
         </div>
 
@@ -400,124 +472,173 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   );
 }
 
+function RightSidebarIcon({
+  icon,
+  label,
+}: {
+  icon: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <button className="w-full py-2 flex flex-col items-center gap-0.5 text-neutral-gray-60 hover:text-text hover:bg-neutral-gray-5 transition-colors">
+      {icon}
+      <span className="text-[10px]">{label}</span>
+    </button>
+  );
+}
+
 function QuoteRow({
   carrier,
-  carrierSubtext,
-  warning,
-  warningType = "warning",
-  error,
+  dotColor,
+  statusText,
   hasCheckmark,
   premium,
   bundle,
   coverage,
+  coverageHighlight,
   deductible,
+  deductibleHighlight,
   savingsActual,
   savingsPredicted,
   actionButton,
   hasExternalLink,
-  showDash,
-  highlightRow,
   badge,
-  hasDetails,
 }: {
   carrier?: string;
-  carrierSubtext?: string;
-  warning?: string;
-  warningType?: "warning" | "error";
-  error?: string;
+  dotColor?: "blue" | "green" | "orange" | "red";
+  statusText?: string;
   hasCheckmark?: boolean;
   premium?: string;
   bundle?: string;
   coverage?: string;
+  coverageHighlight?: boolean;
   deductible?: string;
+  deductibleHighlight?: boolean;
   savingsActual?: string;
   savingsPredicted?: string;
   actionButton?: string;
   hasExternalLink?: boolean;
-  showDash?: boolean;
-  highlightRow?: boolean;
   badge?: string;
-  hasDetails?: boolean;
 }) {
+  const dotColors = {
+    blue: "bg-action-primary",
+    green: "bg-success",
+    orange: "bg-warning",
+    red: "bg-[#EA4D72]",
+  };
+
+  const textColors = {
+    blue: "text-action-primary",
+    green: "text-success",
+    orange: "text-warning",
+    red: "text-[#EA4D72]",
+  };
+
   return (
-    <div
-      className={`grid grid-cols-[1fr_1fr_0.8fr_0.5fr_0.8fr_0.7fr_1.2fr_0.8fr] gap-3 px-4 py-3.5 items-center hover:bg-neutral-gray-5 transition-colors ${highlightRow ? "bg-blue-50/50" : ""}`}
-    >
+    <div className="grid grid-cols-[1.2fr_1.5fr_1fr_0.8fr_0.8fr_1fr_0.6fr] gap-3 px-4 py-3.5 items-center hover:bg-neutral-gray-5/50 transition-colors">
       {/* Carrier */}
       <div>
         {carrier && (
           <>
             <div className="font-bold text-sm">{carrier}</div>
-            {carrierSubtext && (
-              <div className="text-xs text-text-muted uppercase">
-                {carrierSubtext}
-              </div>
+            {badge && (
+              <div className="text-xs text-text-muted mt-0.5">• {badge}</div>
             )}
-            {badge && <div className="text-xs text-text-muted">• {badge}</div>}
           </>
         )}
       </div>
 
       {/* Carrier Response */}
       <div className="flex items-center gap-2">
-        {error && (
+        {dotColor && !hasCheckmark && (
           <>
-            <XCircle className="w-4 h-4 text-[#EA4D72] flex-shrink-0" />
-            <span className="text-sm text-[#EA4D72]">{error}</span>
-          </>
-        )}
-        {warning && !error && (
-          <>
-            <AlertCircle
-              className={`w-4 h-4 flex-shrink-0 ${warningType === "error" ? "text-warning" : "text-blue-600"}`}
-            />
             <span
-              className={`text-sm ${warningType === "error" ? "text-warning" : "text-blue-600"}`}
-            >
-              {warning}
-            </span>
+              className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColors[dotColor]}`}
+            />
+            {statusText && (
+              <span className={`text-sm ${textColors[dotColor]}`}>
+                {statusText}
+              </span>
+            )}
           </>
         )}
-        {hasCheckmark && !warning && !error && (
-          <CheckCircle className="w-5 h-5 text-success" />
+        {dotColor && hasCheckmark && (
+          <>
+            <span
+              className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColors[dotColor]}`}
+            />
+            {statusText && (
+              <span className={`text-sm ${textColors[dotColor]}`}>
+                {statusText}
+              </span>
+            )}
+            <svg
+              className="w-4 h-4 text-success flex-shrink-0"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </>
         )}
-        {showDash && <span className="text-text-muted">-</span>}
+        {hasCheckmark && !dotColor && (
+          <svg
+            className="w-4 h-4 text-success flex-shrink-0"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
+          </svg>
+        )}
       </div>
 
       {/* Premium */}
       <div>
         {premium && (
-          <>
-            <div className="font-semibold text-sm">{premium}</div>
-            {bundle && <div className="text-xs text-success">{bundle}</div>}
-          </>
+          <div className="flex items-center gap-2">
+            <span className="font-semibold text-sm">{premium}</span>
+            {bundle && (
+              <span className="text-xs text-success">{bundle}</span>
+            )}
+          </div>
         )}
-        {showDash && <span className="text-text-muted">-</span>}
       </div>
 
-      {/* yr/mo column - empty */}
-      <div></div>
-
       {/* Coverage */}
-      <div className="text-sm">{coverage || (showDash ? "-" : "")}</div>
+      <div
+        className={`text-sm ${coverageHighlight ? "bg-blue-50 px-2 py-1 rounded" : ""}`}
+      >
+        {coverage || ""}
+      </div>
 
       {/* Deductible */}
-      <div className="text-sm">{deductible || (showDash ? "-" : "")}</div>
+      <div
+        className={`text-sm ${deductibleHighlight ? "bg-blue-50 px-2 py-1 rounded" : ""}`}
+      >
+        {deductible || ""}
+      </div>
 
       {/* Savings */}
-      <div className="flex items-center gap-2">
+      <div className="text-sm">
         {savingsActual && (
-          <>
-            <span className="font-bold text-sm">{savingsActual}</span>
+          <span>
+            <span className="font-bold">{savingsActual}</span>
             {savingsPredicted && (
-              <>
-                <span className="text-text-muted">|</span>
-                <span className="text-sm">{savingsPredicted}</span>
-              </>
+              <span className="text-text-muted">|{savingsPredicted}</span>
             )}
-          </>
+          </span>
         )}
-        {showDash && <span className="text-text-muted">-</span>}
+        {!savingsActual && !savingsPredicted && premium && (
+          <span className="text-text-muted">No</span>
+        )}
       </div>
 
       {/* Actions */}
@@ -526,16 +647,10 @@ function QuoteRow({
           <Button
             variant="outline"
             size="sm"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-sm h-8 px-3"
+            className="border-action-primary text-action-primary hover:bg-action-primary/10 font-medium text-sm h-8 px-3"
           >
             {actionButton}
           </Button>
-        )}
-        {hasDetails && (
-          <button className="text-action-secondary hover:bg-neutral-gray-10 px-2 py-1 rounded flex items-center gap-1 text-sm font-medium transition-colors">
-            Details
-            <ChevronDown className="w-3 h-3" />
-          </button>
         )}
         {hasExternalLink && (
           <button className="w-8 h-8 flex items-center justify-center hover:bg-neutral-gray-10 rounded transition-colors">
