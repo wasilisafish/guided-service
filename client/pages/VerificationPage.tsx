@@ -203,7 +203,7 @@ export default function VerificationPage() {
                   {/* Primary Home Header */}
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold text-lg">
-                      Primary home 614 Basswood Dr, Spring, TX, 77386-1264
+                      Primary home 4545 Marlborough Dr, San Diego, CA, 92116-4737
                     </h3>
                     <button className="text-action-secondary" />
                     <button className="text-action-secondary" />
@@ -211,22 +211,21 @@ export default function VerificationPage() {
 
                   <p className="text-base">
                     This home is{" "}
-                    <span className="font-semibold">
-                      single family detached
-                    </span>{" "}
-                    · 2457 sqft · 1 stories · 2ba · built in 1970 · detached
-                    2-cars garage
+                    <span className="font-semibold">Own</span> ·{" "}
+                    <span className="font-semibold">Duplex</span> · 3200 sqft ·
+                    2 stories · 4 full ba, 0 half ba · built in 1931 · purchase
+                    date 12/01/1986 · Carport 1 car
                   </p>
 
                   <p className="text-base">
                     <span className="font-semibold">Home construction is</span>{" "}
-                    masonry · no basement · Brick Veneer or Brick on Frame · no
-                    other structures
+                    Frame · Foundation Slab · Exterior siding Stucco · Other
+                    structures None
                   </p>
 
                   <p className="text-base">
-                    <span className="font-semibold">On the deed</span> Wesley
-                    Haney
+                    <span className="font-semibold">On the deed</span> Lisa J
+                    Babcock, Nicolo Munna
                   </p>
 
                   {/* Eligibility Card */}
@@ -279,7 +278,7 @@ export default function VerificationPage() {
                               strokeLinejoin="round"
                             />
                           </svg>
-                          <span className="font-semibold">Dog, Cat</span>
+                          <span className="font-semibold">Dog</span>
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
@@ -357,11 +356,11 @@ export default function VerificationPage() {
                       <div className="space-y-3 text-sm">
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Updated year</span>
-                          <span className="font-semibold">2021</span>
+                          <span className="font-semibold">2014</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Material</span>
-                          <span className="font-semibold">Composition</span>
+                          <span className="font-semibold">Tile/Clay</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">Shape</span>
@@ -396,22 +395,22 @@ export default function VerificationPage() {
                           <span className="text-text-muted">
                             Heating & air year updt
                           </span>
-                          <span className="font-semibold">2018</span>
+                          <span className="font-semibold">2016</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">
                             Plumbing year updt
                           </span>
-                          <span className="font-semibold">1970</span>
+                          <span className="font-semibold">2000</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-text-muted">
                             Electricity year updt
                           </span>
-                          <span className="font-semibold">1990</span>
+                          <span className="font-semibold">2000</span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-text-muted">Solar panels</span>
+                          <span className="text-text-muted">Solar panels?</span>
                           <span className="font-semibold">No</span>
                         </div>
                       </div>
@@ -500,7 +499,7 @@ export default function VerificationPage() {
       <EligibilityModal
         open={eligibilityModalOpen}
         onOpenChange={setEligibilityModalOpen}
-        address="614 Basswood Dr, Spring, TX, 77386-1264"
+        address="4545 Marlborough Dr, San Diego, CA, 92116-4737"
       />
       <PeopleEditModal
         open={peopleModalOpen}

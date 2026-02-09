@@ -146,7 +146,7 @@ export default function ProposalPage() {
                     <div className="flex-1">
                       <div className="font-semibold mb-1">Primary home</div>
                       <p className="text-sm text-text-muted mb-3">
-                        614 Basswood Dr, Spring, TX, 77386-1264
+                        4545 Marlborough Dr, San Diego, CA, 92116-4737
                       </p>
 
                       <div className="flex items-center justify-between">
@@ -295,7 +295,7 @@ export default function ProposalPage() {
                     Home insurance details
                   </h2>
                   <p className="text-base text-text-muted mb-6">
-                    614 Basswood Dr, Spring, TX, 77386-1264
+                    4545 Marlborough Dr, San Diego, CA, 92116-4737
                   </p>
 
                   {/* Comparison Table */}

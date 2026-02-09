@@ -177,7 +177,7 @@ export default function FinalizePage() {
               <div>
                 <h2 className="font-bold text-xl mb-1">Primary home</h2>
                 <p className="text-base text-text-muted">
-                  614 Basswood Dr, Spring, TX, 77386-1264
+                  4545 Marlborough Dr, San Diego, CA, 92116-4737
                 </p>
               </div>
 
@@ -200,7 +200,7 @@ export default function FinalizePage() {
                         <h4 className="font-semibold">Primary home</h4>
                       </div>
                       <p className="text-sm text-text-muted mb-4">
-                        614 Basswood Dr, Spring, TX, 77386-1264
+                        4545 Marlborough Dr, San Diego, CA, 92116-4737
                       </p>
 
                       {/* Travelers Logo and Policy Number */}

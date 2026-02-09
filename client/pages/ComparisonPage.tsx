@@ -198,7 +198,7 @@ export default function ComparisonPage() {
                           <button className="ml-auto" />
                         </div>
                         <p className="text-sm text-text-muted mb-2">
-                          Primary home: 614 Basswood Dr, Spring, TX, 77386-1264
+                          Primary home: 4545 Marlborough Dr, San Diego, CA, 92116-4737
                         </p>
                       </div>
                     </div>
@@ -276,7 +276,7 @@ export default function ComparisonPage() {
                           <button className="ml-auto" />
                         </div>
                         <p className="text-sm text-text-muted mb-2">
-                          Primary home: 614 Basswood Dr, Spring, TX, 77386-1264
+                          Primary home: 4545 Marlborough Dr, San Diego, CA, 92116-4737
                         </p>
                       </div>
                     </div>

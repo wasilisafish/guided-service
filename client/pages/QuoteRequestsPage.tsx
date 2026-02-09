@@ -148,7 +148,7 @@ export default function QuoteRequestsPage() {
                   12
                 </Badge>
                 <span className="text-sm">
-                  614 Basswood Dr, Spring, TX, 77386-1264
+                  4545 Marlborough Dr, San Diego, CA, 92116-4737
                 </span>
               </div>
 

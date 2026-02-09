@@ -238,15 +238,13 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
 
 function ActivitySummarySection() {
   return (
-    <Card className="border-neutral-gray-30 rounded-lg p-6 bg-gradient-to-br from-blue-50 to-blue-100">
+    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-md">
       <div className="flex items-start gap-3 mb-4">
-        <Clock className="w-6 h-6 flex-shrink-0 mt-1" />
+        <Clock className="w-6 h-6 flex-shrink-0 mt-1 text-neutral-gray-60" />
         <div className="flex-1">
           <div className="mb-3">
             <span className="font-bold text-base">Last interaction:</span>
-            <span className="text-base ml-2">
-              call 655 d ago, email 14 days ago
-            </span>
+            <span className="text-base ml-2">call 2 days ago</span>
           </div>
 
           <div className="mb-3">
@@ -257,7 +255,7 @@ function ActivitySummarySection() {
           <div className="mb-4">
             <span className="font-bold text-base">Re-shop opportunity:</span>
             <span className="text-base ml-2">
-              Very high because of never done
+              Very high | Last re-shop in 2023
             </span>
           </div>
 
@@ -266,18 +264,20 @@ function ActivitySummarySection() {
             <div className="space-y-2">
               <div className="flex items-start gap-2">
                 <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
-                <span className="text-base">Renewal notice sent(+38%)</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
                 <span className="text-base">
-                  Online quote started, not completed
+                  Claim consultation (8/28/2025)
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
                 <span className="text-base">
-                  AI assistant gauged shopping intent and scheduled cb
+                  Renewal notice sent | +38% ( 1/21/2026)
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="w-3 h-3 rounded-full bg-action-primary flex-shrink-0 mt-1.5" />
+                <span className="text-base">
+                  Cancellation request received online
                 </span>
               </div>
             </div>
@@ -286,13 +286,16 @@ function ActivitySummarySection() {
           <div className="space-y-2">
             <Button
               variant="outline"
-              className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-base"
+              className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-base bg-white"
             >
               AI tickets summary
             </Button>
-            <button className="w-full text-action-secondary hover:underline font-semibold text-base">
+            <Button
+              variant="outline"
+              className="w-full border-action-secondary bg-white text-neutral-gray-60 hover:bg-neutral-gray-5 hover:text-neutral-gray-80 font-semibold text-base"
+            >
               Open last ticket
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -302,7 +305,7 @@ function ActivitySummarySection() {
 
 function CustomerInfoSection() {
   return (
-    <Card className="border-neutral-gray-30 rounded-lg overflow-hidden">
+    <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-md">
       <div className="p-4 border-b border-neutral-gray-30">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-lg font-bold -tracking-[0.3px]">People</h3>
@@ -351,7 +354,7 @@ function CustomerInfoSection() {
           <div className="flex-1">
             <div className="font-semibold mb-1">Mailing address</div>
             <div className="text-sm">
-              614 Basswood Dr, Spring, TX, 77386-1264
+              4545 Marlborough Dr, San Diego, CA, 92116-4737
             </div>
           </div>
         </div>
@@ -363,7 +366,7 @@ function CustomerInfoSection() {
 function AssetsSection() {
   return (
     <div className="space-y-0">
-      <Card className="border-neutral-gray-30 rounded-t-lg border-b-0">
+      <Card className="border border-neutral-gray-10 rounded-t-lg border-b-0 bg-white shadow-md">
         <div className="p-4">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-lg font-bold -tracking-[0.3px]">Assets</h3>
@@ -374,7 +377,7 @@ function AssetsSection() {
             <div className="flex-1">
               <div className="font-semibold mb-1">Primary home</div>
               <div className="text-sm mb-3">
-                614 Basswood Dr, Spring, TX, 77386-1264
+                4545 Marlborough Dr, San Diego, CA, 92116-4737
               </div>
               <div className="flex items-center gap-2 flex-wrap text-sm">
                 <span className="text-text-muted">Built in</span>
@@ -392,7 +395,7 @@ function AssetsSection() {
         </div>
       </Card>
 
-      <Card className="border-neutral-gray-30 rounded-b-lg">
+      <Card className="border border-neutral-gray-10 rounded-b-lg bg-white shadow-md">
         <div className="p-4">
           <div className="flex items-center gap-2 mb-3">
             <span className="font-bold">Vehicles</span>
@@ -432,7 +435,7 @@ function VehicleItem({ name, vin }: { name: string; vin: string }) {
 
 function LoansSection() {
   return (
-    <Card className="border-neutral-gray-30 rounded-lg">
+    <Card className="border border-neutral-gray-10 rounded-lg bg-white shadow-md">
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
           <h3 className="text-lg font-bold -tracking-[0.3px]">Loans</h3>
@@ -451,7 +454,7 @@ function LoansSection() {
               Freedom Mortgage Corporation ISAOA/ATIMA
             </div>
             <div className="text-sm mb-2">
-              For 614 Basswood Dr, Spring, TX, 77386-1264
+              For 4545 Marlborough Dr, San Diego, CA, 92116-4737
             </div>
             <div className="text-sm">
               <span className="text-text-muted">Loan number:</span>{" "}
@@ -467,14 +470,14 @@ function LoansSection() {
 
 function PolicyCard() {
   return (
-    <Card className="border-neutral-gray-30 rounded-lg p-6 space-y-3">
+    <Card className="border border-neutral-gray-10 rounded-lg p-6 space-y-3 bg-white shadow-md">
       <div className="flex items-center gap-3">
         <div className="w-9 h-9 border border-neutral-gray-10 rounded flex items-center justify-center">
           <Home className="w-4 h-4" />
         </div>
         <div className="flex-1">
           <div className="font-semibold text-sm">Primary home</div>
-          <div className="text-sm">614 Basswood Dr, Spring, TX, 77386-1264</div>
+          <div className="text-sm">4545 Marlborough Dr, San Diego, CA, 92116-4737</div>
         </div>
         <Button
           variant="ghost"

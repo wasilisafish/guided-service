@@ -167,7 +167,7 @@ export default function QuotingPage() {
                 {primaryHomeChecked && (
                   <div className="ml-8 space-y-4">
                     <p className="text-base">
-                      614 Basswood Dr, Spring, TX, 77386-1264
+                      4545 Marlborough Dr, San Diego, CA, 92116-4737
                     </p>
 
                     <div className="flex flex-col gap-3 text-base">
