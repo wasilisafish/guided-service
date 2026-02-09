@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { SageSureLogo } from "@/components/SageSureLogo";
+import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
 export default function ProposalPage() {
   const navigate = useNavigate();
@@ -149,7 +150,7 @@ export default function ProposalPage() {
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold mb-1">Primary home</div>
                       <p className="text-sm text-text-muted mb-3">
-                        4545 Marlborough Dr, San Diego, CA, 92116-4737
+                        12522 W Sunnyside Dr, El Mirage, AZ, 85335-6314
                       </p>
                       <div className="flex items-center gap-2 flex-wrap">
                         <div className="border border-neutral-gray-10 bg-white rounded px-2 py-1.5">
@@ -268,7 +269,7 @@ export default function ProposalPage() {
                 <div className="p-6">
                   <h2 className="font-bold text-2xl mb-2">Home insurance details</h2>
                   <p className="text-base text-text-muted mb-6">
-                    4545 Marlborough Dr, San Diego, CA, 92116-4737
+                    12522 W Sunnyside Dr, El Mirage, AZ, 85335-6314
                   </p>
 
                   <div className="space-y-0">
@@ -293,7 +294,6 @@ export default function ProposalPage() {
                           <SageSureLogo width={90} height={22} />
                         </div>
                       }
-                      highlight
                     />
 
                     <div className="pt-4 pb-2">
@@ -301,7 +301,7 @@ export default function ProposalPage() {
                     </div>
 
                     <ProposalRow label="Policy Start Date" proposed="1/1/2026" current="1/1/2026" />
-                    <ProposalRow label="Deductible" proposed="$1,000" current="$2,500" highlight />
+                    <ProposalRow label="Deductible" proposed="$1,000" current="$1,000" />
 
                     <div className="pt-4 grid grid-cols-3 gap-4 pb-2">
                       <div className="font-bold text-lg">Standard coverages</div>
@@ -309,29 +309,60 @@ export default function ProposalPage() {
                       <div className="text-right font-bold text-lg">Coverage Limit</div>
                     </div>
 
-                    <ProposalRow label="Dwelling" proposed="$378,380" current="$350,000" highlight />
+                    <ProposalRow label="Dwelling" proposed="$378,380" current="$378,380" />
                     <ProposalRow label="Other structures" proposed="$72,000" current="$72,000" />
                     <ProposalRow label="Personal property" proposed="$138,000" current="$138,000" />
                     <ProposalRow label="Loss of use" proposed="$50,000" current="$50,000" />
                     <ProposalRow label="Personal liability" proposed="$10,000" current="$10,000" />
                     <ProposalRow label="Medical payment (to others)" proposed="$5,000" current="$5,000" />
+
+                    <div className="pt-4 pb-2">
+                      <h3 className="font-bold text-lg">Additional coverages</h3>
+                    </div>
+                    <ProposalRow label="Water back-up" proposed="$10,000" current="$10,000" />
+                    <ProposalRow label="Earthquake" proposed="Not Included" current="Not Included" />
+                    <ProposalRow label="Mold property damage" proposed="Not Included" current="Not Included" />
+                    <ProposalRow label="Mold liability" proposed="Not Included" current="Not Included" />
+
+                    <ProposalRow label="Yearly Premium" proposed="$2,083.00" current="$5,070.00" highlight />
                   </div>
                 </div>
               </Card>
+
+              {/* Act now to secure your rate - Figma */}
+              <div className="bg-amber-50/80 border border-amber-200/60 rounded-2xl p-8 shadow-sm">
+                <h3 className="font-bold text-xl mb-2 text-neutral-gray-80">Act now to secure your rate</h3>
+                <p className="text-neutral-gray-80 mb-6">
+                  Insurance rates can change. Contact your advisor to lock in this quote and complete your application.
+                </p>
+                <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold px-6">
+                  Contact Your Advisor
+                </Button>
+              </div>
+
+              {/* Why customers choose Matic - Figma */}
+              <div className="bg-violet-50/80 border border-violet-200/60 rounded-2xl p-8 shadow-sm">
+                <h3 className="font-bold text-xl mb-4 text-neutral-gray-80">Why customers choose Matic</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <div className="font-semibold text-action-primary mb-1">Ongoing support</div>
+                    <p className="text-sm text-neutral-gray-80">We're here whenever you need us—claims, renewals, or questions.</p>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-action-primary mb-1">Transparency</div>
+                    <p className="text-sm text-neutral-gray-80">Clear pricing and no surprises. You'll always know what you're paying for.</p>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-action-primary mb-1">Peace of mind</div>
+                    <p className="text-sm text-neutral-gray-80">Your home and belongings protected by a policy that fits your life.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right sidebar - Figma */}
-          <div className="w-[72px] border-l border-neutral-gray-10 flex-shrink-0 flex flex-col items-center py-4 bg-white">
-            <ProposalSidebarItem icon={<User className="w-5 h-5" />} label="Info" />
-            <ProposalSidebarItem icon={<Paperclip className="w-5 h-5" />} label="Notes" />
-            <ProposalSidebarItem icon={<ClipboardCheck className="w-5 h-5" />} label="Tasks" />
-            <ProposalSidebarItem icon={<Shield className="w-5 h-5" />} label="Policies" />
-            <ProposalSidebarItem icon={<Clock className="w-5 h-5" />} label="Feed" />
-            <ProposalSidebarItem icon={<DollarSign className="w-5 h-5" />} label="Loans" />
-            <ProposalSidebarItem icon={<FileText className="w-5 h-5" />} label="Files" />
-            <ProposalSidebarItem icon={<HelpCircle className="w-5 h-5" />} label="Help" />
-          </div>
+          {/* Right sidebar - same on every page */}
+          <RightSidebarPanel />
         </div>
 
         {/* Bottom Navigation - Figma: Finalize outline, Send proposal solid */}
@@ -392,17 +423,3 @@ function ProposalRow({
   );
 }
 
-function ProposalSidebarItem({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
-  return (
-    <button className="w-full py-2 px-1 flex flex-col items-center gap-1.5 text-neutral-gray-60 hover:text-action-primary hover:bg-neutral-gray-5 transition-colors">
-      <div className="w-5 h-5 flex items-center justify-center">{icon}</div>
-      <span className="text-xs font-medium">{label}</span>
-    </button>
-  );
-}
