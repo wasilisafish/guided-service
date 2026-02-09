@@ -355,9 +355,9 @@ export default function ComparisonPage() {
                 <RiskFactorItem
                   label="Claims History"
                   value="1 claim ($0)"
-                  risk="Low Risk"
+                  risk="Moderate Risk"
                   impact="High Impact"
-                  isLowRisk
+                  isMediumRisk
                 />
                 <RiskFactorItem
                   label="Credit History"
