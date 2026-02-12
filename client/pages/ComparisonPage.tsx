@@ -2,10 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ChevronRight,
-  Home,
-  Archive,
   User,
-  Car,
   Shield,
   Search,
   DollarSign,
@@ -17,25 +14,20 @@ import {
   Mail,
   Phone,
   ArrowLeft,
-  Copy,
   ChevronDown,
-  Info,
+  ChevronUp,
   Plus,
-  StickyNote,
-  ListChecks,
-  Rss,
-  Landmark,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
-import { SageSureLogo } from "@/components/SageSureLogo";
 import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
 export default function ComparisonPage() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [detailsExpanded, setDetailsExpanded] = useState(false);
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
@@ -135,18 +127,19 @@ export default function ComparisonPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold whitespace-nowrap shrink-0">
+          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="establish-rapport" />
           </div>
-          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
             Re-shop in progress
           </Badge>
           <Button
-            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            variant="outline"
+            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
@@ -158,240 +151,171 @@ export default function ComparisonPage() {
         <div className="flex-1 flex overflow-hidden">
           {/* Left Content Panel */}
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-5xl mx-auto p-8 space-y-6">
-              {/* This Case Section */}
+            <div className="max-w-4xl mx-auto p-8 space-y-8">
+              {/* 1. Sticky Summary Bar */}
+              <div className="sticky top-0 z-10 -mx-8 -mt-8 px-8 pt-8 pb-4 bg-gradient-to-b from-white via-white to-transparent">
+                <div className="flex flex-wrap items-center gap-4 p-4 rounded-xl bg-amber-50 border border-amber-200/60">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl font-bold text-neutral-gray-80">
+                      Premium ↑ $862 (+18%)
+                    </span>
+                  </div>
+                  <span className="text-text-muted">|</span>
+                  <span className="text-sm text-neutral-gray-80">
+                    Primary cause: Coverage adjustments + roof age
+                  </span>
+                </div>
+              </div>
+
+              {/* 2. Page Title */}
               <div>
-                <h2 className="font-bold text-xl mb-1">This case:</h2>
-                <p className="text-base text-neutral-gray-80">
-                  Initiated renewal consultation for the customer
+                <h1 className="text-2xl md:text-3xl font-bold text-neutral-gray-80 mb-2">
+                  Why did the premium increase?
+                </h1>
+                <p className="text-base text-text-muted">
+                  Premium increased from $4,848 → $5,710. Here are the main drivers.
                 </p>
               </div>
 
-              {/* Renewal Comparison Section */}
-              <div>
-                <h2 className="font-bold text-2xl mb-6">Renewal comparison</h2>
-
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  {/* Policy Renewal */}
-                  <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-md">
-                    <h3 className="font-bold text-lg mb-4">Policy renewal</h3>
-
-                    <div className="flex items-start gap-3 mb-6">
-                      <div className="flex-shrink-0">
-                        <Home className="w-6 h-6 text-action-primary" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <button className="text-sm font-semibold text-action-primary underline hover:no-underline flex items-center gap-1.5">
-                            TCDX77887833
-                            <Copy className="w-4 h-4" />
-                          </button>
-                          <div className="flex items-center gap-2 ml-auto">
-                            <div className="w-2 h-2 rounded-full bg-action-primary" />
-                            <span className="text-sm font-semibold">Bound</span>
-                          </div>
-                        </div>
-                        <p className="text-sm text-text-muted mt-1 mb-2">
-                          Primary home: 4545 Marlborough Dr, San Diego, CA, 92116-4737
-                        </p>
-                      </div>
+              {/* 3. Primary Drivers */}
+              <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
+                <h3 className="font-bold text-lg mb-4">Primary drivers</h3>
+                <div className="space-y-4">
+                  <div>
+                    <div className="font-semibold text-action-primary mb-1">
+                      Coverage adjustments (+$520)
                     </div>
-
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                        <div>
-                        <div className="text-text-muted mb-1">Carrier</div>
-                        <div className="flex items-center">
-                          <SageSureLogo width={84} height={21} />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-text-muted mb-1">
-                          Effective date
-                        </div>
-                        <div className="font-semibold">03/23/2026</div>
-                      </div>
-                      <div>
-                        <div className="text-text-muted mb-1">
-                          Expiration date
-                        </div>
-                        <div className="font-semibold">03/23/3027</div>
-                      </div>
-                      <div>
-                        <div className="text-text-muted mb-1">Premium</div>
-                        <div className="font-semibold">$5,710/yr</div>
-                      </div>
+                    <ul className="list-disc list-inside text-sm text-neutral-gray-80 space-y-1">
+                      <li>Dwelling +12%</li>
+                      <li>Personal property +12%</li>
+                      <li>Water backup +50%</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-action-primary mb-1">
+                      Risk factors (+$290)
                     </div>
-                  </Card>
-
-                  {/* Current Policy */}
-                  <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-md">
-                    <h3 className="font-bold text-lg mb-4">Current policy</h3>
-
-                    <div className="flex items-start gap-3 mb-6">
-                      <div className="flex-shrink-0">
-                        <Home className="w-6 h-6 text-action-primary" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <button className="text-sm font-semibold text-action-primary underline hover:no-underline flex items-center gap-1.5">
-                            TCDX77887832
-                            <Copy className="w-4 h-4" />
-                          </button>
-                          <div className="flex items-center gap-2 ml-auto">
-                            <div className="w-2 h-2 rounded-full bg-success" />
-                            <span className="text-sm font-semibold">
-                              Renewed
-                            </span>
-                          </div>
-                        </div>
-                        <p className="text-sm text-text-muted mt-1 mb-2">
-                          Primary home: 4545 Marlborough Dr, San Diego, CA, 92116-4737
-                        </p>
-                      </div>
+                    <ul className="list-disc list-inside text-sm text-neutral-gray-80 space-y-1">
+                      <li>Roof age: 16 years</li>
+                      <li>1 prior claim</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-action-primary mb-1">
+                      Market inflation adjustment (+$52)
                     </div>
-
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                        <div>
-                        <div className="text-text-muted mb-1">Carrier</div>
-                        <div className="flex items-center">
-                          <SageSureLogo width={84} height={21} />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-text-muted mb-1">
-                          Effective date
-                        </div>
-                        <div className="font-semibold">03/23/2025</div>
-                      </div>
-                      <div>
-                        <div className="text-text-muted mb-1">Term</div>
-                        <div className="font-semibold">03/23/2026</div>
-                      </div>
-                      <div>
-                        <div className="text-text-muted mb-1">Premium</div>
-                        <div className="font-semibold">$4,848/yr</div>
-                      </div>
-                    </div>
-                  </Card>
-                </div>
-
-                {/* Log of Changes */}
-                <div>
-                  <h3 className="font-bold text-2xl mb-4">Log of changes</h3>
-
-                  <div className="space-y-3">
-                    <ChangeLogItem
-                      label="Premium change"
-                      oldValue="$4,848"
-                      newValue="$5,710"
-                      percentage="+18%(862)"
-                      isIncrease
-                    />
-                    <ChangeLogItem label="Co-insured Kris McMahon added" />
-                    <ChangeLogItem
-                      label="Coverage change: dwelling"
-                      oldValue="$350,000"
-                      newValue="$433,380"
-                      percentage="+12%"
-                      isIncrease
-                    />
-                    <ChangeLogItem
-                      label="Coverage change: other structures"
-                      oldValue="$35,000"
-                      newValue="$43,380"
-                      percentage="+12%"
-                      isIncrease
-                    />
-                    <ChangeLogItem
-                      label="Coverage change: personal property"
-                      oldValue="$70,000"
-                      newValue="$86,380"
-                      percentage="+12%"
-                      isIncrease
-                    />
-                    <ChangeLogItem
-                      label="Coverage change: water backup of sewers & drains"
-                      oldValue="$5,000"
-                      newValue="$10,000"
-                      percentage="+50%"
-                      isIncrease
-                    />
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+              </Card>
 
-          {/* Right Risk Factors Sidebar */}
-          <div className="w-[440px] border-l border-neutral-gray-10 flex-shrink-0 overflow-y-auto bg-white p-6">
-            <div className="space-y-6">
-              <div>
-                <h2 className="font-bold text-xl mb-2">
-                  Risk factors impacting carrier premiums
-                </h2>
-                <p className="text-sm text-text-muted">
-                  Below are some of the factors carriers may use when
-                  determining customer's premium.
+              {/* 4. Impact Breakdown (Merged Log of Changes + Risk Factors) */}
+              <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-sm">
+                <h3 className="font-bold text-lg p-4 pb-0">Impact breakdown</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-neutral-gray-10 bg-neutral-gray-5">
+                        <th className="text-left py-3 px-4 font-semibold">Driver</th>
+                        <th className="text-left py-3 px-4 font-semibold">Type</th>
+                        <th className="text-left py-3 px-4 font-semibold">Impact</th>
+                        <th className="text-left py-3 px-4 font-semibold">Controllable</th>
+                        <th className="text-left py-3 px-4 font-semibold">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 px-4 font-medium">Dwelling +12%</td>
+                        <td className="py-3 px-4">Coverage</td>
+                        <td className="py-3 px-4">High</td>
+                        <td className="py-3 px-4">Yes</td>
+                        <td className="py-3 px-4 text-text-muted">Inflation guard</td>
+                      </tr>
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 px-4 font-medium">Water backup +50%</td>
+                        <td className="py-3 px-4">Coverage</td>
+                        <td className="py-3 px-4">Medium</td>
+                        <td className="py-3 px-4">Yes</td>
+                        <td className="py-3 px-4 text-text-muted">Increased limit</td>
+                      </tr>
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 px-4 font-medium">Personal property +12%</td>
+                        <td className="py-3 px-4">Coverage</td>
+                        <td className="py-3 px-4">Medium</td>
+                        <td className="py-3 px-4">Yes</td>
+                        <td className="py-3 px-4 text-text-muted">Inflation guard</td>
+                      </tr>
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 px-4 font-medium">Roof age 16 yrs</td>
+                        <td className="py-3 px-4">Risk</td>
+                        <td className="py-3 px-4">High</td>
+                        <td className="py-3 px-4">No</td>
+                        <td className="py-3 px-4 text-text-muted">Carrier sensitivity</td>
+                      </tr>
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 px-4 font-medium">1 Claim</td>
+                        <td className="py-3 px-4">Risk</td>
+                        <td className="py-3 px-4">Medium</td>
+                        <td className="py-3 px-4">No</td>
+                        <td className="py-3 px-4 text-text-muted">Affects renewal tier</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 px-4 font-medium">Market inflation</td>
+                        <td className="py-3 px-4">Market</td>
+                        <td className="py-3 px-4">Medium</td>
+                        <td className="py-3 px-4">No</td>
+                        <td className="py-3 px-4 text-text-muted">—</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </Card>
+
+              {/* 5. Fairness Assessment */}
+              <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm border-l-4 border-l-success">
+                <h3 className="font-bold text-lg mb-2">Is this increase fair?</h3>
+                <div className="flex items-center gap-2 text-success font-semibold">
+                  <span>✅</span>
+                  <span>Within expected range for risk profile</span>
+                </div>
+                <p className="text-sm text-text-muted mt-2">
+                  System assessment: Given the coverage increases and roof age, this 18% renewal is in line with typical market movement.
                 </p>
-              </div>
+              </Card>
 
-              <div className="space-y-4">
-                <RiskFactorItem
-                  label="Location"
-                  value="43220"
-                  risk="Low Risk"
-                  impact="High Impact"
-                  isLowRisk
-                />
-                <RiskFactorItem
-                  label="Claims History"
-                  value="1 claim ($0)"
-                  risk="Moderate Risk"
-                  impact="High Impact"
-                  isMediumRisk
-                />
-                <RiskFactorItem
-                  label="Credit History"
-                  value="Excellent"
-                  risk="Low Risk"
-                  impact="High Impact"
-                  isLowRisk
-                />
-                <RiskFactorItem
-                  label="Roof Condition"
-                  value="16 years"
-                  risk="High Risk"
-                  impact="High Impact"
-                  isHighRisk
-                />
-                <RiskFactorItem
-                  label="Home Age"
-                  value="45 years"
-                  risk="Medium Risk"
-                  impact="High Impact"
-                  isMediumRisk
-                />
-                <RiskFactorItem
-                  label="Pets"
-                  value="None"
-                  risk="Low Risk"
-                  impact="High Impact"
-                  isLowRisk
-                />
-                <RiskFactorItem
-                  label="Safety Hazards"
-                  value="None"
-                  risk="Low Risk"
-                  impact="High Impact"
-                  isLowRisk
-                />
-                <RiskFactorItem
-                  label="Heating Source"
-                  value="Furnace"
-                  risk="Moderate Risk"
-                  impact="High Impact"
-                  isMediumRisk
-                />
+              {/* 6. Collapsible Details */}
+              <div className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white">
+                <button
+                  onClick={() => setDetailsExpanded(!detailsExpanded)}
+                  className="w-full flex items-center justify-between p-4 hover:bg-neutral-gray-5 transition-colors text-left"
+                >
+                  <span className="font-semibold">Policy details</span>
+                  {detailsExpanded ? (
+                    <ChevronUp className="w-5 h-5 text-text-muted" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-text-muted" />
+                  )}
+                </button>
+                {detailsExpanded && (
+                  <div className="border-t border-neutral-gray-10 p-4 space-y-4 text-sm">
+                    <div>
+                      <span className="text-text-muted">Address</span>
+                      <p className="font-medium">4545 Marlborough Dr, San Diego, CA, 92116-4737</p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <span className="text-text-muted block mb-1">Current policy</span>
+                        <p className="font-medium">TCDX77887832 · Effective 03/23/2025 · Exp 03/23/2026</p>
+                        <p className="text-text-muted">$4,848/yr · SageSure</p>
+                      </div>
+                      <div>
+                        <span className="text-text-muted block mb-1">Renewal policy</span>
+                        <p className="font-medium">TCDX77887833 · Effective 03/23/2026 · Exp 03/23/3027</p>
+                        <p className="text-text-muted">$5,710/yr · SageSure</p>
+                      </div>
+                    </div>
+                    <p className="text-text-muted text-xs">Co-insured Kris McMahon added</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -423,84 +347,3 @@ function NavItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   );
 }
 
-function ChangeLogItem({
-  label,
-  oldValue,
-  newValue,
-  percentage,
-  isIncrease,
-}: {
-  label: string;
-  oldValue?: string;
-  newValue?: string;
-  percentage?: string;
-  isIncrease?: boolean;
-}) {
-  return (
-    <div className="flex items-center justify-between py-3 border-b border-neutral-gray-10">
-      <span className="text-base">{label}</span>
-      {oldValue && newValue && (
-        <div className="flex items-center gap-2">
-          <span className="text-base">
-            {oldValue} → {newValue}
-          </span>
-          <span
-            className={`text-sm font-semibold ${isIncrease ? "text-success" : "text-warning"}`}
-          >
-            {percentage}
-          </span>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function RiskFactorItem({
-  label,
-  value,
-  risk,
-  impact,
-  isLowRisk,
-  isMediumRisk,
-  isHighRisk,
-}: {
-  label: string;
-  value: string;
-  risk: string;
-  impact: string;
-  isLowRisk?: boolean;
-  isMediumRisk?: boolean;
-  isHighRisk?: boolean;
-}) {
-  return (
-    <div className="bg-white border border-neutral-gray-10 rounded-lg p-4 shadow-sm">
-      <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center gap-2">
-          <h4 className="font-semibold">{label}</h4>
-          <button>
-            <Info className="w-4 h-4 text-text-muted" />
-          </button>
-        </div>
-        <span className="font-bold">{value}</span>
-      </div>
-      <div className="flex items-center gap-2 text-sm">
-        <div className="flex items-center gap-1">
-          <div
-            className={`w-2 h-2 rounded-full ${
-              isLowRisk
-                ? "bg-success"
-                : isMediumRisk
-                  ? "bg-warning"
-                  : isHighRisk
-                    ? "bg-[#EA4D72]"
-                    : "bg-neutral-gray-30"
-            }`}
-          />
-          <span>{risk}</span>
-        </div>
-        <div className="w-px h-4 bg-neutral-gray-10" />
-        <span>{impact}</span>
-      </div>
-    </div>
-  );
-}

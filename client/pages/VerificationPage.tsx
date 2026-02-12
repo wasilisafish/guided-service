@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   ChevronRight,
   ChevronDown,
+  ChevronUp,
   Home,
   User,
   Search,
@@ -35,7 +36,8 @@ export default function VerificationPage() {
   const [eligibilityModalOpen, setEligibilityModalOpen] = useState(false);
   const [peopleModalOpen, setPeopleModalOpen] = useState(false);
   const [homeProfilingModalOpen, setHomeProfilingModalOpen] = useState(false);
-
+  const [homeDetailsExpanded, setHomeDetailsExpanded] = useState(false);
+  const [eligibilityExpanded, setEligibilityExpanded] = useState(false);
   return (
     <div className="flex h-screen bg-white overflow-hidden">
       {/* Left Navigation Sidebar */}
@@ -128,18 +130,19 @@ export default function VerificationPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold whitespace-nowrap shrink-0">
+          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="data-verification" />
           </div>
-          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
             Re-shop in progress
           </Badge>
           <Button
-            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            variant="outline"
+            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
@@ -152,20 +155,19 @@ export default function VerificationPage() {
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto">
             <div className="max-w-6xl mx-auto p-8 space-y-8">
-              {/* People Section */}
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <h2 className="font-bold text-xl">People</h2>
-                  <button
-                    onClick={() => setPeopleModalOpen(true)}
-                    className="ml-auto"
-                  >
-                    <Edit className="w-5 h-5 text-action-secondary" />
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="p-4 border border-neutral-gray-30 rounded-lg">
+              {/* People Section - one card */}
+              <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-sm">
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <h2 className="font-bold text-xl">People</h2>
+                    <button
+                      onClick={() => setPeopleModalOpen(true)}
+                      className="ml-auto"
+                    >
+                      <Edit className="w-5 h-5 text-action-secondary" />
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <PersonCard
                       name="Elliot McMahon"
                       badge="Named insured"
@@ -174,9 +176,9 @@ export default function VerificationPage() {
                       dob="09/12/1990"
                       phone="(876) 456-8762"
                       email="elliot@gmail.com"
+                      driverLicense="CA DL 0A12345"
+                      isPrimary
                     />
-                  </div>
-                  <div className="p-4 border border-neutral-gray-30 rounded-lg">
                     <PersonCard
                       name="Jennifer McMahon"
                       badge="On the deed"
@@ -185,9 +187,8 @@ export default function VerificationPage() {
                       dob="02/02/1990"
                       phone="(876) 334-8762"
                       email="jennmac@gmail.com"
+                      driverLicense="CA DL 0B98765"
                     />
-                  </div>
-                  <div className="p-4 border border-neutral-gray-30 rounded-lg">
                     <PersonCard
                       name="Kris McMahon"
                       badge="On the deed"
@@ -196,298 +197,211 @@ export default function VerificationPage() {
                       dob="02/20/1990"
                       phone="(876) 334-8762"
                       email="jenmac@g.mail.com"
+                      driverLicense="CA DL 0C55555"
                     />
                   </div>
                 </div>
-              </div>
+              </Card>
 
-              {/* Home Profiling Section */}
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <h2 className="font-bold text-xl">Home profiling</h2>
-                  <button
-                    onClick={() => setHomeProfilingModalOpen(true)}
-                    className="ml-auto"
-                  >
-                    <Edit className="w-5 h-5 text-action-secondary" />
-                  </button>
-                </div>
-
-                <div className="space-y-4">
-                  {/* Primary Home Header */}
-                  <div className="flex items-center gap-3">
-                    <h3 className="font-bold text-lg">
-                      Primary home 4545 Marlborough Dr, San Diego, CA, 92116-4737
-                    </h3>
-                    <button className="text-action-secondary" />
-                    <button className="text-action-secondary" />
+              {/* Asset Card - Home Profiling */}
+              <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-sm">
+                <div className="p-6 space-y-6">
+                  {/* 1. Verification Control Panel (Top) */}
+                  <div className="pb-4 border-b border-neutral-gray-10">
+                    <div className="flex items-center justify-between gap-4 flex-wrap mb-3">
+                      <h2 className="font-bold text-xl">4545 Marlborough Dr, San Diego, CA, 92116-4737</h2>
+                      <button onClick={() => setHomeProfilingModalOpen(true)}>
+                        <Edit className="w-5 h-5 text-action-secondary" />
+                      </button>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-4 text-sm">
+                      <span className="font-semibold">Duplex</span>
+                      <span className="font-semibold">· 3200 sqft</span>
+                      <span className="font-semibold">· Built 1931</span>
+                      <span className="font-semibold">· Frame</span>
+                      <span className="font-semibold">· Roof 2014 (12 yrs)</span>
+                      <span className="font-semibold">· Plumbing 2000</span>
+                    </div>
                   </div>
 
-                  {/* Eligibility Card - just below Primary home */}
-                  <Card className="border-neutral-gray-30 rounded-lg p-4 bg-[#F0F9F4]">
-                    <div className="flex items-start justify-between mb-4">
+                  {/* Home details (collapsible, collapsed by default) */}
+                  <div className="border border-neutral-gray-10 rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => setHomeDetailsExpanded(!homeDetailsExpanded)}
+                      className="w-full flex items-center justify-between gap-4 p-4 hover:bg-neutral-gray-5 text-left"
+                    >
+                      <span className="flex items-center gap-4">
+                        <span className="font-semibold text-sm">Home details snapshot</span>
+                        <span className="text-sm text-text-muted">
+                          Collected by: <span className="font-semibold text-foreground">Sales Agent John Snow</span> (8 months ago)
+                        </span>
+                      </span>
+                      {homeDetailsExpanded ? <ChevronUp className="w-4 h-4 text-text-muted shrink-0" /> : <ChevronDown className="w-4 h-4 text-text-muted shrink-0" />}
+                    </button>
+                    {homeDetailsExpanded && (
+                      <div className="border-t border-neutral-gray-10 p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                          <div>
+                            <ul className="space-y-1">
+                              <li>• Duplex</li>
+                              <li>• 3200 sqft</li>
+                              <li>• 4 full bath</li>
+                              <li>• Slab foundation</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <ul className="space-y-1">
+                              <li>• Built: 1931</li>
+                              <li>• 2 stories</li>
+                              <li>• Frame + Stucco</li>
+                              <li>• 2-car attached garage</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <ul className="space-y-1">
+                              <li>• Frame</li>
+                              <li>• Foundation Slab</li>
+                              <li>• Exterior siding Stucco</li>
+                              <li>• Other structures None</li>
+                              <li className="text-text-muted">• On the deed: Lisa J Babcock, Nicolo Munna</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Eligibility */}
+                  <Card className="border-neutral-gray-20 rounded-lg p-4 bg-[#F0F9F4]">
+                    <div className="flex items-start justify-between mb-3">
                       <h4 className="font-bold text-base">Eligibility</h4>
                       <button onClick={() => setEligibilityModalOpen(true)}>
                         <Edit className="w-5 h-5 text-action-secondary" />
                       </button>
                     </div>
-                    <div className="space-y-2 text-sm mb-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-text-muted">Pets</span>
-                        <div className="flex items-center gap-2">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            className="text-success"
-                          >
-                            <path
-                              d="M13.3333 4L6 11.3333L2.66667 8"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          <span className="font-semibold">Yes</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-text-muted">
-                          What type of pets?
-                        </span>
-                        <div className="flex items-center gap-2">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            className="text-success"
-                          >
-                            <path
-                              d="M13.3333 4L6 11.3333L2.66667 8"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          <span className="font-semibold">Dog</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-text-muted">Breeds</span>
-                        <div className="flex items-center gap-2">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            className="text-success"
-                          >
-                            <path
-                              d="M13.3333 4L6 11.3333L2.66667 8"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          <span className="font-semibold">Other</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-text-muted">Bite history</span>
-                        <div className="flex items-center gap-2">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            className="text-success"
-                          >
-                            <path
-                              d="M13.3333 4L6 11.3333L2.66667 8"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          <span className="font-semibold">No</span>
-                        </div>
-                      </div>
-                    </div>
-                    <button className="flex items-center gap-1 text-sm">
-                      <ChevronDown className="w-4 h-4" />
-                      <span className="font-semibold">
-                        No concerns about everything else
-                      </span>
+                    <button
+                      onClick={() => setEligibilityExpanded(!eligibilityExpanded)}
+                      className="w-full flex items-center gap-2 text-sm text-left"
+                    >
+                      {eligibilityExpanded ? <ChevronUp className="w-4 h-4 text-action-secondary shrink-0" /> : <ChevronDown className="w-4 h-4 text-action-secondary shrink-0" />}
+                      <span className="font-semibold text-action-secondary">{eligibilityExpanded ? "Hide eligibility factors" : "No concerns about everything else"}</span>
                     </button>
+                    {eligibilityExpanded && (
+                      <div className="mt-4 pt-4 border-t border-neutral-gray-20 space-y-3 text-sm">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+                          <span className="text-text-muted">Do you have any open claims?</span>
+                          <span className="font-semibold shrink-0">No</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+                          <span className="text-text-muted">Do you run a business out of your home?</span>
+                          <span className="font-semibold shrink-0">No</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+                          <span className="text-text-muted">Do you have any pets?</span>
+                          <span className="font-semibold shrink-0">Yes · Dog · Other · No bite history</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+                          <span className="text-text-muted">Do you have any livestock or hooved animals on the property?</span>
+                          <span className="font-semibold shrink-0">No</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+                          <span className="text-text-muted">Do you have a pool?</span>
+                          <span className="font-semibold shrink-0">No</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+                          <span className="text-text-muted">Do you have a trampoline?</span>
+                          <span className="font-semibold shrink-0">No</span>
+                        </div>
+                      </div>
+                    )}
                   </Card>
 
-                  <p className="text-base">
-                    This home is{" "}
-                    <span className="font-semibold">Own</span> ·{" "}
-                    <span className="font-semibold">Duplex</span> · 3200 sqft ·
-                    2 stories · 4 full ba, 0 half ba · built in 1931 · purchase
-                    date 12/01/1986 · Carport 1 car
-                  </p>
-
-                  <p className="text-base">
-                    <span className="font-semibold">Home construction is</span>{" "}
-                    Frame · Foundation Slab · Exterior siding Stucco · Other
-                    structures None
-                  </p>
-
-                  <p className="text-base">
-                    <span className="font-semibold">On the deed</span> Lisa J
-                    Babcock, Nicolo Munna
-                  </p>
-
-                  {/* Three Column Grid */}
-                  <div className="grid grid-cols-3 gap-6">
-                    {/* Roof */}
+                  {/* 5. Aging Systems & Discounts (2 columns) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <div className="flex items-center gap-2 mb-4">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                        >
-                          <path
-                            d="M3 10L10 3L17 10M5 8V16H15V8"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <h4 className="font-bold text-base">Roof</h4>
-                      </div>
-                      <div className="space-y-3 text-sm">
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">Updated year</span>
-                          <span className="font-semibold">2014</span>
+                      <h3 className="font-bold text-base mb-2">Aging Systems</h3>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between py-2 border-b border-neutral-gray-10">
+                          <span className="font-medium">Plumbing</span>
+                          <span className="text-text-muted">2000 <span className="text-[#EA4D72]">(25 yrs)</span></span>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">Material</span>
-                          <span className="font-semibold">Tile/Clay</span>
+                        <div className="flex justify-between py-2 border-b border-neutral-gray-10">
+                          <span className="font-medium">Electrical</span>
+                          <span className="text-text-muted">2000 <span className="text-[#EA4D72]">(25 yrs)</span></span>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">Shape</span>
-                          <span className="font-semibold">Gable</span>
+                        <div className="flex justify-between py-2 border-b border-neutral-gray-10">
+                          <span className="font-medium">Roof</span>
+                          <span className="text-text-muted">2014 <span className="text-[#EA4D72]">(12 yrs)</span></span>
+                        </div>
+                        <div className="flex justify-between py-2">
+                          <span className="font-medium">Heating & air</span>
+                          <span className="text-text-muted">2016 (10 yrs)</span>
                         </div>
                       </div>
                     </div>
-
-                    {/* Updates & Renovations */}
                     <div>
-                      <div className="flex items-center gap-2 mb-4">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                        >
-                          <path
-                            d="M14 8V6C14 4.89543 13.1046 4 12 4H8C6.89543 4 6 4.89543 6 6V8M3 8H17V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V8Z"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <h4 className="font-bold text-base">
-                          Updates & Renovations
-                        </h4>
-                      </div>
-                      <div className="space-y-3 text-sm">
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">
-                            Heating & air year updt
-                          </span>
-                          <span className="font-semibold">2016</span>
+                      <h3 className="font-bold text-base mb-2">Discounts</h3>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between py-2 border-b border-neutral-gray-10">
+                          <span className="font-medium">Security system?</span>
+                          <span className="text-text-muted">No</span>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">
-                            Plumbing year updt
-                          </span>
-                          <span className="font-semibold">2000</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">
-                            Electricity year updt
-                          </span>
-                          <span className="font-semibold">2000</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">Solar panels?</span>
-                          <span className="font-semibold">No</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Discounts */}
-                    <div>
-                      <div className="flex items-center gap-2 mb-4">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                        >
-                          <circle
-                            cx="10"
-                            cy="10"
-                            r="7"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                          />
-                          <path
-                            d="M10 6V10L13 13"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                        <h4 className="font-bold text-base">Discounts</h4>
-                      </div>
-                      <div className="space-y-3 text-sm">
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">
-                            Security system?
-                          </span>
-                          <span className="font-semibold">No</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">
-                            Smoke detector?
-                          </span>
-                          <span className="font-semibold">Yes</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-text-muted">
-                            Smoke detector type
-                          </span>
-                          <span className="font-semibold">Regular</span>
+                        <div className="flex justify-between py-2">
+                          <span className="font-medium">Smoke detector?</span>
+                          <span className="text-text-muted">Yes · Regular</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* House Image */}
-                  <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
-                    <img
-                      src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=800&fit=crop"
-                      alt="House exterior"
-                      className="w-full h-full object-cover"
-                    />
+                  {/* Google Street View - 4545 Marlborough Dr, San Diego */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-bold text-base">Google Street View</h3>
+                      <a
+                        href="https://maps.app.goo.gl/cATT84uPDmXwcRZp9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-action-secondary hover:underline"
+                      >
+                        4545 Marlborough Dr, San Diego, CA →
+                      </a>
+                    </div>
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-neutral-gray-10 border border-neutral-gray-10">
+                      {import.meta.env.VITE_GOOGLE_MAPS_EMBED_API_KEY ? (
+                        <iframe
+                          title="Street view of 4545 Marlborough Dr"
+                          src={`https://www.google.com/maps/embed/v1/streetview?key=${import.meta.env.VITE_GOOGLE_MAPS_EMBED_API_KEY}&location=32.7598322,-117.1061675&pano=RoxLHJ54QO0fPKhai_6_aw&heading=105&pitch=0&fov=90`}
+                          width="100%"
+                          height="100%"
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          className="absolute inset-0 w-full h-full"
+                        />
+                      ) : (
+                        <a
+                          href="https://maps.app.goo.gl/cATT84uPDmXwcRZp9"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute inset-0 group"
+                        >
+                          <img
+                            src="/street-view-preview.png"
+                            alt="Street view preview"
+                            className="w-full h-full object-cover transition-opacity group-hover:opacity-90"
+                          />
+                          <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="text-white font-medium text-sm drop-shadow">View Street View on Google Maps</span>
+                            <span className="text-white/90 text-xs">Click to open</span>
+                          </div>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
           </div>
 
@@ -542,6 +456,8 @@ function PersonCard({
   dob,
   phone,
   email,
+  driverLicense,
+  isPrimary,
 }: {
   name: string;
   badge: string;
@@ -550,6 +466,8 @@ function PersonCard({
   dob: string;
   phone: string;
   email: string;
+  driverLicense?: string;
+  isPrimary?: boolean;
 }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -564,13 +482,11 @@ function PersonCard({
         </Badge>
       </div>
 
-      {/* Info Row - Responsive */}
-      <div className="flex flex-wrap items-center gap-6 mb-3 text-sm">
-        <span className="font-semibold">{gender}</span>
-        <span className="font-semibold">{dob}</span>
-        <span className="font-semibold">{phone}</span>
-        <span className="font-semibold">{email}</span>
-      </div>
+      {/* Contact info - one line; DOB visible for primary */}
+      <p className="text-sm font-semibold mb-3 truncate" title={`${phone} · ${email}`}>
+        {phone} · {email}
+        {isPrimary && <span className="text-text-muted font-normal"> · DOB {dob}</span>}
+      </p>
 
       {/* Expanded Details */}
       {expanded && (
@@ -591,18 +507,22 @@ function PersonCard({
             <p className="text-xs text-text-muted mb-1">Email</p>
             <p className="font-semibold text-sm break-all">{email}</p>
           </div>
+          {driverLicense && (
+            <div>
+              <p className="text-xs text-text-muted mb-1">Driver license</p>
+              <p className="font-semibold text-sm">{driverLicense}</p>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Full Profile Button */}
+      {/* Full Details (collapsed - archive/secondary info) */}
       <button
         onClick={() => setExpanded(!expanded)}
         className="text-action-secondary text-sm flex items-center gap-1 mt-3"
       >
-        <ChevronDown
-          className={`w-4 h-4 transition-transform ${expanded ? "rotate-180" : ""}`}
-        />
-        Full profile
+        {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        Full Details
       </button>
     </div>
   );

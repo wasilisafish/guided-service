@@ -22,6 +22,7 @@ import {
   RefreshCw,
   CheckCircle,
   Plus,
+  Loader2,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -133,7 +134,7 @@ export default function Index() {
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0">
+          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
             Roundpoint
           </Badge>
           <div className="w-px h-8 bg-neutral-gray-10 shrink-0" />
@@ -142,25 +143,23 @@ export default function Index() {
             <ChevronRight className="w-4 h-4 rotate-90 shrink-0" />
           </button>
           <div className="flex-1 min-w-0" />
-          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
-            Re-shop in progress
-          </Badge>
           <Button
-            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            variant="outline"
+            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
             <Plus className="w-4 h-4 ml-1.5" />
           </Button>
-          <button className="w-8 h-8 flex-shrink-0 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
-            <Mail className="w-4 h-4 text-action-secondary" />
-          </button>
-          <button className="w-8 h-8 flex-shrink-0 border border-action-secondary rounded flex items-center justify-center hover:bg-neutral-gray-5 transition-colors">
-            <Phone className="w-4 h-4 text-action-secondary" />
-          </button>
+          <Button variant="outline" size="icon" className="w-8 h-8 flex-shrink-0 border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded">
+            <Mail className="w-4 h-4" />
+          </Button>
+          <Button variant="outline" size="icon" className="w-8 h-8 flex-shrink-0 border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded">
+            <Phone className="w-4 h-4" />
+          </Button>
           <Button
             onClick={() => navigate("/comparison")}
-            className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold whitespace-nowrap shrink-0"
+            className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold rounded px-4 py-2 h-9 whitespace-nowrap shrink-0"
           >
             Service
           </Button>
@@ -224,7 +223,9 @@ export default function Index() {
               </div>
 
               <TabsContent value="policies" className="mt-0">
-                <PolicyCard />
+                <div className="w-full lg:w-1/2">
+                  <PolicyCard />
+                </div>
               </TabsContent>
             </Tabs>
           </div>
@@ -251,6 +252,16 @@ const AI_TICKETS_SUMMARY_COPY =
 
 function ActivitySummarySection() {
   const [aiSummaryModalOpen, setAiSummaryModalOpen] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  const handleAiSummaryClick = () => {
+    setIsAnalyzing(true);
+    // Simulate analysis delay
+    setTimeout(() => {
+      setIsAnalyzing(false);
+      setAiSummaryModalOpen(true);
+    }, 1500);
+  };
 
   return (
     <>
@@ -303,9 +314,17 @@ function ActivitySummarySection() {
               <Button
                 variant="outline"
                 className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-base bg-white"
-                onClick={() => setAiSummaryModalOpen(true)}
+                onClick={handleAiSummaryClick}
+                disabled={isAnalyzing}
               >
-                AI tickets summary
+                {isAnalyzing ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin shrink-0" />
+                    Analyzing...
+                  </>
+                ) : (
+                  "AI tickets summary"
+                )}
               </Button>
             <Button
               variant="outline"

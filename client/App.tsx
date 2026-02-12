@@ -14,6 +14,7 @@ import QuoteRequestsPage from "./pages/QuoteRequestsPage";
 import ProposalPage from "./pages/ProposalPage";
 import FinalizePage from "./pages/FinalizePage";
 import FinalLookPage from "./pages/FinalLookPage";
+import RewriteConfirmationPage from "./pages/RewriteConfirmationPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/proposal" element={<ProposalPage />} />
           <Route path="/finalize" element={<FinalizePage />} />
           <Route path="/final-look" element={<FinalLookPage />} />
+          <Route path="/rewrite-confirmation" element={<RewriteConfirmationPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

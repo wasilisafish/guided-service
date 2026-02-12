@@ -127,18 +127,19 @@ export default function FinalizePage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="bg-violet text-white border-none rounded px-2 py-1 text-xs font-semibold whitespace-nowrap shrink-0">
+          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="finalize" />
           </div>
-          <Badge className="bg-action-primary/10 text-action-primary border-none rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0">
+          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
             Re-shop in progress
           </Badge>
           <Button
-            className="bg-action-primary hover:bg-action-primary/90 text-white rounded-full px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            variant="outline"
+            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
