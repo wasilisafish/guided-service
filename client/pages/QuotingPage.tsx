@@ -158,7 +158,7 @@ export default function QuotingPage() {
         <div className="flex-1 flex overflow-hidden">
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-6xl mx-auto p-8 space-y-8">
+            <div className="max-w-6xl p-8 space-y-8">
               <h2 className="font-bold text-2xl">Quoting configurations</h2>
 
               {/* Primary Home Section */}

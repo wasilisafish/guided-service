@@ -180,7 +180,7 @@ export default function ProposalPage() {
 
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto bg-gradient-to-br from-blue-50 to-blue-100">
-            <div className="max-w-5xl mx-auto p-8 space-y-8">
+            <div className="max-w-5xl p-8 space-y-8">
               {/* Review your insurance offer - Figma */}
               <div className="bg-white rounded-2xl p-8 shadow-md border border-neutral-gray-10">
                 <h1 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-gray-80">

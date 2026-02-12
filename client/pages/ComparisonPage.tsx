@@ -151,7 +151,7 @@ export default function ComparisonPage() {
         <div className="flex-1 flex overflow-hidden">
           {/* Left Content Panel */}
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-4xl mx-auto p-8 space-y-8">
+            <div className="max-w-4xl p-8 space-y-8">
               {/* 1. Sticky Summary Bar */}
               <div className="sticky top-0 z-10 -mx-8 -mt-8 px-8 pt-8 pb-4 bg-gradient-to-b from-white via-white to-transparent">
                 <div className="flex flex-wrap items-center gap-4 p-4 rounded-xl bg-amber-50 border border-amber-200/60">

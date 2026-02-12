@@ -169,7 +169,7 @@ export default function QuoteRequestsPage() {
               </button>
             </div>
 
-            <div className="max-w-[1600px] mx-auto p-6">
+            <div className="max-w-[1600px] p-6">
               {/* Primary Home Header */}
               <div className="mb-2">
                 <div className="flex items-center gap-3 mb-3">

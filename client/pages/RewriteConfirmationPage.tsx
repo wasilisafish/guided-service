@@ -16,7 +16,7 @@ export default function RewriteConfirmationPage() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="flex-1 overflow-y-auto">
-          <div className="max-w-4xl mx-auto p-8">
+          <div className="max-w-4xl p-8">
             {/* Merged card: success + carrier + premiums + reason + flags */}
             <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white mb-8">
               <div className="flex items-start gap-2 mb-6">

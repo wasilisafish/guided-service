@@ -154,7 +154,7 @@ export default function VerificationPage() {
         <div className="flex-1 flex overflow-hidden">
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-6xl mx-auto p-8 space-y-8">
+            <div className="max-w-6xl p-8 space-y-8">
               {/* People Section - one card */}
               <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-sm">
                 <div className="p-6">
