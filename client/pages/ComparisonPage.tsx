@@ -17,6 +17,7 @@ import {
   ChevronDown,
   ChevronUp,
   Plus,
+  Info,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -169,108 +170,12 @@ export default function ComparisonPage() {
 
               {/* 2. Page Title */}
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-neutral-gray-80 mb-2">
+                <h1 className="text-2xl md:text-3xl font-bold text-neutral-gray-80">
                   Why did the premium increase?
                 </h1>
-                <p className="text-base text-text-muted">
-                  Premium increased from $4,848 → $5,710. Here are the main drivers.
-                </p>
               </div>
 
-              {/* 3. Primary Drivers */}
-              <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
-                <h3 className="font-bold text-lg mb-4">Primary drivers</h3>
-                <div className="space-y-4">
-                  <div>
-                    <div className="font-semibold text-action-primary mb-1">
-                      Coverage adjustments (+$520)
-                    </div>
-                    <ul className="list-disc list-inside text-sm text-neutral-gray-80 space-y-1">
-                      <li>Dwelling +12%</li>
-                      <li>Personal property +12%</li>
-                      <li>Water backup +50%</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-action-primary mb-1">
-                      Risk factors (+$290)
-                    </div>
-                    <ul className="list-disc list-inside text-sm text-neutral-gray-80 space-y-1">
-                      <li>Roof age: 16 years</li>
-                      <li>1 prior claim</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-action-primary mb-1">
-                      Market inflation adjustment (+$52)
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* 4. Impact Breakdown (Merged Log of Changes + Risk Factors) */}
-              <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-sm">
-                <h3 className="font-bold text-lg p-4 pb-0">Impact breakdown</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-neutral-gray-10 bg-neutral-gray-5">
-                        <th className="text-left py-3 px-4 font-semibold">Driver</th>
-                        <th className="text-left py-3 px-4 font-semibold">Type</th>
-                        <th className="text-left py-3 px-4 font-semibold">Impact</th>
-                        <th className="text-left py-3 px-4 font-semibold">Controllable</th>
-                        <th className="text-left py-3 px-4 font-semibold">Notes</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 px-4 font-medium">Dwelling +12%</td>
-                        <td className="py-3 px-4">Coverage</td>
-                        <td className="py-3 px-4">High</td>
-                        <td className="py-3 px-4">Yes</td>
-                        <td className="py-3 px-4 text-text-muted">Inflation guard</td>
-                      </tr>
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 px-4 font-medium">Water backup +50%</td>
-                        <td className="py-3 px-4">Coverage</td>
-                        <td className="py-3 px-4">Medium</td>
-                        <td className="py-3 px-4">Yes</td>
-                        <td className="py-3 px-4 text-text-muted">Increased limit</td>
-                      </tr>
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 px-4 font-medium">Personal property +12%</td>
-                        <td className="py-3 px-4">Coverage</td>
-                        <td className="py-3 px-4">Medium</td>
-                        <td className="py-3 px-4">Yes</td>
-                        <td className="py-3 px-4 text-text-muted">Inflation guard</td>
-                      </tr>
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 px-4 font-medium">Roof age 16 yrs</td>
-                        <td className="py-3 px-4">Risk</td>
-                        <td className="py-3 px-4">High</td>
-                        <td className="py-3 px-4">No</td>
-                        <td className="py-3 px-4 text-text-muted">Carrier sensitivity</td>
-                      </tr>
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 px-4 font-medium">1 Claim</td>
-                        <td className="py-3 px-4">Risk</td>
-                        <td className="py-3 px-4">Medium</td>
-                        <td className="py-3 px-4">No</td>
-                        <td className="py-3 px-4 text-text-muted">Affects renewal tier</td>
-                      </tr>
-                      <tr>
-                        <td className="py-3 px-4 font-medium">Market inflation</td>
-                        <td className="py-3 px-4">Market</td>
-                        <td className="py-3 px-4">Medium</td>
-                        <td className="py-3 px-4">No</td>
-                        <td className="py-3 px-4 text-text-muted">—</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </Card>
-
-              {/* 5. Fairness Assessment */}
+              {/* 3. Fairness Assessment */}
               <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm border-l-4 border-l-success">
                 <h3 className="font-bold text-lg mb-2">Is this increase fair?</h3>
                 <div className="flex items-center gap-2 text-success font-semibold">
@@ -280,7 +185,65 @@ export default function ComparisonPage() {
                 <p className="text-sm text-text-muted mt-2">
                   System assessment: Given the coverage increases and roof age, this 18% renewal is in line with typical market movement.
                 </p>
+                <p className="text-sm text-text-muted mt-2">
+                  67% of customers with similar homes in the same zip code area experience an increase of 14–18%.
+                </p>
               </Card>
+
+              {/* 4. Renewal Offer */}
+              <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
+                <h3 className="font-bold text-lg mb-4">Renewal Offer</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-neutral-gray-20">
+                        <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80"></th>
+                        <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80">Current Term</th>
+                        <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80">Renewal Term</th>
+                        <th className="text-left py-3 font-semibold text-neutral-gray-80">variance</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-neutral-gray-80">
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 pr-6 text-text-muted">Effective Date</td>
+                        <td className="py-3 pr-6">03/23/2025</td>
+                        <td className="py-3 pr-6">03/23/2026</td>
+                        <td className="py-3">—</td>
+                      </tr>
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 pr-6 text-text-muted">
+                          <span className="text-action-primary mr-2">→</span>
+                          Replacement Cost Estimate
+                        </td>
+                        <td className="py-3 pr-6">$345,000</td>
+                        <td className="py-3 pr-6">$365,000</td>
+                        <td className="py-3 text-action-primary font-medium">↑ $20,000 (5.8%)</td>
+                      </tr>
+                      <tr className="border-b border-neutral-gray-10">
+                        <td className="py-3 pr-6 text-text-muted">
+                          <span className="text-action-primary mr-2">→</span>
+                          Coverage A
+                        </td>
+                        <td className="py-3 pr-6">$345,000</td>
+                        <td className="py-3 pr-6">$365,000</td>
+                        <td className="py-3 text-action-primary font-medium">↑ $20,000 (5.8%)</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-6 text-text-muted">
+                          <span className="text-action-primary mr-2">→</span>
+                          Total Premium
+                        </td>
+                        <td className="py-3 pr-6">$4,848.00</td>
+                        <td className="py-3 pr-6">$5,710.00</td>
+                        <td className="py-3 text-action-primary font-medium">↑ $862.00 (17.8%)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </Card>
+
+              {/* 5. Impact Breakdown - sorted by Controllable (Yes first) then Impact (High, Medium, Low) */}
+              <ImpactBreakdownTable />
 
               {/* 6. Collapsible Details */}
               <div className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white">
@@ -309,11 +272,39 @@ export default function ComparisonPage() {
                       </div>
                       <div>
                         <span className="text-text-muted block mb-1">Renewal policy</span>
-                        <p className="font-medium">TCDX77887833 · Effective 03/23/2026 · Exp 03/23/3027</p>
+                        <p className="font-medium">TCDX77887833 · Effective 03/23/2026 · Exp 03/23/2027</p>
                         <p className="text-text-muted">$5,710/yr · SageSure</p>
                       </div>
                     </div>
-                    <p className="text-text-muted text-xs">Co-insured Kris McMahon added</p>
+
+                    <div className="pt-3 border-t border-neutral-gray-10">
+                      <h4 className="font-bold text-base mb-3">Standard coverages</h4>
+                      <div className="space-y-2">
+                        <div className="grid grid-cols-3 gap-2 text-xs">
+                          <span className="text-text-muted">Coverage</span>
+                          <span className="text-text-muted text-right">Current</span>
+                          <span className="text-text-muted text-right">Renewal</span>
+                        </div>
+                        <CoverageRow label="Dwelling" current="$345,000" renewal="$365,000" />
+                        <CoverageRow label="Other structures" current="$34,500" renewal="$36,500" />
+                        <CoverageRow label="Personal property" current="$69,000" renewal="$73,000" />
+                        <CoverageRow label="Loss of use" current="$50,000" renewal="$50,000" />
+                        <CoverageRow label="Personal liability" current="$300,000" renewal="$300,000" />
+                        <CoverageRow label="Medical payment (to others)" current="$5,000" renewal="$5,000" />
+                      </div>
+                    </div>
+
+                    <div className="pt-3 border-t border-neutral-gray-10">
+                      <h4 className="font-bold text-base mb-3">Additional coverages</h4>
+                      <div className="space-y-2">
+                        <CoverageRow label="Water back-up" current="$5,000" renewal="$10,000" />
+                        <CoverageRow label="Earthquake" current="Not included" renewal="Not included" />
+                        <CoverageRow label="Mold property damage" current="Not included" renewal="Not included" />
+                        <CoverageRow label="Mold liability" current="Not included" renewal="Not included" />
+                      </div>
+                    </div>
+
+                    <p className="text-text-muted text-xs pt-2">Co-insured Kris McMahon added</p>
                   </div>
                 )}
               </div>
@@ -334,6 +325,91 @@ export default function ComparisonPage() {
           </Button>
         </div>
       </div>
+    </div>
+  );
+}
+
+const IMPACT_ORDER = { High: 0, Medium: 1, Low: 2 };
+const CONTROLLABLE_ORDER = { Yes: 0, No: 1 };
+
+const IMPACT_BREAKDOWN_ROWS = [
+  { driver: "Dwelling +12%", type: "Coverage", impact: "High" as const, controllable: "Yes" as const, notes: "Inflation guard", value: "" },
+  { driver: "Water backup +50%", type: "Coverage", impact: "Medium" as const, controllable: "Yes" as const, notes: "Increased limit", value: "" },
+  { driver: "Personal property +12%", type: "Coverage", impact: "Medium" as const, controllable: "Yes" as const, notes: "Inflation guard", value: "" },
+  { driver: "Roof Condition", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Carrier sensitivity", value: "16 years" },
+  { driver: "Location", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Zip code", value: "92116" },
+  { driver: "Claims History", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Clean record", value: "No Claims" },
+  { driver: "Credit History", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Score factor", value: "Excellent" },
+  { driver: "Home Age", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Build year", value: "94 years" },
+  { driver: "Pets", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Per eligibility", value: "Dog, Other" },
+  { driver: "Safety Hazards", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "None identified", value: "None" },
+  { driver: "Heating Source", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Furnace", value: "Furnace" },
+  { driver: "1 Claim", type: "Risk", impact: "Medium" as const, controllable: "No" as const, notes: "Affects renewal tier", value: "" },
+  { driver: "Market inflation", type: "Market", impact: "Medium" as const, controllable: "No" as const, notes: "—", value: "" },
+];
+
+function ImpactBreakdownTable() {
+  const sorted = [...IMPACT_BREAKDOWN_ROWS].sort((a, b) => {
+    const c = CONTROLLABLE_ORDER[a.controllable] - CONTROLLABLE_ORDER[b.controllable];
+    if (c !== 0) return c;
+    return IMPACT_ORDER[a.impact] - IMPACT_ORDER[b.impact];
+  });
+
+  return (
+    <Card className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white shadow-sm">
+      <h3 className="font-bold text-lg p-4 pb-0">Impact breakdown</h3>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-neutral-gray-10 bg-neutral-gray-5">
+              <th className="text-left py-3 px-4 font-semibold">Driver</th>
+              <th className="text-left py-3 px-4 font-semibold">Type</th>
+              <th className="text-left py-3 px-4 font-semibold">Impact</th>
+              <th className="text-left py-3 px-4 font-semibold">Controllable</th>
+              <th className="text-left py-3 px-4 font-semibold">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((row, i) => (
+              <tr key={i} className={i < sorted.length - 1 ? "border-b border-neutral-gray-10" : ""}>
+                <td className="py-3 px-4 font-medium">
+                  <span className="inline-flex items-center gap-1">
+                    {row.driver}
+                    {row.value && (
+                      <>
+                        <span className="text-text-muted font-normal">· {row.value}</span>
+                        <Info className="w-3.5 h-3.5 text-text-muted inline" />
+                      </>
+                    )}
+                  </span>
+                </td>
+                <td className="py-3 px-4">{row.type}</td>
+                <td className="py-3 px-4">{row.impact}</td>
+                <td className="py-3 px-4">{row.controllable}</td>
+                <td className="py-3 px-4 text-text-muted">{row.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Card>
+  );
+}
+
+function CoverageRow({
+  label,
+  current,
+  renewal,
+}: {
+  label: string;
+  current: string;
+  renewal: string;
+}) {
+  return (
+    <div className="grid grid-cols-3 gap-2 py-1">
+      <span className="font-medium">{label}</span>
+      <span className="text-right text-text-muted">{current}</span>
+      <span className="text-right font-medium">{renewal}</span>
     </div>
   );
 }
