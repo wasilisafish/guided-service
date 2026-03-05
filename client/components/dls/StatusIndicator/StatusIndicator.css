@@ -1,0 +1,61 @@
+/* ==========================================================================
+   StatusIndicator Component – Ampeniatko Design System
+   Theme-driven via statusIndicatorTheme.ts
+   (--cmp-bg, --cmp-dot, --cmp-color)
+   Colors set via inline style from config; CSS uses vars only.
+   ========================================================================== */
+
+/* ---------- Base ---------- */
+.amp-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-0-5) var(--spacing-1);
+  background-color: var(--cmp-bg);
+  border-radius: var(--radius-sm);
+  color: var(--cmp-color);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-sm);
+  line-height: var(--typography-leading-1);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  max-width: calc(var(--spacing-10) * 6);                  /* 240px */
+  border: none;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease-in-out;
+}
+
+/* ---------- Hover (bg set from theme config via JS) ---------- */
+.amp-status-indicator:hover {
+  background-color: var(--cmp-bg-hover);
+}
+
+/* ---------- Focus ---------- */
+.amp-status-indicator:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--spacing-0-5) var(--color-base-white),
+    0 0 0 var(--spacing-1) var(--action-primary-default);
+}
+
+/* ---------- Dot ---------- */
+.amp-status-indicator__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--cmp-dot);
+}
+
+/* ---------- Label ---------- */
+.amp-status-indicator__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

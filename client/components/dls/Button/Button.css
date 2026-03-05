@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Button Component – Ampeniatko Design System
+   Theme-driven via buttonTheme.ts (--btn-bg, --btn-color, --btn-border)
+   Colors set via inline style from config; CSS uses vars for base + hover
+   ========================================================================== */
+
+/* ---------- Base (colors from theme CSS vars) ---------- */
+.amp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-color);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-sm);
+  line-height: var(--typography-leading-1);
+  letter-spacing: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+  box-sizing: border-box;
+  white-space: nowrap;
+  outline: none;
+  max-width: calc(var(--spacing-10) * 6);                  /* 240px */
+}
+
+.amp-btn:hover:not(:disabled) {
+  background-color: var(--btn-bg-hover);
+  border-color: var(--btn-border-hover);
+  color: var(--btn-color-hover);
+}
+
+.amp-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-base-white), 0 0 0 4px var(--action-primary-default);
+}
+
+/* ---------- Sizes ---------- */
+
+.amp-btn--sm {
+  height: var(--spacing-6);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+}
+
+.amp-btn--md {
+  height: var(--spacing-8);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+}
+
+.amp-btn--lg {
+  height: var(--spacing-10);
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: var(--radius-md);
+}
+
+.amp-btn--icon {
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+}
+
+/* Ghost, link & secondary use reduced horizontal padding */
+.amp-btn--ghost.amp-btn--md,
+.amp-btn--link.amp-btn--md,
+.amp-btn--secondary.amp-btn--md {
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.amp-btn--ghost.amp-btn--sm,
+.amp-btn--link.amp-btn--sm,
+.amp-btn--secondary.amp-btn--sm {
+  padding: var(--spacing-1) var(--spacing-2);
+}
+
+.amp-btn--ghost.amp-btn--lg,
+.amp-btn--link.amp-btn--lg,
+.amp-btn--secondary.amp-btn--lg {
+  padding: var(--spacing-3) var(--spacing-4);
+}
+
+/* ---------- Disabled / Loading ---------- */
+.amp-btn--disabled {
+  cursor: not-allowed;
+}
+
+.amp-btn--loading {
+  cursor: wait;
+}
+
+/* ---------- Spinner ---------- */
+.amp-btn__spinner {
+  animation: amp-spin 0.75s linear infinite;
+}
+
+@keyframes amp-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Label ---------- */
+.amp-btn__label {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

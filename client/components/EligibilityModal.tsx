@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/dls/Button";
 import {
   Dialog,
   DialogContent,
@@ -240,13 +240,12 @@ export function EligibilityModal({
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 font-semibold"
           >
             Cancel
           </Button>
           <Button
+            variant="primary"
             onClick={handleConfirm}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
           >
             Confirm
           </Button>

@@ -18,17 +18,72 @@ import {
   ChevronUp,
   Plus,
   Info,
+  Home,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/dls/Badge";
+import { Tab, TabList } from "@/components/dls/Tab";
+import { Button } from "@/components/dls/Button";
 import { Card } from "@/components/ui/card";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
+interface HomeRenewalData {
+  id: string;
+  label: string;
+  address: string;
+  zipCode: string;
+  premiumSummary: { change: string; percent: string; cause: string };
+  currentPremium: string;
+  renewalPremium: string;
+  premiumChange: string;
+  dwellingCurrent: string;
+  dwellingRenewal: string;
+  dwellingChange: string;
+  currentPolicy: string;
+  renewalPolicy: string;
+  effectiveDates: { current: string; renewal: string };
+}
+
+const HOMES_DATA: HomeRenewalData[] = [
+  {
+    id: "primary",
+    label: "Primary home",
+    address: "4545 Marlborough Dr, San Diego, CA, 92116-4737",
+    zipCode: "92116",
+    premiumSummary: { change: "$862 (+18%)", percent: "18%", cause: "Coverage adjustments + roof age" },
+    currentPremium: "$4,848.00",
+    renewalPremium: "$5,710.00",
+    premiumChange: "↑ $862.00 (17.8%)",
+    dwellingCurrent: "$345,000",
+    dwellingRenewal: "$365,000",
+    dwellingChange: "↑ $20,000 (5.8%)",
+    currentPolicy: "TCDX77887832 · Effective 03/23/2025 · Exp 03/23/2026",
+    renewalPolicy: "TCDX77887833 · Effective 03/23/2026 · Exp 03/23/2027",
+    effectiveDates: { current: "03/23/2025", renewal: "03/23/2026" },
+  },
+  {
+    id: "second",
+    label: "Second home",
+    address: "1820 Lake Arrowhead Dr, Lake Arrowhead, CA, 92352-1218",
+    zipCode: "92352",
+    premiumSummary: { change: "$312 (+9%)", percent: "9%", cause: "Location + seasonal use" },
+    currentPremium: "$3,456.00",
+    renewalPremium: "$3,768.00",
+    premiumChange: "↑ $312.00 (9.0%)",
+    dwellingCurrent: "$285,000",
+    dwellingRenewal: "$292,000",
+    dwellingChange: "↑ $7,000 (2.5%)",
+    currentPolicy: "TCDX77887840 · Effective 06/15/2025 · Exp 06/15/2026",
+    renewalPolicy: "TCDX77887841 · Effective 06/15/2026 · Exp 06/15/2027",
+    effectiveDates: { current: "06/15/2025", renewal: "06/15/2026" },
+  },
+];
+
 export default function ComparisonPage() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [detailsExpanded, setDetailsExpanded] = useState(false);
+  const [detailsExpanded, setDetailsExpanded] = useState<Record<string, boolean>>({});
+  const [activeHomeTab, setActiveHomeTab] = useState(HOMES_DATA[0].id);
 
   return (
     <div className="flex h-screen bg-white overflow-hidden">
@@ -128,23 +183,23 @@ export default function ComparisonPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
+          <Badge color="neutral" variant="secondary" className="whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="establish-rapport" />
           </div>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
+          <Badge color="blue" variant="secondary" className="whitespace-nowrap shrink-0">
             Re-shop in progress
           </Badge>
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            iconTrailing={Plus}
+            className="whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
-            <Plus className="w-4 h-4 ml-1.5" />
           </Button>
         </div>
 
@@ -153,160 +208,200 @@ export default function ComparisonPage() {
           {/* Left Content Panel */}
           <div className="flex-1 overflow-y-auto">
             <div className="max-w-4xl p-8 space-y-8">
-              {/* 1. Sticky Summary Bar */}
-              <div className="sticky top-0 z-10 -mx-8 -mt-8 px-8 pt-8 pb-4 bg-gradient-to-b from-white via-white to-transparent">
-                <div className="flex flex-wrap items-center gap-4 p-4 rounded-xl bg-amber-50 border border-amber-200/60">
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold text-neutral-gray-80">
-                      Premium ↑ $862 (+18%)
-                    </span>
-                  </div>
-                  <span className="text-text-muted">|</span>
-                  <span className="text-sm text-neutral-gray-80">
-                    Primary cause: Coverage adjustments + roof age
-                  </span>
-                </div>
-              </div>
-
-              {/* 2. Page Title */}
+              {/* Page Title */}
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold text-neutral-gray-80">
                   Why did the premium increase?
                 </h1>
               </div>
 
-              {/* 3. Fairness Assessment */}
-              <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm border-l-4 border-l-success">
-                <h3 className="font-bold text-lg mb-2">Is this increase fair?</h3>
-                <div className="flex items-center gap-2 text-success font-semibold">
-                  <span>✅</span>
-                  <span>Within expected range for risk profile</span>
-                </div>
-                <p className="text-sm text-text-muted mt-2">
-                  System assessment: Given the coverage increases and roof age, this 18% renewal is in line with typical market movement.
-                </p>
-                <p className="text-sm text-text-muted mt-2">
-                  67% of customers with similar homes in the same zip code area experience an increase of 14–18%.
-                </p>
-              </Card>
+              {/* Home Tabs */}
+              <div className="w-full">
+                <TabList orientation="horizontal">
+                  {HOMES_DATA.map((home) => (
+                    <Tab
+                      key={home.id}
+                      label={home.label}
+                      icon={Home}
+                      active={activeHomeTab === home.id}
+                      onClick={() => setActiveHomeTab(home.id)}
+                    />
+                  ))}
+                </TabList>
 
-              {/* 4. Renewal Offer */}
-              <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
-                <h3 className="font-bold text-lg mb-4">Renewal Offer</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-neutral-gray-20">
-                        <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80"></th>
-                        <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80">Current Term</th>
-                        <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80">Renewal Term</th>
-                        <th className="text-left py-3 font-semibold text-neutral-gray-80">variance</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-neutral-gray-80">
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 pr-6 text-text-muted">Effective Date</td>
-                        <td className="py-3 pr-6">03/23/2025</td>
-                        <td className="py-3 pr-6">03/23/2026</td>
-                        <td className="py-3">—</td>
-                      </tr>
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 pr-6 text-text-muted">
-                          <span className="text-action-primary mr-2">→</span>
-                          Replacement Cost Estimate
-                        </td>
-                        <td className="py-3 pr-6">$345,000</td>
-                        <td className="py-3 pr-6">$365,000</td>
-                        <td className="py-3 text-action-primary font-medium">↑ $20,000 (5.8%)</td>
-                      </tr>
-                      <tr className="border-b border-neutral-gray-10">
-                        <td className="py-3 pr-6 text-text-muted">
-                          <span className="text-action-primary mr-2">→</span>
-                          Coverage A
-                        </td>
-                        <td className="py-3 pr-6">$345,000</td>
-                        <td className="py-3 pr-6">$365,000</td>
-                        <td className="py-3 text-action-primary font-medium">↑ $20,000 (5.8%)</td>
-                      </tr>
-                      <tr>
-                        <td className="py-3 pr-6 text-text-muted">
-                          <span className="text-action-primary mr-2">→</span>
-                          Total Premium
-                        </td>
-                        <td className="py-3 pr-6">$4,848.00</td>
-                        <td className="py-3 pr-6">$5,710.00</td>
-                        <td className="py-3 text-action-primary font-medium">↑ $862.00 (17.8%)</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </Card>
-
-              {/* 5. Impact Breakdown - sorted by Controllable (Yes first) then Impact (High, Medium, Low) */}
-              <ImpactBreakdownTable />
-
-              {/* 6. Collapsible Details */}
-              <div className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white">
-                <button
-                  onClick={() => setDetailsExpanded(!detailsExpanded)}
-                  className="w-full flex items-center justify-between p-4 hover:bg-neutral-gray-5 transition-colors text-left"
-                >
-                  <span className="font-semibold">Policy details</span>
-                  {detailsExpanded ? (
-                    <ChevronUp className="w-5 h-5 text-text-muted" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-text-muted" />
-                  )}
-                </button>
-                {detailsExpanded && (
-                  <div className="border-t border-neutral-gray-10 p-4 space-y-4 text-sm">
-                    <div>
-                      <span className="text-text-muted">Address</span>
-                      <p className="font-medium">4545 Marlborough Dr, San Diego, CA, 92116-4737</p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <span className="text-text-muted block mb-1">Current policy</span>
-                        <p className="font-medium">TCDX77887832 · Effective 03/23/2025 · Exp 03/23/2026</p>
-                        <p className="text-text-muted">$4,848/yr · SageSure</p>
-                      </div>
-                      <div>
-                        <span className="text-text-muted block mb-1">Renewal policy</span>
-                        <p className="font-medium">TCDX77887833 · Effective 03/23/2026 · Exp 03/23/2027</p>
-                        <p className="text-text-muted">$5,710/yr · SageSure</p>
-                      </div>
-                    </div>
-
-                    <div className="pt-3 border-t border-neutral-gray-10">
-                      <h4 className="font-bold text-base mb-3">Standard coverages</h4>
-                      <div className="space-y-2">
-                        <div className="grid grid-cols-3 gap-2 text-xs">
-                          <span className="text-text-muted">Coverage</span>
-                          <span className="text-text-muted text-right">Current</span>
-                          <span className="text-text-muted text-right">Renewal</span>
+                {HOMES_DATA.map((home) => (
+                  activeHomeTab === home.id && <div key={home.id} className="mt-6 space-y-6">
+                    {/* 1. Sticky Summary Bar */}
+                    <div className="sticky top-0 z-10 -mx-8 -mt-8 px-8 pt-8 pb-4 bg-gradient-to-b from-white via-white to-transparent">
+                      <div className="flex flex-wrap items-center gap-4 p-4 rounded-xl bg-amber-50 border border-amber-200/60">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl font-bold text-neutral-gray-80">
+                            Premium ↑ {home.premiumSummary.change}
+                          </span>
                         </div>
-                        <CoverageRow label="Dwelling" current="$345,000" renewal="$365,000" />
-                        <CoverageRow label="Other structures" current="$34,500" renewal="$36,500" />
-                        <CoverageRow label="Personal property" current="$69,000" renewal="$73,000" />
-                        <CoverageRow label="Loss of use" current="$50,000" renewal="$50,000" />
-                        <CoverageRow label="Personal liability" current="$300,000" renewal="$300,000" />
-                        <CoverageRow label="Medical payment (to others)" current="$5,000" renewal="$5,000" />
+                        <span className="text-text-muted">|</span>
+                        <span className="text-sm text-neutral-gray-80">
+                          Primary cause: {home.premiumSummary.cause}
+                        </span>
                       </div>
                     </div>
 
-                    <div className="pt-3 border-t border-neutral-gray-10">
-                      <h4 className="font-bold text-base mb-3">Additional coverages</h4>
-                      <div className="space-y-2">
-                        <CoverageRow label="Water back-up" current="$5,000" renewal="$10,000" />
-                        <CoverageRow label="Earthquake" current="Not included" renewal="Not included" />
-                        <CoverageRow label="Mold property damage" current="Not included" renewal="Not included" />
-                        <CoverageRow label="Mold liability" current="Not included" renewal="Not included" />
+                    {/* 2. Fairness Assessment */}
+                    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm border-l-4 border-l-success">
+                      <h3 className="font-bold text-lg mb-2">Is this increase fair?</h3>
+                      <div className="flex items-center gap-2 text-success font-semibold">
+                        <span>✅</span>
+                        <span>Within expected range for risk profile</span>
                       </div>
-                    </div>
+                      <p className="text-sm text-text-muted mt-2">
+                        System assessment: Given the coverage adjustments{" "}
+                        {home.id === "primary" ? "and roof age" : ""}, this {home.premiumSummary.percent} renewal is
+                        in line with typical market movement.
+                      </p>
+                      <p className="text-sm text-text-muted mt-2">
+                        67% of customers with similar homes in the same zip code area experience an increase of
+                        {home.id === "primary" ? " 14–18%." : " 8–12%."}
+                      </p>
+                    </Card>
 
-                    <p className="text-text-muted text-xs pt-2">Co-insured Kris McMahon added</p>
+                    {/* 3. Renewal Offer */}
+                    <Card className="border border-neutral-gray-10 rounded-lg p-6 bg-white shadow-sm">
+                      <h3 className="font-bold text-lg mb-4">Renewal Offer</h3>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="border-b border-neutral-gray-20">
+                              <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80"></th>
+                              <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80">Current Term</th>
+                              <th className="text-left py-3 pr-6 font-semibold text-neutral-gray-80">Renewal Term</th>
+                              <th className="text-left py-3 font-semibold text-neutral-gray-80">variance</th>
+                            </tr>
+                          </thead>
+                          <tbody className="text-neutral-gray-80">
+                            <tr className="border-b border-neutral-gray-10">
+                              <td className="py-3 pr-6 text-text-muted">Effective Date</td>
+                              <td className="py-3 pr-6">{home.effectiveDates.current}</td>
+                              <td className="py-3 pr-6">{home.effectiveDates.renewal}</td>
+                              <td className="py-3">—</td>
+                            </tr>
+                            <tr className="border-b border-neutral-gray-10">
+                              <td className="py-3 pr-6 text-text-muted">
+                                <span className="text-action-primary mr-2">→</span>
+                                Replacement Cost Estimate
+                              </td>
+                              <td className="py-3 pr-6">{home.dwellingCurrent}</td>
+                              <td className="py-3 pr-6">{home.dwellingRenewal}</td>
+                              <td className="py-3 text-action-primary font-medium">{home.dwellingChange}</td>
+                            </tr>
+                            <tr className="border-b border-neutral-gray-10">
+                              <td className="py-3 pr-6 text-text-muted">
+                                <span className="text-action-primary mr-2">→</span>
+                                Coverage A
+                              </td>
+                              <td className="py-3 pr-6">{home.dwellingCurrent}</td>
+                              <td className="py-3 pr-6">{home.dwellingRenewal}</td>
+                              <td className="py-3 text-action-primary font-medium">{home.dwellingChange}</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 pr-6 text-text-muted">
+                                <span className="text-action-primary mr-2">→</span>
+                                Total Premium
+                              </td>
+                              <td className="py-3 pr-6">{home.currentPremium}</td>
+                              <td className="py-3 pr-6">{home.renewalPremium}</td>
+                              <td className="py-3 text-action-primary font-medium">{home.premiumChange}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </Card>
+
+                    {/* 4. Impact Breakdown */}
+                    <ImpactBreakdownTable zipCode={home.zipCode} />
+
+                    {/* 5. Collapsible Details */}
+                    <div className="border border-neutral-gray-10 rounded-lg overflow-hidden bg-white">
+                      <button
+                        onClick={() =>
+                          setDetailsExpanded((prev) => ({ ...prev, [home.id]: !prev[home.id] }))
+                        }
+                        className="w-full flex items-center justify-between p-4 hover:bg-neutral-gray-5 transition-colors text-left"
+                      >
+                        <span className="font-semibold">Policy details</span>
+                        {detailsExpanded[home.id] ? (
+                          <ChevronUp className="w-5 h-5 text-text-muted" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-text-muted" />
+                        )}
+                      </button>
+                      {detailsExpanded[home.id] && (
+                        <div className="border-t border-neutral-gray-10 p-4 space-y-4 text-sm">
+                          <div>
+                            <span className="text-text-muted">Address</span>
+                            <p className="font-medium">{home.address}</p>
+                          </div>
+                          <div className="grid grid-cols-2 gap-4">
+                            <div>
+                              <span className="text-text-muted block mb-1">Current policy</span>
+                              <p className="font-medium">{home.currentPolicy}</p>
+                              <p className="text-text-muted">
+                                {home.currentPremium.replace(".00", "")}/yr · SageSure
+                              </p>
+                            </div>
+                            <div>
+                              <span className="text-text-muted block mb-1">Renewal policy</span>
+                              <p className="font-medium">{home.renewalPolicy}</p>
+                              <p className="text-text-muted">
+                                {home.renewalPremium.replace(".00", "")}/yr · SageSure
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="pt-3 border-t border-neutral-gray-10">
+                            <h4 className="font-bold text-base mb-3">Standard coverages</h4>
+                            <div className="space-y-2">
+                              <div className="grid grid-cols-3 gap-2 text-xs">
+                                <span className="text-text-muted">Coverage</span>
+                                <span className="text-text-muted text-right">Current</span>
+                                <span className="text-text-muted text-right">Renewal</span>
+                              </div>
+                              <CoverageRow
+                                label="Dwelling"
+                                current={home.dwellingCurrent}
+                                renewal={home.dwellingRenewal}
+                              />
+                              <CoverageRow
+                                label="Other structures"
+                                current={`$${(parseInt(home.dwellingCurrent.replace(/[$,]/g, ""), 10) / 10).toLocaleString()}`}
+                                renewal={`$${(parseInt(home.dwellingRenewal.replace(/[$,]/g, ""), 10) / 10).toLocaleString()}`}
+                              />
+                              <CoverageRow
+                                label="Personal property"
+                                current={`$${(parseInt(home.dwellingCurrent.replace(/[$,]/g, ""), 10) * 0.2).toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
+                                renewal={`$${(parseInt(home.dwellingRenewal.replace(/[$,]/g, ""), 10) * 0.2).toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
+                              />
+                              <CoverageRow label="Loss of use" current="$50,000" renewal="$50,000" />
+                              <CoverageRow label="Personal liability" current="$300,000" renewal="$300,000" />
+                              <CoverageRow label="Medical payment (to others)" current="$5,000" renewal="$5,000" />
+                            </div>
+                          </div>
+
+                          <div className="pt-3 border-t border-neutral-gray-10">
+                            <h4 className="font-bold text-base mb-3">Additional coverages</h4>
+                            <div className="space-y-2">
+                              <CoverageRow label="Water back-up" current="$5,000" renewal="$10,000" />
+                              <CoverageRow label="Earthquake" current="Not included" renewal="Not included" />
+                              <CoverageRow label="Mold property damage" current="Not included" renewal="Not included" />
+                              <CoverageRow label="Mold liability" current="Not included" renewal="Not included" />
+                            </div>
+                          </div>
+
+                          <p className="text-text-muted text-xs pt-2">Co-insured Kris McMahon added</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -318,8 +413,8 @@ export default function ComparisonPage() {
         {/* Sticky bottom bar with bottom line - Verify details */}
         <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 shrink-0">
           <Button
+            variant="primary"
             onClick={() => navigate("/verification")}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold py-3 px-6 rounded-lg"
           >
             Verify details
           </Button>
@@ -337,7 +432,7 @@ const IMPACT_BREAKDOWN_ROWS = [
   { driver: "Water backup +50%", type: "Coverage", impact: "Medium" as const, controllable: "Yes" as const, notes: "Increased limit", value: "" },
   { driver: "Personal property +12%", type: "Coverage", impact: "Medium" as const, controllable: "Yes" as const, notes: "Inflation guard", value: "" },
   { driver: "Roof Condition", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Carrier sensitivity", value: "16 years" },
-  { driver: "Location", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Zip code", value: "92116" },
+  { driver: "Location", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Zip code", value: "" },
   { driver: "Claims History", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Clean record", value: "No Claims" },
   { driver: "Credit History", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Score factor", value: "Excellent" },
   { driver: "Home Age", type: "Risk", impact: "High" as const, controllable: "No" as const, notes: "Build year", value: "94 years" },
@@ -348,8 +443,11 @@ const IMPACT_BREAKDOWN_ROWS = [
   { driver: "Market inflation", type: "Market", impact: "Medium" as const, controllable: "No" as const, notes: "—", value: "" },
 ];
 
-function ImpactBreakdownTable() {
-  const sorted = [...IMPACT_BREAKDOWN_ROWS].sort((a, b) => {
+function ImpactBreakdownTable({ zipCode = "92116" }: { zipCode?: string }) {
+  const rowsWithZip = IMPACT_BREAKDOWN_ROWS.map((r) =>
+    r.driver === "Location" ? { ...r, value: zipCode } : r
+  );
+  const sorted = [...rowsWithZip].sort((a, b) => {
     const c = CONTROLLABLE_ORDER[a.controllable] - CONTROLLABLE_ORDER[b.controllable];
     if (c !== 0) return c;
     return IMPACT_ORDER[a.impact] - IMPACT_ORDER[b.impact];
@@ -365,8 +463,6 @@ function ImpactBreakdownTable() {
               <th className="text-left py-3 px-4 font-semibold">Driver</th>
               <th className="text-left py-3 px-4 font-semibold">Type</th>
               <th className="text-left py-3 px-4 font-semibold">Impact</th>
-              <th className="text-left py-3 px-4 font-semibold">Controllable</th>
-              <th className="text-left py-3 px-4 font-semibold">Notes</th>
             </tr>
           </thead>
           <tbody>
@@ -385,8 +481,6 @@ function ImpactBreakdownTable() {
                 </td>
                 <td className="py-3 px-4">{row.type}</td>
                 <td className="py-3 px-4">{row.impact}</td>
-                <td className="py-3 px-4">{row.controllable}</td>
-                <td className="py-3 px-4 text-text-muted">{row.notes}</td>
               </tr>
             ))}
           </tbody>

@@ -1,0 +1,11 @@
+/* ==========================================================================
+   DataToolbar – Ampeniatko Design System
+   Horizontal container for ToolbarButton components
+   ========================================================================== */
+
+.amp-data-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}

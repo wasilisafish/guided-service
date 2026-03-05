@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/dls/Button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Input } from "@/components/dls/Input";
 
 interface HomeProfilingData {
   homeType: string;
@@ -99,12 +98,12 @@ export function HomeProfilingModal({
             <h3 className="font-bold text-base mb-4">Home Details</h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label
+                <label
                   htmlFor="homeType"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Home Type
-                </Label>
+                </label>
                 <select
                   id="homeType"
                   value={formData.homeType}
@@ -126,88 +125,63 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div>
-                <Label
-                  htmlFor="sqft"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Square Footage
-                </Label>
                 <Input
                   id="sqft"
+                  label="Square Footage"
+                  labelLayout="top"
                   type="number"
                   value={formData.sqft}
                   onChange={(e) => handleChange("sqft", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
-                  htmlFor="stories"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Stories
-                </Label>
                 <Input
                   id="stories"
+                  label="Stories"
+                  labelLayout="top"
                   type="number"
                   value={formData.stories}
                   onChange={(e) => handleChange("stories", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
-                  htmlFor="bedrooms"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Bedrooms
-                </Label>
                 <Input
                   id="bedrooms"
+                  label="Bedrooms"
+                  labelLayout="top"
                   type="number"
                   value={formData.bedrooms}
                   onChange={(e) => handleChange("bedrooms", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
-                  htmlFor="bathrooms"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Bathrooms
-                </Label>
                 <Input
                   id="bathrooms"
+                  label="Bathrooms"
+                  labelLayout="top"
                   type="number"
                   step="0.5"
                   value={formData.bathrooms}
                   onChange={(e) => handleChange("bathrooms", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
-                  htmlFor="yearBuilt"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Year Built
-                </Label>
                 <Input
                   id="yearBuilt"
+                  label="Year Built"
+                  labelLayout="top"
                   type="number"
                   value={formData.yearBuilt}
                   onChange={(e) => handleChange("yearBuilt", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div className="col-span-2">
-                <Label
+                <label
                   htmlFor="garageType"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Garage Type
-                </Label>
+                </label>
                 <select
                   id="garageType"
                   value={formData.garageType}
@@ -238,12 +212,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div className="col-span-2">
-                <Label
+                <label
                   htmlFor="construction"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Construction Material
-                </Label>
+                </label>
                 <select
                   id="construction"
                   value={formData.construction}
@@ -262,12 +236,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div className="col-span-2">
-                <Label
+                <label
                   htmlFor="basement"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Basement
-                </Label>
+                </label>
                 <select
                   id="basement"
                   value={formData.basement}
@@ -295,12 +269,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div className="col-span-2">
-                <Label
+                <label
                   htmlFor="exterior"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Exterior
-                </Label>
+                </label>
                 <select
                   id="exterior"
                   value={formData.exterior}
@@ -323,12 +297,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div className="col-span-2">
-                <Label
+                <label
                   htmlFor="otherStructures"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Other Structures
-                </Label>
+                </label>
                 <select
                   id="otherStructures"
                   value={formData.otherStructures}
@@ -350,17 +324,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div className="col-span-2">
-                <Label
-                  htmlFor="peopleOnDeed"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  On the Deed
-                </Label>
                 <Input
                   id="peopleOnDeed"
+                  label="On the Deed"
+                  labelLayout="top"
                   value={formData.peopleOnDeed}
                   onChange={(e) => handleChange("peopleOnDeed", e.target.value)}
-                  className="w-full"
                 />
               </div>
             </div>
@@ -382,27 +351,22 @@ export function HomeProfilingModal({
             </h3>
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <Label
-                  htmlFor="roofYear"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Updated Year
-                </Label>
                 <Input
                   id="roofYear"
+                  label="Updated Year"
+                  labelLayout="top"
                   type="number"
                   value={formData.roofYear}
                   onChange={(e) => handleChange("roofYear", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
+                <label
                   htmlFor="roofMaterial"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Material
-                </Label>
+                </label>
                 <select
                   id="roofMaterial"
                   value={formData.roofMaterial}
@@ -424,12 +388,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div>
-                <Label
+                <label
                   htmlFor="roofShape"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Shape
-                </Label>
+                </label>
                 <select
                   id="roofShape"
                   value={formData.roofShape}
@@ -464,27 +428,22 @@ export function HomeProfilingModal({
             </h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label
-                  htmlFor="heatingYear"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Heating & Air Year Update
-                </Label>
                 <Input
                   id="heatingYear"
+                  label="Heating & Air Year Update"
+                  labelLayout="top"
                   type="number"
                   value={formData.heatingYear}
                   onChange={(e) => handleChange("heatingYear", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
+                <label
                   htmlFor="heatingType"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Heating System Type
-                </Label>
+                </label>
                 <select
                   id="heatingType"
                   value={formData.heatingType}
@@ -503,44 +462,34 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div>
-                <Label
-                  htmlFor="plumbingYear"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Plumbing Year Update
-                </Label>
                 <Input
                   id="plumbingYear"
+                  label="Plumbing Year Update"
+                  labelLayout="top"
                   type="number"
                   value={formData.plumbingYear}
                   onChange={(e) => handleChange("plumbingYear", e.target.value)}
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
-                  htmlFor="electricityYear"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Electricity Year Update
-                </Label>
                 <Input
                   id="electricityYear"
+                  label="Electricity Year Update"
+                  labelLayout="top"
                   type="number"
                   value={formData.electricityYear}
                   onChange={(e) =>
                     handleChange("electricityYear", e.target.value)
                   }
-                  className="w-full"
                 />
               </div>
               <div>
-                <Label
+                <label
                   htmlFor="solarPanels"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Solar Panels
-                </Label>
+                </label>
                 <select
                   id="solarPanels"
                   value={formData.solarPanels}
@@ -576,12 +525,12 @@ export function HomeProfilingModal({
             </h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label
+                <label
                   htmlFor="securitySystem"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Security System
-                </Label>
+                </label>
                 <select
                   id="securitySystem"
                   value={formData.securitySystem}
@@ -595,12 +544,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div>
-                <Label
+                <label
                   htmlFor="securityType"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Security System Type
-                </Label>
+                </label>
                 <select
                   id="securityType"
                   value={formData.securityType}
@@ -617,12 +566,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div>
-                <Label
+                <label
                   htmlFor="smokeDetector"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Smoke Detector
-                </Label>
+                </label>
                 <select
                   id="smokeDetector"
                   value={formData.smokeDetector}
@@ -636,12 +585,12 @@ export function HomeProfilingModal({
                 </select>
               </div>
               <div>
-                <Label
+                <label
                   htmlFor="smokeDetectorType"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Smoke Detector Type
-                </Label>
+                </label>
                 <select
                   id="smokeDetectorType"
                   value={formData.smokeDetectorType}
@@ -673,13 +622,12 @@ export function HomeProfilingModal({
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 font-semibold"
           >
             Cancel
           </Button>
           <Button
+            variant="primary"
             onClick={handleSave}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
           >
             Save Changes
           </Button>

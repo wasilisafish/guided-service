@@ -24,8 +24,9 @@ import {
   HelpCircle,
   Plus,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/dls/Badge";
+import { Button } from "@/components/dls/Button";
+import { StatusIndicator } from "@/components/dls/StatusIndicator";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { RightSidebarPanel } from "@/components/RightSidebarPanel";
@@ -134,23 +135,23 @@ export default function QuoteRequestsPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
+          <Badge variant="secondary" color="neutral" className="whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="quoting" />
           </div>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
+          <Badge variant="secondary" color="blue" className="whitespace-nowrap shrink-0">
             Re-shop in progress
           </Badge>
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            iconTrailing={Plus}
+            className="whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
-            <Plus className="w-4 h-4 ml-1.5" />
           </Button>
         </div>
 
@@ -177,7 +178,7 @@ export default function QuoteRequestsPage() {
                   <h3 className="font-bold text-base">Primary home</h3>
                   <Badge
                     variant="outline"
-                    className="text-xs rounded-sm border-neutral-gray-30"
+                    color="neutral"
                   >
                     12
                   </Badge>
@@ -311,7 +312,7 @@ export default function QuoteRequestsPage() {
                     </span>
                     <Badge
                       variant="secondary"
-                      className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm px-1.5 py-0"
+                      color="neutral"
                     >
                       14
                     </Badge>
@@ -435,7 +436,7 @@ export default function QuoteRequestsPage() {
                     <span className="font-semibold text-sm">Not eligible</span>
                     <Badge
                       variant="secondary"
-                      className="bg-neutral-gray-10 text-neutral-gray-60 text-xs rounded-sm px-1.5 py-0"
+                      color="neutral"
                     >
                       7
                     </Badge>
@@ -524,18 +525,11 @@ function QuoteRow({
   hasExternalLink?: boolean;
   badge?: string;
 }) {
-  const dotColors = {
-    blue: "bg-action-primary",
-    green: "bg-success",
-    orange: "bg-warning",
-    red: "bg-[#EA4D72]",
-  };
-
-  const textColors = {
-    blue: "text-action-primary",
-    green: "text-success",
-    orange: "text-warning",
-    red: "text-[#EA4D72]",
+  const statusColorMap = {
+    blue: "purple" as const,
+    green: "green" as const,
+    orange: "orange" as const,
+    red: "red" as const,
   };
 
   return (
@@ -554,42 +548,13 @@ function QuoteRow({
 
       {/* Carrier Response */}
       <div className="flex items-center gap-2">
-        {dotColor && !hasCheckmark && (
-          <>
-            <span
-              className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColors[dotColor]}`}
-            />
-            {statusText && (
-              <span className={`text-sm ${textColors[dotColor]}`}>
-                {statusText}
-              </span>
-            )}
-          </>
+        {dotColor && statusText && (
+          <StatusIndicator
+            color={statusColorMap[dotColor]}
+            label={statusText}
+          />
         )}
-        {dotColor && hasCheckmark && (
-          <>
-            <span
-              className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColors[dotColor]}`}
-            />
-            {statusText && (
-              <span className={`text-sm ${textColors[dotColor]}`}>
-                {statusText}
-              </span>
-            )}
-            <svg
-              className="w-4 h-4 text-success flex-shrink-0"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </>
-        )}
-        {hasCheckmark && !dotColor && (
+        {hasCheckmark && (
           <svg
             className="w-4 h-4 text-success flex-shrink-0"
             viewBox="0 0 20 20"
@@ -651,7 +616,6 @@ function QuoteRow({
           <Button
             variant="outline"
             size="sm"
-            className="border-action-primary text-action-primary hover:bg-action-primary/10 font-medium text-sm h-8 px-3"
           >
             {actionButton}
           </Button>

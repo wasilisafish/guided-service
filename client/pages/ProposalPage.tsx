@@ -18,8 +18,8 @@ import {
   FileText,
   Plus,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/dls/Badge";
+import { Button } from "@/components/dls/Button";
 import { Card } from "@/components/ui/card";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 import { SageSureLogo } from "@/components/SageSureLogo";
@@ -121,23 +121,23 @@ export default function ProposalPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
+          <Badge color="neutral" variant="secondary" className="whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="proposal" />
           </div>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
+          <Badge color="blue" variant="secondary" className="whitespace-nowrap shrink-0">
             Re-shop in progress
           </Badge>
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            iconTrailing={Plus}
+            className="whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
-            <Plus className="w-4 h-4 ml-1.5" />
           </Button>
         </div>
 
@@ -344,7 +344,7 @@ export default function ProposalPage() {
                 <p className="text-neutral-gray-80 mb-6">
                   Insurance rates can change. Contact your advisor to lock in this quote and complete your application.
                 </p>
-                <Button className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold px-6">
+                <Button variant="primary">
                   Contact Your Advisor
                 </Button>
               </div>
@@ -379,13 +379,12 @@ export default function ProposalPage() {
           <Button
             variant="outline"
             onClick={() => {}}
-            className="border-neutral-gray-30 text-neutral-gray-80 hover:bg-neutral-gray-5 font-semibold px-6"
           >
             Send proposal
           </Button>
           <Button
+            variant="primary"
             onClick={() => navigate("/finalize")}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold px-6"
           >
             Finalize
           </Button>

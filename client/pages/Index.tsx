@@ -24,10 +24,10 @@ import {
   Plus,
   Loader2,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/dls/Badge";
+import { Button } from "@/components/dls/Button";
+import { Tab, TabList } from "@/components/dls/Tab";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Dialog,
   DialogContent,
@@ -134,7 +134,7 @@ export default function Index() {
           >
             Elliot McMahon
           </button>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
+          <Badge variant="secondary" color="neutral" className="whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
           <div className="w-px h-8 bg-neutral-gray-10 shrink-0" />
@@ -145,21 +145,18 @@ export default function Index() {
           <div className="flex-1 min-w-0" />
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            iconTrailing={Plus}
+            className="whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
-            <Plus className="w-4 h-4 ml-1.5" />
           </Button>
-          <Button variant="outline" size="icon" className="w-8 h-8 flex-shrink-0 border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded">
-            <Mail className="w-4 h-4" />
-          </Button>
-          <Button variant="outline" size="icon" className="w-8 h-8 flex-shrink-0 border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded">
-            <Phone className="w-4 h-4" />
-          </Button>
+          <Button variant="outline" size="icon" icon={Mail} className="flex-shrink-0" />
+          <Button variant="outline" size="icon" icon={Phone} className="flex-shrink-0" />
           <Button
+            variant="primary"
             onClick={() => navigate("/comparison")}
-            className="bg-action-primary hover:bg-action-primary/90 text-white text-sm font-semibold rounded px-4 py-2 h-9 whitespace-nowrap shrink-0"
+            className="whitespace-nowrap shrink-0"
           >
             Service
           </Button>
@@ -177,57 +174,47 @@ export default function Index() {
 
           {/* Center Content */}
           <div className="flex-1 overflow-y-auto p-6">
-            <Tabs
-              value={activeTab}
-              onValueChange={setActiveTab}
-              className="w-full"
-            >
+            <div className="w-full">
               <div className="flex items-center justify-between mb-6">
-                <TabsList className="h-auto p-0 bg-transparent border-b border-neutral-gray-30 rounded-none w-full justify-start mr-auto">
-                  <TabsTrigger
-                    value="policies"
-                    className="data-[state=active]:border-b-2 data-[state=active]:border-action-primary data-[state=active]:text-action-primary rounded-none pb-3 font-semibold"
-                  >
-                    Policies
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="quotes"
-                    className="data-[state=active]:border-b-2 data-[state=active]:border-action-primary data-[state=active]:text-action-primary rounded-none pb-3 font-semibold text-text-muted"
-                  >
-                    Quotes
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="activities"
-                    className="data-[state=active]:border-b-2 data-[state=active]:border-action-primary data-[state=active]:text-action-primary rounded-none pb-3 font-semibold text-text-muted"
-                  >
-                    Activities
-                  </TabsTrigger>
-                </TabsList>
+                <TabList orientation="horizontal">
+                  <Tab
+                    label="Policies"
+                    active={activeTab === "policies"}
+                    onClick={() => setActiveTab("policies")}
+                  />
+                  <Tab
+                    label="Quotes"
+                    active={activeTab === "quotes"}
+                    onClick={() => setActiveTab("quotes")}
+                  />
+                  <Tab
+                    label="Activities"
+                    active={activeTab === "activities"}
+                    onClick={() => setActiveTab("activities")}
+                  />
+                </TabList>
               </div>
 
               <div className="flex items-center gap-2 mb-6">
                 <h2 className="text-2xl font-bold">Recent policies</h2>
-                <Badge
-                  variant="secondary"
-                  className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30"
-                >
+                <Badge variant="secondary" color="neutral">
                   4
                 </Badge>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="ml-2 border-action-secondary text-action-secondary"
+                  className="ml-2"
                 >
                   All policies
                 </Button>
               </div>
 
-              <TabsContent value="policies" className="mt-0">
+              {activeTab === "policies" && (
                 <div className="w-full lg:w-1/2">
                   <PolicyCard />
                 </div>
-              </TabsContent>
-            </Tabs>
+              )}
+            </div>
           </div>
 
           {/* Right sidebar - same on every page */}
@@ -313,22 +300,16 @@ function ActivitySummarySection() {
             <div className="space-y-2">
               <Button
                 variant="outline"
-                className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold text-base bg-white"
+                className="w-full"
                 onClick={handleAiSummaryClick}
                 disabled={isAnalyzing}
+                loading={isAnalyzing}
               >
-                {isAnalyzing ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin shrink-0" />
-                    Analyzing...
-                  </>
-                ) : (
-                  "AI tickets summary"
-                )}
+                {isAnalyzing ? "Analyzing..." : "AI tickets summary"}
               </Button>
             <Button
-              variant="outline"
-              className="w-full border-action-secondary bg-white text-neutral-gray-60 hover:bg-neutral-gray-5 hover:text-neutral-gray-80 font-semibold text-base"
+              variant="secondary"
+              className="w-full"
             >
               Open last ticket
             </Button>
@@ -368,7 +349,7 @@ function CustomerInfoSection() {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 flex-wrap mb-1">
               <span className="font-semibold">Elliot McMahon</span>
-              <Badge className="bg-azure-95 text-azure-50 border-azure-50/30 text-xs">
+              <Badge variant="secondary" color="blue">
                 Primary customer
               </Badge>
             </div>
@@ -450,10 +431,7 @@ function AssetsSection() {
         <div className="p-4">
           <div className="flex items-center gap-2 mb-3">
             <span className="font-bold">Vehicles</span>
-            <Badge
-              variant="secondary"
-              className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs"
-            >
+            <Badge variant="secondary" color="neutral">
               3
             </Badge>
           </div>
@@ -490,10 +468,7 @@ function LoansSection() {
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
           <h3 className="text-lg font-bold -tracking-[0.3px]">Loans</h3>
-          <Badge
-            variant="secondary"
-            className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs"
-          >
+          <Badge variant="secondary" color="neutral">
             1
           </Badge>
         </div>
@@ -530,18 +505,10 @@ function PolicyCard() {
           <div className="font-semibold text-sm">Primary home</div>
           <div className="text-sm">4545 Marlborough Dr, San Diego, CA, 92116-4737</div>
         </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="text-action-secondary font-semibold"
-        >
+        <Button variant="ghost" size="sm">
           See prior policies
         </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          className="border-action-secondary text-action-secondary font-semibold"
-        >
+        <Button variant="outline" size="sm">
           Full info
         </Button>
       </div>
@@ -593,28 +560,15 @@ function PolicyCard() {
             <span className="font-bold text-sm text-neutral-gray-80">
               Documents
             </span>
-            <Badge
-              variant="secondary"
-              className="bg-neutral-gray-5 text-neutral-gray-60 border-neutral-gray-60/30 text-xs"
-            >
+            <Badge variant="secondary" color="neutral">
               2
             </Badge>
           </div>
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-action-secondary font-semibold h-8"
-            >
+            <Button variant="ghost" size="sm">
               See all documents
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-action-secondary h-8 w-8 p-0"
-            >
-              <Upload className="w-4 h-4 text-action-secondary" />
-            </Button>
+            <Button variant="outline" size="icon" icon={Upload} />
           </div>
         </div>
       </div>
@@ -649,7 +603,7 @@ function DocumentItem({
     <div className="border border-neutral-gray-30 rounded-lg p-2 flex items-center gap-3 bg-white">
       <div className="flex-1 flex items-center gap-2">
         {label && (
-          <Badge className="bg-violet-96 text-violet border-violet/30 text-xs">
+          <Badge variant="secondary" color="purple">
             {label}
           </Badge>
         )}
@@ -659,11 +613,7 @@ function DocumentItem({
           {name || "Application"}
         </span>
         {isUpload && (
-          <Button
-            size="sm"
-            className="bg-action-primary hover:bg-action-primary/90 text-white h-7 px-2 text-xs ml-auto"
-          >
-            <Upload className="w-3 h-3 mr-1" />
+          <Button variant="primary" size="sm" iconLeading={Upload} className="ml-auto">
             Upload
           </Button>
         )}

@@ -20,17 +20,11 @@ import {
   RotateCcw,
   Plus,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/dls/Badge";
+import { Button } from "@/components/dls/Button";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Dropdown } from "@/components/dls/Dropdown";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
 
@@ -134,23 +128,23 @@ export default function QuotingPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
+          <Badge color="neutral" variant="secondary" className="whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="quoting" />
           </div>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
+          <Badge color="blue" variant="secondary" className="whitespace-nowrap shrink-0">
             Re-shop in progress
           </Badge>
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            className="whitespace-nowrap shrink-0"
+            iconTrailing={Plus}
             onClick={() => {}}
           >
             Schedule follow-up
-            <Plus className="w-4 h-4 ml-1.5" />
           </Button>
         </div>
 
@@ -172,9 +166,8 @@ export default function QuotingPage() {
                     className="w-5 h-5"
                   />
                   <h3 className="font-bold text-xl">Primary home</h3>
-                  <Badge className="bg-blue-100 text-blue-700 border-blue-200 text-xs font-semibold">
+                  <Badge color="blue" variant="secondary" iconRight={ChevronDown}>
                     Renters (HO6)
-                    <ChevronDown className="w-3 h-3 ml-1" />
                   </Badge>
                 </div>
 
@@ -189,48 +182,28 @@ export default function QuotingPage() {
                         <span className="text-text-muted w-40">
                           Insured people
                         </span>
-                        <Select
+                        <Dropdown
+                          options={[
+                            { value: "elliot-jessica", label: "Elliot McMahon, Jessica McMahon" },
+                            { value: "elliot", label: "Elliot McMahon" },
+                            { value: "jessica", label: "Jessica McMahon" },
+                          ]}
                           value={selectedPeople}
-                          onValueChange={setSelectedPeople}
-                        >
-                          <SelectTrigger
-                            className="h-9 border-neutral-gray-10"
-                            style={{ width: "282px" }}
-                          >
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="elliot-jessica">
-                              Elliot McMahon, Jessica McMahon
-                            </SelectItem>
-                            <SelectItem value="elliot">
-                              Elliot McMahon
-                            </SelectItem>
-                            <SelectItem value="jessica">
-                              Jessica McMahon
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
+                          onChange={(v) => setSelectedPeople(v as string)}
+                        />
                       </div>
                       <div className="flex items-center gap-3">
                         <span className="text-text-muted w-40">
                           Policy type
                         </span>
-                        <Select
+                        <Dropdown
+                          options={[
+                            { value: "ho6", label: "Renters (HO6)" },
+                            { value: "ho3", label: "Renters (HO3)" },
+                          ]}
                           value={policyType}
-                          onValueChange={setPolicyType}
-                        >
-                          <SelectTrigger
-                            className="h-9 border-neutral-gray-10"
-                            style={{ width: "282px" }}
-                          >
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="ho6">Renters (HO6)</SelectItem>
-                            <SelectItem value="ho3">Renters (HO3)</SelectItem>
-                          </SelectContent>
-                        </Select>
+                          onChange={(v) => setPolicyType(v as string)}
+                        />
                       </div>
                     </div>
 

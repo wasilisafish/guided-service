@@ -20,8 +20,8 @@ import {
   Menu,
   Plus,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/dls/Badge";
+import { Button } from "@/components/dls/Button";
 import { Card } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -125,23 +125,23 @@ export default function FinalLookPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
+          <Badge color="neutral" variant="secondary" className="whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="finalize" />
           </div>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
+          <Badge color="blue" variant="secondary" className="whitespace-nowrap shrink-0">
             Re-shop in progress
           </Badge>
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            iconTrailing={Plus}
+            className="whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
-            <Plus className="w-4 h-4 ml-1.5" />
           </Button>
         </div>
 
@@ -178,7 +178,7 @@ export default function FinalLookPage() {
 
               <Button
                 variant="outline"
-                className="w-full border-action-secondary text-action-secondary hover:bg-action-secondary/10 font-semibold"
+                className="w-full"
               >
                 Add policy
               </Button>
@@ -377,7 +377,7 @@ export default function FinalLookPage() {
         {/* Bottom Action Bar */}
         <div className="h-16 border-t border-neutral-gray-10 bg-white flex items-center justify-end px-6 gap-3">
           <Button
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
+            variant="primary"
             onClick={() => navigate("/rewrite-confirmation")}
           >
             Proceed
@@ -420,7 +420,7 @@ function DocumentItem({
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
           <h4 className="font-semibold text-sm truncate">{name}</h4>
-          <Badge className="bg-orange-100 text-orange-700 border-orange-200 text-xs flex-shrink-0">
+          <Badge color="orange" variant="secondary" className="flex-shrink-0">
             {badge}
           </Badge>
         </div>

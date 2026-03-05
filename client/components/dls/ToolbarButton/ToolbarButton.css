@@ -1,0 +1,118 @@
+/* ==========================================================================
+   ToolbarButton – Ampeniatko Design System
+   Theme-driven via toolbarButtonTheme.ts (--tb-bg, --tb-color, --tb-border)
+   Colors set via inline style from config; CSS uses vars for base + hover
+   ========================================================================== */
+
+/* ---------- Base ---------- */
+.amp-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  height: var(--spacing-8);
+  padding: var(--spacing-2) var(--spacing-2) var(--spacing-2) var(--spacing-3);
+  background-color: var(--tb-bg);
+  border: 1px solid var(--tb-border);
+  color: var(--tb-color);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-sm);
+  line-height: var(--typography-leading-1);
+  letter-spacing: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* ---------- Hover ---------- */
+.amp-toolbar-btn:hover:not(:disabled) {
+  background-color: var(--tb-bg-hover);
+  border-color: var(--tb-border-hover);
+  color: var(--tb-color-hover);
+}
+
+/* ---------- Focus ---------- */
+.amp-toolbar-btn:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--color-base-white),
+    0 0 0 4px var(--action-primary-default);
+}
+
+/* ---------- Disabled ---------- */
+.amp-toolbar-btn--disabled {
+  cursor: not-allowed;
+}
+
+/* ---------- Icon (leading + chevron) ---------- */
+.amp-toolbar-btn__icon,
+.amp-toolbar-btn__chevron {
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* ---------- Label ---------- */
+.amp-toolbar-btn__label {
+  display: inline-flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Value ---------- */
+.amp-toolbar-btn__value {
+  font-weight: var(--typography-font-normal);
+  /* Truncation cap — no spacing token for this; intentional component constraint */
+  max-width: calc(var(--spacing-10) * 3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Dropdown wrapper ---------- */
+.amp-toolbar-btn-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.amp-toolbar-btn-wrapper .amp-dropdown-menu {
+  left: 0;
+  right: auto;
+  min-width: calc(var(--spacing-10) * 5);
+}
+
+/* Chevron rotation when menu is open */
+.amp-toolbar-btn--open .amp-toolbar-btn__chevron {
+  transform: rotate(180deg);
+}
+
+.amp-toolbar-btn__chevron {
+  transition: transform 0.15s ease;
+  margin-left: auto;
+}
+
+/* ---------- Count badge ---------- */
+.amp-toolbar-btn__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--spacing-4);
+  height: var(--spacing-4);
+  padding: 0 var(--spacing-1);
+  background-color: var(--tb-badge-bg);
+  color: var(--tb-badge-color);
+  font-size: var(--typography-text-xs);
+  font-weight: var(--typography-font-medium);
+  line-height: var(--typography-leading-1);
+  border-radius: 999px;
+  box-sizing: border-box;
+}

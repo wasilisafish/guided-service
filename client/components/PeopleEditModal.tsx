@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/dls/Button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Input } from "@/components/dls/Input";
 
 interface PersonData {
   id: string;
@@ -121,28 +120,23 @@ export function PeopleEditModal({
             <div className="grid grid-cols-2 gap-4">
               {/* Name */}
               <div className="col-span-2">
-                <Label
-                  htmlFor="name"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Full Name
-                </Label>
                 <Input
                   id="name"
+                  label="Full Name"
+                  labelLayout="top"
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
-                  className="w-full"
                 />
               </div>
 
               {/* Badge/Role */}
               <div className="col-span-2">
-                <Label
+                <label
                   htmlFor="badge"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Role
-                </Label>
+                </label>
                 <select
                   id="badge"
                   value={formData.badge}
@@ -157,12 +151,12 @@ export function PeopleEditModal({
 
               {/* Gender */}
               <div>
-                <Label
+                <label
                   htmlFor="gender"
                   className="text-sm font-semibold mb-2 block"
                 >
                   Gender
-                </Label>
+                </label>
                 <select
                   id="gender"
                   value={formData.gender}
@@ -177,52 +171,37 @@ export function PeopleEditModal({
 
               {/* Date of Birth */}
               <div>
-                <Label
-                  htmlFor="dob"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Date of Birth
-                </Label>
                 <Input
                   id="dob"
+                  label="Date of Birth"
+                  labelLayout="top"
                   type="date"
                   value={formData.dob}
                   onChange={(e) => handleChange("dob", e.target.value)}
-                  className="w-full"
                 />
               </div>
 
               {/* Phone */}
               <div>
-                <Label
-                  htmlFor="phone"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Phone
-                </Label>
                 <Input
                   id="phone"
+                  label="Phone"
+                  labelLayout="top"
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
-                  className="w-full"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <Label
-                  htmlFor="email"
-                  className="text-sm font-semibold mb-2 block"
-                >
-                  Email
-                </Label>
                 <Input
                   id="email"
+                  label="Email"
+                  labelLayout="top"
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
-                  className="w-full"
                 />
               </div>
             </div>
@@ -234,13 +213,12 @@ export function PeopleEditModal({
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="border-action-secondary text-action-secondary hover:bg-neutral-gray-5 font-semibold"
           >
             Cancel
           </Button>
           <Button
+            variant="primary"
             onClick={handleSave}
-            className="bg-action-primary hover:bg-action-primary/90 text-white font-semibold"
           >
             Save Changes
           </Button>

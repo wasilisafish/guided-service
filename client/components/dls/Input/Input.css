@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Input / Field Component – Ampeniatko Design System
+   Token-driven. See docs/03-component-guidelines.md
+   ========================================================================== */
+
+/* ---------- Outer container (label + field) ---------- */
+.amp-input-outer {
+  display: flex;
+  width: 100%;
+}
+
+.amp-input-outer--top {
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.amp-input-outer--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-6);
+}
+
+/* ---------- Label ---------- */
+.amp-input-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  flex-shrink: 0;
+}
+
+.amp-input-label--top {
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-sm);
+  line-height: var(--typography-leading-1);
+}
+
+.amp-input-label--inline {
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-base);
+  line-height: var(--typography-leading-3);
+  width: calc(var(--spacing-10) * 5);                   /* 200px */
+  min-width: calc(var(--spacing-10) * 5);
+}
+
+.amp-input-label__text {
+  color: var(--text-default-foreground);
+}
+
+.amp-input-label__required {
+  color: var(--destructive-default);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-sm);
+  line-height: var(--typography-leading-1);
+}
+
+.amp-input-label__info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--action-primary-default);
+  flex-shrink: 0;
+  transition: color 0.12s;
+}
+
+.amp-input-label__info:hover {
+  color: var(--action-primary-hover);
+}
+
+/* ---------- Wrapper (field + hint) ---------- */
+.amp-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  width: 100%;
+  min-width: calc(var(--spacing-10) * 3);                    /* 120px */
+  max-width: calc(var(--spacing-10) * 10 + var(--spacing-5)); /* 420px */
+}
+
+/* ---------- Base field ---------- */
+.amp-input {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  height: var(--spacing-8);
+  padding: var(--spacing-1) var(--spacing-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-default);
+  cursor: text;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+/* ---------- Native input ---------- */
+.amp-input__native {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-normal);
+  font-size: var(--typography-text-base);
+  line-height: var(--typography-leading-3);
+  letter-spacing: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  color: var(--text-default-foreground);
+  padding: 0;
+  margin: 0;
+}
+
+.amp-input__native::placeholder {
+  color: var(--text-disabled-foreground);
+}
+
+.amp-input__native:disabled {
+  cursor: not-allowed;
+}
+
+/* ---------- Icons ---------- */
+.amp-input__icon {
+  flex-shrink: 0;
+  color: var(--icon-default-foreground);
+  transition: color 0.15s ease;
+}
+
+.amp-input__icon--right-secondary {
+  color: var(--icon-default-foreground);
+}
+
+.amp-input__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.amp-input__icon-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* ---------- Status: Hover ---------- */
+.amp-input--hover {
+  border-color: var(--border-action);
+}
+
+.amp-input--hover .amp-input__icon {
+  color: var(--action-primary-hover);
+}
+
+/* ---------- Status: Focus ---------- */
+.amp-input--focus {
+  border-color: var(--border-default);
+  box-shadow: 0 0 0 2px var(--color-base-white), 0 0 0 4px var(--action-primary-default);
+}
+
+/* ---------- Status: Error ---------- */
+.amp-input--error {
+  border-color: var(--destructive-disabled);
+}
+
+.amp-input--error .amp-input__icon {
+  color: var(--icon-error-foreground);
+}
+
+/* ---------- Status: Disabled ---------- */
+.amp-input--disabled {
+  background-color: var(--surface-disabled-default);
+  border-color: var(--border-subtle);
+  cursor: not-allowed;
+}
+
+.amp-input--disabled .amp-input__icon {
+  color: var(--icon-disabled-foreground);
+}
+
+.amp-input--disabled .amp-input__native::placeholder {
+  color: var(--text-disabled-foreground);
+}
+
+/* ---------- Filled text color ---------- */
+.amp-input--filled .amp-input__native {
+  color: var(--text-default-foreground);
+}
+
+/* ---------- Hint text ---------- */
+.amp-input__hint {
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-normal);
+  font-size: var(--typography-text-xs);
+  line-height: var(--typography-leading-1);
+  color: var(--text-disabled-foreground);
+  margin: 0;
+  padding: 0 var(--spacing-2);
+}
+
+.amp-input__hint--error {
+  color: var(--destructive-default);
+}

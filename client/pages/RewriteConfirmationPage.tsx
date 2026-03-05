@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { CheckCircle, AlertTriangle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/dls/Button";
 import { Card } from "@/components/ui/card";
 import { RightSidebarPanel } from "@/components/RightSidebarPanel";
 
@@ -75,13 +75,12 @@ export default function RewriteConfirmationPage() {
               <Button
                 onClick={() => navigate("/final-look")}
                 variant="outline"
-                className="border-action-secondary text-action-secondary"
               >
                 Back to Final Look
               </Button>
               <Button
                 onClick={() => navigate("/")}
-                className="bg-action-primary hover:bg-action-primary/90 text-white"
+                variant="primary"
               >
                 Back to Home
               </Button>

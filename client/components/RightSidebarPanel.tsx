@@ -8,6 +8,7 @@ import {
   Paperclip,
   HelpCircle,
 } from "lucide-react";
+import { Tab, TabList } from "@/components/dls/Tab";
 
 const ITEMS = [
   { id: "info", icon: User, label: "Info" },
@@ -29,23 +30,18 @@ export interface RightSidebarPanelProps {
 
 export function RightSidebarPanel({ activeItem }: RightSidebarPanelProps) {
   return (
-    <div className="w-[72px] border-l border-neutral-gray-10 flex-shrink-0 flex flex-col items-center py-4 bg-white">
-      {ITEMS.map(({ id, icon: Icon, label }) => (
-        <button
-          key={id}
-          type="button"
-          className={`w-full py-2 px-1 flex flex-col items-center gap-1.5 transition-colors ${
-            activeItem === id
-              ? "text-action-primary bg-neutral-gray-5"
-              : "text-neutral-gray-60 hover:text-action-primary hover:bg-neutral-gray-5"
-          }`}
-        >
-          <div className="w-5 h-5 flex items-center justify-center">
-            <Icon className="w-5 h-5" />
-          </div>
-          <span className="text-xs font-medium">{label}</span>
-        </button>
-      ))}
+    <div className="border-l border-neutral-gray-10 flex-shrink-0 bg-white">
+      <TabList orientation="vertical">
+        {ITEMS.map(({ id, icon, label }) => (
+          <Tab
+            key={id}
+            label={label}
+            icon={icon}
+            orientation="vertical"
+            active={activeItem === id}
+          />
+        ))}
+      </TabList>
     </div>
   );
 }

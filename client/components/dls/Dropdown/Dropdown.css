@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Dropdown / Select Component – Ampeniatko Design System
+   Token-driven. See docs/03-component-guidelines.md
+   ========================================================================== */
+
+/* ---------- Outer container (label + dropdown) ---------- */
+.amp-dropdown-outer {
+  display: flex;
+  width: 100%;
+}
+
+.amp-dropdown-outer--top {
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.amp-dropdown-outer--inline {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-6);
+}
+
+/* ---------- Wrapper (trigger + hint + menu) ---------- */
+.amp-dropdown-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  width: 100%;
+  min-width: 0;
+}
+
+/* ---------- Trigger (input-like button) ---------- */
+.amp-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  width: 100%;
+  height: var(--spacing-8);
+  padding: var(--spacing-1) var(--spacing-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-default);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+  box-sizing: border-box;
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-normal);
+  font-size: var(--typography-text-base);
+  line-height: var(--typography-leading-3);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  color: var(--text-default-foreground);
+  text-align: left;
+  outline: none;
+}
+
+.amp-dropdown-trigger__text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amp-dropdown-trigger__placeholder {
+  color: var(--text-disabled-foreground);
+}
+
+.amp-dropdown-trigger__chevron {
+  flex-shrink: 0;
+  color: var(--icon-default-foreground);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.amp-dropdown-trigger--open .amp-dropdown-trigger__chevron {
+  transform: rotate(180deg);
+}
+
+/* Trigger: Hover */
+.amp-dropdown-trigger--hover {
+  border-color: var(--border-action);
+}
+
+.amp-dropdown-trigger--hover .amp-dropdown-trigger__chevron {
+  color: var(--action-primary-hover);
+}
+
+/* Trigger: Focus */
+.amp-dropdown-trigger--focus {
+  border-color: var(--border-default);
+  box-shadow: 0 0 0 2px var(--color-base-white), 0 0 0 4px var(--action-primary-default);
+}
+
+/* Trigger: Error */
+.amp-dropdown-trigger--error {
+  border-color: var(--destructive-disabled);
+}
+
+.amp-dropdown-trigger--error .amp-dropdown-trigger__chevron {
+  color: var(--icon-error-foreground);
+}
+
+/* Trigger: Disabled */
+.amp-dropdown-trigger--disabled {
+  background-color: var(--surface-disabled-default);
+  border-color: var(--border-subtle);
+  cursor: not-allowed;
+  color: var(--text-disabled-foreground);
+}
+
+.amp-dropdown-trigger--disabled .amp-dropdown-trigger__chevron {
+  color: var(--icon-disabled-foreground);
+}
+
+.amp-dropdown-trigger--disabled .amp-dropdown-trigger__placeholder {
+  color: var(--text-disabled-foreground);
+}
+
+/* Trigger: Filled */
+.amp-dropdown-trigger--filled .amp-dropdown-trigger__text {
+  color: var(--text-default-foreground);
+}
+
+.amp-dropdown-trigger--disabled.amp-dropdown-trigger--filled .amp-dropdown-trigger__text {
+  color: var(--text-disabled-foreground);
+}
+
+/* ---------- Menu (dropdown panel) ---------- */
+.amp-dropdown-menu {
+  position: absolute;
+  top: calc(100% + var(--spacing-1));
+  left: 0;
+  right: 0;
+  min-width: calc(var(--spacing-10) * 5);               /* 200px */
+  max-height: calc(var(--spacing-8) * 9);                /* 288px – ~9 items */
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-popover);
+  /* TODO: replace with elevation token when the DLS adds an elevation scale */
+  box-shadow: var(--shadow-popover,
+    0 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0 1px 3px 0 rgba(0, 0, 0, 0.1));
+  z-index: var(--z-popover, 1000);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title row */
+.amp-dropdown-menu__title {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-sm);
+  line-height: var(--typography-leading-1);
+  color: var(--text-default-muted-foreground);
+  background-color: var(--surface-default);
+  flex-shrink: 0;
+}
+
+/* Scrollable list */
+.amp-dropdown-menu__list {
+  overflow-y: auto;
+  padding: 0 var(--spacing-2);
+  flex: 1;
+  min-height: 0;
+}
+
+/* Custom scrollbar - uses surface/border tokens */
+.amp-dropdown-menu__list::-webkit-scrollbar {
+  width: var(--spacing-2);
+}
+
+.amp-dropdown-menu__list::-webkit-scrollbar-track {
+  background: var(--surface-hover);
+  border-radius: var(--radius-sm);
+}
+
+.amp-dropdown-menu__list::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-sm);
+}
+
+.amp-dropdown-menu__list::-webkit-scrollbar-thumb:hover {
+  background: var(--border-default);
+}
+
+/* ---------- Item ---------- */
+.amp-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  width: 100%;
+  height: var(--spacing-8);
+  padding: var(--spacing-1) var(--spacing-3);
+  border: none;
+  border-radius: 0;
+  background-color: var(--surface-default);
+  cursor: pointer;
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-normal);
+  font-size: var(--typography-text-base);
+  line-height: var(--typography-leading-3);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  color: var(--text-default-foreground);
+  text-align: left;
+  outline: none;
+  box-sizing: border-box;
+  transition: background-color 0.1s ease;
+}
+
+.amp-dropdown-item:hover:not(:disabled) {
+  background-color: var(--surface-hover);
+}
+
+/* Item: Disabled */
+.amp-dropdown-item--disabled {
+  cursor: not-allowed;
+  color: var(--text-disabled-foreground);
+}
+
+.amp-dropdown-item--disabled:hover {
+  background-color: var(--surface-default);
+}
+
+/* Left slot (check / icon / placeholder) */
+.amp-dropdown-item__left {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+  flex-shrink: 0;
+}
+
+.amp-dropdown-item__icon-placeholder {
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+}
+
+/* Check icon */
+.amp-dropdown-item__check {
+  color: var(--icon-success-accent);
+  flex-shrink: 0;
+}
+
+.amp-dropdown-item--disabled .amp-dropdown-item__check {
+  color: var(--icon-disabled-foreground);
+}
+
+/* Icons */
+.amp-dropdown-item__icon {
+  color: var(--icon-default-foreground);
+  flex-shrink: 0;
+}
+
+.amp-dropdown-item--disabled .amp-dropdown-item__icon {
+  color: var(--icon-disabled-foreground);
+}
+
+.amp-dropdown-item__icon--right {
+  margin-left: auto;
+}
+
+/* Item label */
+.amp-dropdown-item__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

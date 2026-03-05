@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Badge Component – Ampeniatko Design System
+   Theme-driven via badgeTheme.ts (--cmp-bg, --cmp-border, --cmp-color)
+   Colors set via inline style from config; CSS uses vars only.
+   ========================================================================== */
+
+/* ---------- Base (colors from theme CSS vars) ---------- */
+.amp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-0-5) var(--spacing-2);
+  background-color: var(--cmp-bg);
+  border: 1px solid var(--cmp-border);
+  border-radius: var(--radius-sm);
+  color: var(--cmp-color);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-medium);
+  font-size: var(--typography-text-xs);
+  line-height: var(--typography-leading-1);
+  letter-spacing: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.amp-badge:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--spacing-0-5) var(--color-base-white),
+    0 0 0 var(--spacing-1) var(--action-primary-default);
+}
+
+/* ---------- Icons ---------- */
+.amp-badge__icon {
+  flex-shrink: 0;
+}

@@ -20,8 +20,8 @@ import {
   ExternalLink,
   Plus,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/dls/Badge";
+import { Button } from "@/components/dls/Button";
 import { Card } from "@/components/ui/card";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { TopBreadcrumb } from "@/components/TopBreadcrumb";
@@ -36,7 +36,7 @@ export default function VerificationPage() {
   const [eligibilityModalOpen, setEligibilityModalOpen] = useState(false);
   const [peopleModalOpen, setPeopleModalOpen] = useState(false);
   const [homeProfilingModalOpen, setHomeProfilingModalOpen] = useState(false);
-  const [homeDetailsExpanded, setHomeDetailsExpanded] = useState(false);
+  const [homeDetailsExpanded, setHomeDetailsExpanded] = useState(true);
   const [eligibilityExpanded, setEligibilityExpanded] = useState(false);
   return (
     <div className="flex h-screen bg-white overflow-hidden">
@@ -130,23 +130,23 @@ export default function VerificationPage() {
           >
             Elliot McMahon
           </button>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-neutral-gray-10 text-neutral-gray-80 border border-neutral-gray-20">
+          <Badge variant="secondary" color="neutral" className="whitespace-nowrap shrink-0">
             Roundpoint
           </Badge>
           <ChevronRight className="w-4 h-4 text-neutral-gray-30 shrink-0" />
           <div className="min-w-0 flex-1">
             <TopBreadcrumb currentStep="data-verification" />
           </div>
-          <Badge className="rounded px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0 bg-action-primary/10 text-action-primary border border-action-primary/30">
+          <Badge variant="secondary" color="blue" className="whitespace-nowrap shrink-0">
             Re-shop in progress
           </Badge>
           <Button
             variant="outline"
-            className="border-action-secondary text-action-secondary hover:bg-action-secondary/5 rounded px-4 py-2 text-sm font-semibold h-9 whitespace-nowrap shrink-0"
+            iconTrailing={Plus}
+            className="whitespace-nowrap shrink-0"
             onClick={() => {}}
           >
             Schedule follow-up
-            <Plus className="w-4 h-4 ml-1.5" />
           </Button>
         </div>
 
@@ -171,7 +171,8 @@ export default function VerificationPage() {
                     <PersonCard
                       name="Elliot McMahon"
                       badge="Named insured"
-                      badgeColor="bg-azure-95 text-azure-50"
+                      badgeColor="blue"
+                      badgeVariant="secondary"
                       gender="Male"
                       dob="09/12/1990"
                       phone="(876) 456-8762"
@@ -182,7 +183,8 @@ export default function VerificationPage() {
                     <PersonCard
                       name="Jennifer McMahon"
                       badge="On the deed"
-                      badgeColor="bg-blue-50 text-blue-600"
+                      badgeColor="blue"
+                      badgeVariant="secondary"
                       gender="Female"
                       dob="02/02/1990"
                       phone="(876) 334-8762"
@@ -192,7 +194,8 @@ export default function VerificationPage() {
                     <PersonCard
                       name="Kris McMahon"
                       badge="On the deed"
-                      badgeColor="bg-blue-50 text-blue-600"
+                      badgeColor="blue"
+                      badgeVariant="secondary"
                       gender="Female"
                       dob="02/20/1990"
                       phone="(876) 334-8762"
@@ -224,25 +227,30 @@ export default function VerificationPage() {
                     </div>
                   </div>
 
-                  {/* Home details (collapsible, collapsed by default) */}
-                  <div className="border border-neutral-gray-10 rounded-lg overflow-hidden">
+                  {/* Home details snapshot - prominent collapsible */}
+                  <div className="border border-action-primary/20 rounded-lg overflow-hidden bg-action-primary/5 border-l-4 border-l-action-primary shadow-sm">
                     <button
                       onClick={() => setHomeDetailsExpanded(!homeDetailsExpanded)}
-                      className="w-full flex items-center justify-between gap-4 p-4 hover:bg-neutral-gray-5 text-left"
+                      className="w-full flex items-center justify-between gap-4 p-6 hover:bg-action-primary/10 text-left min-h-[72px] transition-colors"
                     >
-                      <span className="flex items-center gap-4">
-                        <span className="font-semibold text-sm">Home details snapshot</span>
-                        <span className="text-sm text-text-muted">
-                          Collected by: <span className="font-semibold text-foreground">Sales Agent John Snow</span> (8 months ago)
+                      <span className="flex items-center gap-3">
+                        <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-action-primary/10">
+                          <Home className="w-5 h-5 text-action-primary" />
+                        </span>
+                        <span>
+                          <span className="font-bold text-lg block">Home details snapshot</span>
+                          <span className="text-sm text-text-muted">
+                            Collected by: <span className="font-semibold text-foreground">Sales Agent John Snow</span> (8 months ago)
+                          </span>
                         </span>
                       </span>
-                      {homeDetailsExpanded ? <ChevronUp className="w-4 h-4 text-text-muted shrink-0" /> : <ChevronDown className="w-4 h-4 text-text-muted shrink-0" />}
+                      {homeDetailsExpanded ? <ChevronUp className="w-5 h-5 text-action-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-action-primary shrink-0" />}
                     </button>
                     {homeDetailsExpanded && (
-                      <div className="border-t border-neutral-gray-10 p-6">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                      <div className="border-t border-action-primary/20 bg-white p-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-base">
                           <div>
-                            <ul className="space-y-1">
+                            <ul className="space-y-2">
                               <li>• Duplex</li>
                               <li>• 3200 sqft</li>
                               <li>• 4 full bath</li>
@@ -250,7 +258,7 @@ export default function VerificationPage() {
                             </ul>
                           </div>
                           <div>
-                            <ul className="space-y-1">
+                            <ul className="space-y-2">
                               <li>• Built: 1931</li>
                               <li>• 2 stories</li>
                               <li>• Frame + Stucco</li>
@@ -258,7 +266,7 @@ export default function VerificationPage() {
                             </ul>
                           </div>
                           <div>
-                            <ul className="space-y-1">
+                            <ul className="space-y-2">
                               <li>• Frame</li>
                               <li>• Foundation Slab</li>
                               <li>• Exterior siding Stucco</li>
@@ -452,6 +460,7 @@ function PersonCard({
   name,
   badge,
   badgeColor,
+  badgeVariant = "secondary",
   gender,
   dob,
   phone,
@@ -461,7 +470,8 @@ function PersonCard({
 }: {
   name: string;
   badge: string;
-  badgeColor: string;
+  badgeColor: "blue" | "red" | "green" | "orange" | "purple" | "neutral";
+  badgeVariant?: "default" | "secondary" | "outline";
   gender: string;
   dob: string;
   phone: string;
@@ -477,7 +487,7 @@ function PersonCard({
       <div className="flex items-center gap-2 mb-3">
         <User className="w-5 h-5 flex-shrink-0" />
         <h3 className="font-bold text-base">{name}</h3>
-        <Badge className={`${badgeColor} border-none text-xs ml-auto`}>
+        <Badge variant={badgeVariant} color={badgeColor} className="ml-auto">
           {badge}
         </Badge>
       </div>
